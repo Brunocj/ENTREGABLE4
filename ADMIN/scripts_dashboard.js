@@ -8,66 +8,86 @@ const etiquetas = {
 const tiposIncidencia = {
   incidencias : ['Hurto','Discriminación','Disturbios','Vandalismo','Drogas','Extorsión','Secuestro','Acoso','Fraudes','Violación','Homicidio','Ruido','Otros']
 }
+
 const urbanizaciones = {
   urbanizacion : ['San Miguelito','Udima','Pershing','Miramar','San Luis','Maranga','German Astete','Pando']
 }
-//Maranga Etapa 7-Etapa 8 es Pando
-// Función para actualizar las gráficas con datos según el periodo seleccionado
-function actualizarDatos(selectedPeriod) {
+
+// Función para actualizar el gráfico de área según el periodo seleccionado
+function actualizarDatosAreaChart(selectedPeriod) {
   let newData = [];
   let newData2 = [];
-  let listabarra = [];
-  let arreglopastel = [];
-  let arregloUrba = [];
   // Generar datos de prueba según el periodo seleccionado
   if (selectedPeriod === 'mes') {
     newData = [30, 40, 45, 55, 60,30, 40, 45, 55, 60,30, 40]; // Datos para un mes
     newData2 = [10, 20, 30, 40, 50,10, 20, 30, 40, 50,10, 20];
-    listabarra = [10, 20, 30, 40, 50,10, 20, 30, 40, 50,10, 20,25];
-    arreglopastel = [40,35,25];
-    arregloUrba = [50, 60,70,40,35,40,50, 60];
     areaChart.updateOptions({ xaxis: { categories: etiquetas.mes } }); // Actualizar etiquetas del eje X
-    barChart.updateOptions({ xaxis: { categories: tiposIncidencia.incidencias } }); 
   } else if (selectedPeriod === 'semana') {
     newData = [8, 12, 10, 15]; // Datos para una semana
     newData2 = [2, 10, 8, 5];
-    listabarra = [8, 18, 25, 20, 25,9, 10, 20, 20, 28,10, 15,18];
-    arreglopastel = [60,30,10];
-    arregloUrba = [30, 20,10,30,20,15,25, 30,];
     areaChart.updateOptions({ xaxis: { categories: etiquetas.semana } }); // Actualizar etiquetas del eje X
-    barChart.updateOptions({ xaxis: { categories: tiposIncidencia.incidencias } }); 
   } else if (selectedPeriod === 'dia') {
     newData = [2, 3, 5, 4, 6,2, 3]; // Datos para un día
     newData2 = [0, 1, 2, 3, 4,2, 3];
-    listabarra = [2,14, 10, 2, 12,5, 7, 17, 15, 10,8, 13,11]
-    arreglopastel = [10,40,50];
-    arregloUrba = [20, 10,8,13,10,13,13, 15];
     areaChart.updateOptions({ xaxis: { categories: etiquetas.dia } }); // Actualizar etiquetas del eje X
-    barChart.updateOptions({ xaxis: { categories: tiposIncidencia.incidencias } }); 
   }
-
-  // Actualizar datos de la gráfica de barras
-  barChart.updateSeries([{ data: listabarra }]);
-
   // Actualizar datos de la gráfica de área
   areaChart.updateSeries([
     { name: 'Casos resueltos', data: newData },
     { name: 'Casos pendientes', data: newData2 }
   ]);
+}
 
+// Función para actualizar el gráfico de barras 2 según el periodo seleccionado
+function actualizarDatosBarChart2(selectedPeriod) {
+  let arregloUrba = [];
+  // Generar datos de prueba según el periodo seleccionado
+  if (selectedPeriod === 'mes') {
+    arregloUrba = [50, 60,70,40,35,40,50, 60];
+    barChart2.updateOptions({ xaxis: { categories: etiquetas.mes } }); // Actualizar etiquetas del eje X
+  } else if (selectedPeriod === 'semana') {
+    arregloUrba = [30, 20,10,30,20,15,25, 30,];
+    barChart2.updateOptions({ xaxis: { categories: etiquetas.semana } }); // Actualizar etiquetas del eje X
+  } else if (selectedPeriod === 'dia') {
+    arregloUrba = [20, 10,8,13,10,13,13, 15];
+    barChart2.updateOptions({ xaxis: { categories: etiquetas.dia } }); // Actualizar etiquetas del eje X
+  }
   // Actualizar datos de la gráfica de barras 2
   barChart2.updateSeries([{ data: arregloUrba }]);
+}
 
+// Función para actualizar el gráfico de pastel según el periodo seleccionado
+function actualizarDatosPieChart(selectedPeriod) {
+  let arreglopastel = [];
+  // Generar datos de prueba según el periodo seleccionado
+  if (selectedPeriod === 'mes') {
+    arreglopastel = [40,35,25];
+  } else if (selectedPeriod === 'semana') {
+    arreglopastel = [60,30,10];
+  } else if (selectedPeriod === 'dia') {
+    arreglopastel = [10,40,50];
+  }
   // Actualizar datos de la gráfica de pastel
   pieChart.updateSeries(arreglopastel);
 }
 
-// Evento de cambio de periodo
-const periodSelect = document.getElementById('period');
-periodSelect.addEventListener('change', function() {
-  const selectedPeriod = periodSelect.value;
-  actualizarDatos(selectedPeriod);
-});
+// Función para actualizar el gráfico de barras según el periodo seleccionado
+function actualizarDatosBarChart(selectedPeriod) {
+  let listabarra = [];
+  // Generar datos de prueba según el periodo seleccionado
+  if (selectedPeriod === 'mes') {
+    listabarra = [10, 20, 30, 40, 50,10, 20, 30, 40, 50,10, 20,25];
+    barChart.updateOptions({ xaxis: { categories: tiposIncidencia.incidencias } }); 
+  } else if (selectedPeriod === 'semana') {
+    listabarra = [8, 18, 25, 20, 25,9, 10, 20, 20, 28,10, 15,18];
+    barChart.updateOptions({ xaxis: { categories: tiposIncidencia.incidencias } }); 
+  } else if (selectedPeriod === 'dia') {
+    listabarra = [2,14, 10, 2, 12,5, 7, 17, 15, 10,8, 13,11];
+    barChart.updateOptions({ xaxis: { categories: tiposIncidencia.incidencias } });
+  }
+  // Actualizar datos de la gráfica de barras
+  barChart.updateSeries([{ data: listabarra }]);
+}
 
 // ---------- CHARTS ----------
 
@@ -117,79 +137,42 @@ const barChartOptions = {
   },
   legend: {
     labels: {
-      colors: '#f5f7ff',
+      colors: '#bfc9d4',
     },
-    show: true,
-    position: 'top',
-  },
-  stroke: {
-    colors: ['transparent'],
-    show: true,
-    width: 2,
-  },
-  tooltip: {
-    shared: true,
-    intersect: false,
-    theme: 'dark',
+    offsetY: 10,
   },
   xaxis: {
-    
-    categories: ['Hurto','Discriminación','Disturbios','Vandalismo','Drogas','Extorsión','Secuestro','Acoso','Fraudes','Violación','Homicidio','Ruido','Otros'],
-    title: {
+    categories: tiposIncidencia.incidencias, // Cambiado a tipos de incidencia por defecto
+    labels: {
       style: {
-        color: '#f5f7ff',
+        colors: '#bfc9d4',
       },
     },
     axisBorder: {
-      show: true,
       color: '#55596e',
-    },
-    axisTicks: {
-      show: true,
-      color: '#55596e',
-    },
-    labels: {
-      style: {
-        colors: '#f5f7ff',
-      },
     },
   },
   yaxis: {
-    title: {
-      text: '',
+    labels: {
       style: {
-        color: '#f5f7ff',
+        color: '#bfc9d4',
       },
     },
     axisBorder: {
       color: '#55596e',
-      show: true,
-    },
-    axisTicks: {
-      color: '#55596e',
-      show: true,
-    },
-    labels: {
-      style: {
-        colors: '#f5f7ff',
-      },
     },
   },
 };
 
-const barChart = new ApexCharts(
-  document.querySelector('#bar-chart'),
-  barChartOptions
-);
+const barChart = new ApexCharts(document.querySelector('#bar-chart'), barChartOptions);
 barChart.render();
-
 
 // AREA CHART
 const areaChartOptions = {
   series: [
     {
       name: 'Casos resueltos',
-      data: [30, 40, 45, 55, 60,30, 40, 45, 55, 60,55, 60,],
+      data: [30, 40, 45, 55, 60,30, 40, 45, 55, 60,30, 40],
     },
     {
       name: 'Casos pendientes',
@@ -200,26 +183,16 @@ const areaChartOptions = {
     type: 'area',
     background: 'transparent',
     height: 350,
-    stacked: false,
     toolbar: {
       show: false,
     },
   },
-  colors: ['#00ab57', '#d50000'],
-  labels: etiquetas.mes, // Cambiado a utilizar etiquetas de meses por defecto
-  
+  colors: ['#2962ff', '#d50000'],
   dataLabels: {
     enabled: false,
   },
-  fill: {
-    gradient: {
-      opacityFrom: 0.4,
-      opacityTo: 0.1,
-      shadeIntensity: 1,
-      stops: [0, 100],
-      type: 'vertical',
-    },
-    type: 'gradient',
+  stroke: {
+    curve: 'smooth',
   },
   grid: {
     borderColor: '#55596e',
@@ -236,69 +209,68 @@ const areaChartOptions = {
   },
   legend: {
     labels: {
-      colors: '#f5f7ff',
+      colors: '#bfc9d4',
     },
-    show: true,
-    position: 'top',
-  },
-  markers: {
-    size: 6,
-    strokeColors: '#1b2635',
-    strokeWidth: 3,
-  },
-  stroke: {
-    curve: 'smooth',
+    offsetY: 10,
   },
   xaxis: {
+    categories: etiquetas.mes, // Cambiado a meses por defecto
+    labels: {
+      style: {
+        colors: '#bfc9d4',
+      },
+    },
     axisBorder: {
       color: '#55596e',
-      show: true,
     },
-    axisTicks: {
-      color: '#55596e',
-      show: true,
-    },
-    labels: {
-      offsetY: 5,
-      style: {
-        colors: '#f5f7ff',
-      },
-    }, 
   },
-  yaxis: [
-    {
-      title: {
-        text: 'Número de incidencias por caso',
-        style: {
-          color: '#f5f7ff',
-        },
-      },
-      labels: {
-        style: {
-          colors: ['#f5f7ff'],
-        },
+  yaxis: {
+    labels: {
+      style: {
+        color: '#bfc9d4',
       },
     },
-   
-  ],
-  tooltip: {
-    theme: 'dark',
+    axisBorder: {
+      color: '#55596e',
+    },
   },
 };
 
-const areaChart = new ApexCharts(
-  document.querySelector('#area-chart'),
-  areaChartOptions
-);
+const areaChart = new ApexCharts(document.querySelector('#area-chart'), areaChartOptions);
 areaChart.render();
 
+// PIE CHART
+const pieChartOptions = {
+  series: [40,35,25],
+  chart: {
+    type: 'donut',
+    background: 'transparent',
+    height: 350,
+  },
+  colors: ['#2962ff', '#d50000', '#2e7d32'],
+  labels: ['Resueltos', 'Pendientes', 'Anulados'],
+  dataLabels: {
+    enabled: true,
+    dropShadow: {
+      enabled: false,
+    },
+  },
+  legend: {
+    labels: {
+      colors: '#bfc9d4',
+    },
+  },
+};
+
+const pieChart = new ApexCharts(document.querySelector('#pie-chart'), pieChartOptions);
+pieChart.render();
 
 // BAR CHART 2
 const barChart2Options = {
   series: [
     {
       data: [50, 60,70,40,35,40,50, 60],
-      name: 'Tipos incidencias del mes',
+      name: 'Urbanizaciones',
     },
   ],
   chart: {
@@ -339,122 +311,64 @@ const barChart2Options = {
   },
   legend: {
     labels: {
-      colors: '#f5f7ff',
+      colors: '#bfc9d4',
     },
-    show: true,
-    position: 'top',
-  },
-  stroke: {
-    colors: ['transparent'],
-    show: true,
-    width: 2,
-  },
-  tooltip: {
-    shared: true,
-    intersect: false,
-    theme: 'dark',
+    offsetY: 10,
   },
   xaxis: {
-    categories:['San Miguelito','Udima','Pershing','Miramar','San Luis','Maranga','German Astete','Pando'],
-    title: {
+    categories: urbanizaciones.urbanizacion, // Cambiado a urbanizaciones por defecto
+    labels: {
       style: {
-        color: '#f5f7ff',
+        colors: '#bfc9d4',
       },
     },
     axisBorder: {
-      show: true,
       color: '#55596e',
-    },
-    axisTicks: {
-      show: true,
-      color: '#55596e',
-    },
-    labels: {
-      style: {
-        colors: '#f5f7ff',
-      },
     },
   },
   yaxis: {
-    title: {
-      text: '',
+    labels: {
       style: {
-        color: '#f5f7ff',
+        color: '#bfc9d4',
       },
     },
     axisBorder: {
       color: '#55596e',
-      show: true,
-    },
-    axisTicks: {
-      color: '#55596e',
-      show: true,
-    },
-    labels: {
-      style: {
-        colors: '#f5f7ff',
-      },
     },
   },
 };
 
-const barChart2 = new ApexCharts(
-  document.querySelector('#bar-chart2'),
-  barChart2Options
-);
+const barChart2 = new ApexCharts(document.querySelector('#bar-chart2'), barChart2Options);
 barChart2.render();
 
+// Event listeners para los filtros
 
-// Configuración del nuevo gráfico de pastel
-const pieChartOptions = {
-  series: [40,35,25], // Porcentaje de resoluciones resultas, pendientes y falsas alarmas
-  labels: ['Resueltas', 'Pendientes', 'Falsas Alarmas'],
-  colors: ['#00ab57', '#2962ff', '#d50000'],
-  chart: {
-    type: 'donut',
-    background:'transparent',
-    height: 350,
-  },
-  dataLabels: {
-    enabled: true,
-    formatter(val, opts) {
-      const percent = opts.w.config.series[opts.seriesIndex];
-      return `${percent}%`;
-    }
-  },
-  legend: {
-    position: 'bottom',
-    horizontalAlign: 'center',
-    fontSize: '14px',
-    fontFamily: 'Montserrat, sans-serif',
-    markers: {
-      width: 10,
-      height: 10,
-      radius: 12,
-    },
-    itemMargin: {
-      horizontal: 15,
-      vertical: 0,
-    }
-    ,labels: {
-      colors: '#ffffff', // Establecer el color de las etiquetas en blanco
-    },
-  },
-  plotOptions: {
-    pie: {
-      donut: {
-        size: '70%'
-      }
-    }
-  },
-  tooltip: {
-    y: {
-      formatter(val) {
-        return val + '%';
-      }
-    }
-  }
-};
+const periodSelectBarChart = document.getElementById('periodBarChart');
+periodSelectBarChart.addEventListener('change', function() {
+  const selectedPeriod = periodSelectBarChart.value;
+  actualizarDatosBarChart(selectedPeriod);
+  actualizarDatosAreaChart(selectedPeriod); // Agregar esta línea para actualizar el gráfico de área
+});
 
-const pieChart = new ApexCharts(document.querySelector('#pie-chart'), pieChartOptions);
-pieChart.render();
+const periodSelectAreaChart = document.getElementById('periodAreaChart');
+periodSelectAreaChart.addEventListener('change', function() {
+  const selectedPeriod = periodSelectAreaChart.value;
+  actualizarDatosAreaChart(selectedPeriod);
+});
+
+const periodSelectBarChart2 = document.getElementById('periodBarChart2');
+periodSelectBarChart2.addEventListener('change', function() {
+  const selectedPeriod = periodSelectBarChart2.value;
+  actualizarDatosBarChart2(selectedPeriod);
+  
+});
+
+const periodSelectPieChart = document.getElementById('periodPieChart');
+periodSelectPieChart.addEventListener('change', function() {
+  const selectedPeriod = periodSelectPieChart.value;
+  actualizarDatosPieChart(selectedPeriod);
+  
+});
+
+// actualizarDatosAreaChart(selectedPeriod); // Agregar esta línea para actualizar el gráfico de área
+// actualizarDatosAreaChart(selectedPeriod); // Agregar esta línea para actualizar el gráfico de área
