@@ -53,7 +53,6 @@
       </header>
 
 
-      <!-- Main -->
       <main class="main-container">
         <div class="main-title">
           <h2></h2>
@@ -76,7 +75,7 @@
               <span class="material-icons-outlined">monitor_hearth</span>
             </div>
             <h1> 
-              14.54% incidencias
+              14.54 incidencias
             </h1>
           </div>
           
@@ -97,53 +96,128 @@
             <h1>Urbanización Maranga </h1>
           </div>
 
-        </div>
-        <div class="filter">
-          <label for="period">Periodo:</label>
-          <select id="period">
-            <option value="mes">Mes</option>
-            <option value="semana">Semana</option>
-            <option value="dia">Día</option>
-          </select>
-        </div>
-        <div class="charts">
-          <div class="charts-card">
-            <h2 class="chart-title">Tipos incidencias de la semana</h2>
-            <div id="bar-chart"></div>
-          </div>
-          <div class="charts-card">
-            
-            
-            <h2 class="chart-title">Cantidad de incidencias</h2>
-            <div id="area-chart"></div>
-          </div>
-          <div class="charts-card">
-            <h2 class="chart-title">Distribución de incidencias</h2>
-            <div id="pie-chart"></div>
-          </div>
-          <div class="charts-card">
-            <h2 class="chart-title">Cantidad de incidencias por urbanización</h2>
-            <div id="bar-chart2"></div>
+          <div class="card">
+            <div class="card-inner">
+              <h3>Cantidad de solicitudes por atender</h3>
+              <span class="material-icons-outlined">error</span>
+            </div>
+            <h1> 
+              535 solicitudes
+            </h1>
           </div>
 
+          <div class="card">
+            <div class="card-inner">
+              <h3> Tipos de solicitud más comunes</h3>
+              <span class="material-icons-outlined">alarm</span>
+            </div>
+            <h1> 
+              hurtos
+            </h1>
           </div>
 
-          <!DOCTYPE html>
+          <div class="card">
+            <div class="card-inner">
+              <h3> Tipos de solicitud menos comunes</h3>
+              <span class="material-icons-outlined">event_note</span>
+            </div>
+            <h1> 
+              homicidios
+            </h1>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <h3> Cantidad de vecinos sancionados</h3>
+              <span class="material-icons-outlined">pan_tool</span>
+            </div>
+            <h1> 
+              21 vecinos
+            </h1>
+          </div>
+
+
+         
+
+        </div>
+
+
+        
+        <!-- Agrega filtros para otros gráficos -->
+        <!-- Inside your main container -->
+  <div class="charts">
+  <div class="charts-card">
+    <div id="filterBar" class="filter">
+      <label for="period">Periodo:</label>
+      <select id="periodBarChart">
+        <option value="mes">Mes</option>
+        <option value="semana">Semana</option>
+        <option value="dia">Día</option>
+      </select>
+    </div>
+    <h2 class="chart-title">Tipos incidencias reportadas</h2>
+    <div id="bar-chart"></div>
+  </div>
+
+  <div class="charts-card">
+    <div id="filterArea" class="filter">
+      <label for="period">Periodo:</label>
+      <select id="periodAreaChart">
+        <option value="mes">Mes</option>
+        <option value="semana">Semana</option>
+        <option value="dia">Día</option>
+      </select>
+    </div>
+    <h2 class="chart-title">Cantidad de incidencias</h2>
+    <div id="area-chart"></div>
+  </div>
+
+  <div class="charts-card">
+    <div id="filterPie" class="filter">
+      <label for="period">Periodo:</label>
+      <select id="periodPieChart">
+        <option value="mes">Mes</option>
+        <option value="semana">Semana</option>
+        <option value="dia">Día</option>
+      </select>
+    </div>
+    <h2 class="chart-title">Distribución de incidencias</h2>
+    <div id="pie-chart"></div>
+  </div>
+
+  <div class="charts-card">
+    <div id="filterBar2" class="filter">
+      <label for="period">Periodo:</label>
+      <select id="periodBarChart2">
+        <option value="mes">Mes</option>
+        <option value="semana">Semana</option>
+        <option value="dia">Día</option>
+      </select>
+    </div>
+    <h2 class="chart-title">Cantidad de incidencias por urbanización</h2>
+    <div id="bar-chart2"></div>
+  </div>
+</div>
+
+
+ <!DOCTYPE html>
           <html lang="en">
           <head>
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Sancionados por Falsas Alarmas</title>
               <style>
-                  /* Estilos para la tabla */
                   table {
                       width: 100%;
                       border-collapse: collapse;
                   }
                   th, td {
-                      border: 1px solid #ddd;
+                      border: 1px solid #0f0f0f;
                       padding: 8px;
                       text-align: left;
+                      color: black;
+                      
+                      
                   }
                   th {
                       background-color: #F204;
