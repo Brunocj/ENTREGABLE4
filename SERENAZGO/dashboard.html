@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles_dashboard.css">
+  </head>
+  <body>
+    <div class="grid-container">
+
+      <!-- Header -->
+
+      <header class="Header" data-header>
+        <!--<div class="Header-inner" data-header-nav>-->
+          
+          <nav class="Header-nav" data-nav>
+            <div id="menuToggle">
+              <input type="checkbox" />
+              <span></span>
+              <span></span>
+              <span></span>
+              <ul id="menu">
+                <a href="index.html"><li class ="primero">Página principal</li></a>
+                <a href="MiPerfil.html"><li>Mi perfil</li></a>
+                <a href="https://mail.google.com/mail/u/0/#inbox"><li>Notificaciones</li></a>
+                <div class = "seleccionado">
+                  <a href="dashboard.html"><li>Dashboard</li></a>
+                </div>
+                <a href="ListaIncidencias.html"><li>Lista de incidencias</li></a>
+                <a href="ListaVecinos.html"><li>Lista de vecinos</li></a>
+                <a><li onclick="return cerrarsesiom_1();">Cerrar sesión</li></a>
+              </ul>
+            </div>
+            <div class ="nombreRol">
+              <div class="Header-nav-item">
+                <h2>Ricardo Calderón Rodríguez</h2>
+                <h5>Serenazgo de San Miguel, Lima</h5>
+              </div>
+            </div>
+            <div class="logo">
+              <a href = "https://munisanmiguel.gob.pe/" target="_blank"><img src = "logoSMsinletra-modified.png"></a>
+            </div>
+          </nav>
+        <!--</div>-->
+      </header>
+
+      <!--<header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="header-left">
+          <span class="material-icons-outlined">search</span>
+        </div>
+        <div class="header-right">
+          <span class="material-icons-outlined">notifications</span>
+          <span class="material-icons-outlined">email</span>
+          <span class="material-icons-outlined">account_circle</span>
+        </div>
+      </header>-->
+      <!-- End Header -->
+
+
+
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-title">
+          <h2></h2>
+        </div>
+        
+        <div class="main-cards">
+          <div class="card">
+            
+            <div class="card-inner">
+              <h3>Cantidad total de incidencias </h3>
+              <span class="material-icons-outlined">inventory_2</span>
+            </div>
+            <h1>318 incidencias</h1>
+          </div>
+
+
+          <div class="card">
+            <div class="card-inner">
+              <h3>Promedio de incidencias por día</h3>
+              <span class="material-icons-outlined">monitor_hearth</span>
+            </div>
+            <h1> 
+              14.54% incidencias
+            </h1>
+          </div>
+          
+          <div class="card">
+            <div class="card-inner">
+              <h3>Urbanización con mayor incidencia</h3>
+              <span class="material-icons-outlined">report
+              </span>
+            </div>
+            <h1>Urbanización Pando</h1>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <h3>Urbanización con menor incidencias</h3>
+              <span class="material-icons-outlined">health_and_safety</span>
+            </div>
+            <h1>Urbanización Maranga </h1>
+          </div>
+
+        </div>
+        <div class="filter">
+          <label for="period">Periodo:</label>
+          <select id="period">
+            <option value="mes">Mes</option>
+            <option value="semana">Semana</option>
+            <option value="dia">Día</option>
+          </select>
+        </div>
+        <div class="charts">
+          <div class="charts-card">
+            <h2 class="chart-title">Tipos incidencias de la semana</h2>
+            <div id="bar-chart"></div>
+          </div>
+          <div class="charts-card">
+            
+            
+            <h2 class="chart-title">Cantidad de incidencias</h2>
+            <div id="area-chart"></div>
+          </div>
+          <div class="charts-card">
+            <h2 class="chart-title">Distribución de incidencias</h2>
+            <div id="pie-chart"></div>
+          </div>
+          <div class="charts-card">
+            <h2 class="chart-title">Cantidad de incidencias por urbanización</h2>
+            <div id="bar-chart2"></div>
+          </div>
+
+          </div>
+
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Sancionados por Falsas Alarmas</title>
+              <style>
+                  /* Estilos para la tabla */
+                  table {
+                      width: 100%;
+                      border-collapse: collapse;
+                  }
+                  th, td {
+                      border: 1px solid #0f0f0f;
+                      padding: 8px;
+                      text-align: left;
+                      color: black;
+                      
+                      
+                  }
+                  th {
+                      background-color: #F204;
+                  }
+              </style>
+          </head>
+          <body>
+              <h2>Sancionados por Falsas Alarmas</h2>
+              <table>
+                  <thead>
+                      <tr>
+                          <th>Nombre</th>
+                          <th>Apellidos</th>
+                          <th>DNI</th>
+                          <th>Fecha de Sanción</th>
+                          <th>Multa</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Jesús Andrés</td>
+                          <td>Lujan Carrión</td>
+                          <td>77042022</td>
+                          <td>2024-04-04</td>
+                          <td>S/ 50.00</td>
+                      </tr>
+                      <tr>
+                          <td>Jorge Guillermo</td>
+                          <td>Maíz Mallqui</td>
+                          <td>77654321</td>
+                          <td>2024-04-03</td>
+                          <td>S/ 50.00</td>
+                      </tr>
+                      <tr>
+                        <td>Robert Ernesto</td>
+                        <td>Huapaya Verlarde</td>
+                        <td>77654321</td>
+                        <td>2024-04-02</td>
+                        <td>S/ 50.00</td>
+                    </tr>
+                    <tr>
+                      <td>Luis Pablo</td>
+                      <td>Da Silva Deza</td>
+                      <td>77652323</td>
+                      <td>2024-04-02</td>
+                      <td>S/ 50.00</td>
+                  </tr>
+                  </tbody>
+              </table>
+          </body>
+          </html>
+          
+
+        </div>
+
+      </main>
+      <!-- End Main -->
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts_dashboard.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

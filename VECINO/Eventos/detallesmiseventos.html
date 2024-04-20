@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaz de Evento</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body{
+      background-color: #9bbee8;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    }
+    .container {
+      margin-top: 20px;
+    }
+    .custom-container  {
+      border: 1px solid rgba(0, 0, 0, 0.5); /* Color del borde con transparencia */
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: rgba(248, 249, 250, 0.5); /* Color de fondo con transparencia */
+      border-radius: 10px; /* Borde redondeado */
+    }
+    #container-image.custom-container  {
+      border: none; /* Quitamos el borde */
+      background-color: transparent; /* Hacemos el fondo transparente */
+    }
+    .event-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px; /* Borde redondeado */
+    }
+    #fechas.custom-container{
+        margin-top: 20px;
+        height: 350px;
+    }
+    /* Tamaño de fuente más grande */
+    .custom-container p {
+      font-size: 22px; /* Cambia este valor según tu preferencia */
+    }
+    .custom-container h4{
+        font-weight: bold;
+        font-size: 27px;
+    }
+    .custom-btn {
+      font-weight: bold; /* Texto en negrita */
+      width: 300px; /* Ancho personalizado */
+      height: 50px; /* Alto personalizado */
+      font-size: 24px;
+      background-color: red;
+    }
+    .custom-container h4.center-text {
+      text-align: center; /* Centramos el texto */
+    }
+    /* Estilo para el botón fuera de los contenedores */
+    .fixed-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-weight: bold;
+    }
+    /* Estilo para el cuadro de diálogo de confirmación */
+    .confirmation-dialog {
+      display: none;
+      position: fixed; /* Fijar la posición */
+      top: 50%; /* Centrar verticalmente */
+      left: 50%; /* Centrar horizontalmente */
+      transform: translate(-50%, -50%); /* Centrar completamente */
+      z-index: 9999; /* Establecer una alta z-index para asegurar que esté por encima de otros elementos */
+      background-color: #fff; /* Color de fondo */
+      padding: 20px; /* Espaciado interno */
+      border-radius: 10px; /* Borde redondeado */
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+      max-width: 345px; /* Ancho máximo */
+    }
+    .confirmation-dialog h3 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .confirmation-dialog p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .confirmation-dialog .btn {
+      font-weight: bold;
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="custom-container rounded-3" id="container-image">
+              <div class="event-image-container">
+                <img id="evento-imagen" src="https://via.placeholder.com/400x300" alt="Imagen del Evento" class="event-image img-fluid mb-4">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="custom-container rounded-3" id="fechas">
+              <h4 class="mb-4 center-text">Nombre del evento</h4>
+              <p><strong>Fecha:</strong> 16 de Abril de 2024</p>
+              <p><strong>Hora:</strong> 08:00 AM a 10:00 AM </p>
+              <p><strong>Lugar:</strong> Nombre del Lugar</p>
+              <p><strong>Recurrencia:</strong> Evento único</p>
+              
+              <div class="text-center">
+                  <button type="button" class="btn btn-primary custom-btn" id="btn-inscribirse">Anular inscripción</button>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="custom-container rounded-3" id="descripcion">
+              <h4 class="mb-4">Descripción del Evento</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida eros sit amet erat fringilla, sed fermentum nisi tristique.</p>
+              <h4 class="mb-4">Materiales</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida eros sit amet erat fringilla, sed fermentum nisi tristique.</p>
+              <h4 class="mb-4">Profesor</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida eros sit amet erat fringilla, sed fermentum nisi tristique.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <a href="miseventos.html" class="btn btn-primary fixed-button">Volver a Mis Eventos</a>
+      
+      <!-- Cuadro de diálogo de confirmación -->
+      <div id="confirmation-dialog" class="confirmation-dialog">
+        <h3>¿Estás seguro de que desea anular su inscripción?</h3>
+        <button id="btn-cancelar" class="btn btn-danger">Cancelar</button>
+        <button id="btn-confirmar" class="btn btn-success">Confirmar</button>
+      </div>
+      
+      
+
+
+<!-- Bootstrap JS y jQuery (opcional, solo si necesitas funcionalidades de Bootstrap como el menú hamburguesa en móviles) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventId = urlParams.get('eventId');
+    const eventImage = document.getElementById('evento-imagen');
+    // Obtener la URL de la imagen correspondiente al evento
+    const eventImageURL = obtenerURLImagen(eventId);
+    // Establecer la fuente de la imagen
+    eventImage.src = eventImageURL;
+  });
+
+  // Función para obtener la URL de la imagen del evento
+  function obtenerURLImagen(eventId) {
+    // Aquí puedes definir la lógica para obtener la URL de la imagen del evento
+    // Por ejemplo, puedes tener un objeto o una base de datos que mapee eventId a la URL de la imagen
+    // Devuelve la URL de la imagen correspondiente al eventId
+    // Este es solo un ejemplo de cómo podrías hacerlo, deberías adaptarlo a tu propia lógica de datos
+    switch(eventId) {
+      case '1':
+        return 'foto1.png';
+      case '2':
+        return 'foto1.png';
+      case '3':
+        return 'foto1.png';
+      case '4':
+        return 'foto1.png';
+      case '5':
+        return 'foto2.jpg';
+      case '6':
+        return 'foto2.jpg';
+      case '7':
+        return 'foto2.jpg';
+      case '8':
+        return 'foto2.jpg';
+      case '9':
+        return 'foto3.jpg';
+      case '10':
+        return 'foto3.jpg';
+      case '11':
+        return 'foto3.jpg';
+      case '12':
+        return 'foto4.jpg';
+      case '13':
+        return 'foto4.jpg';
+      case '14':
+        return 'foto4.jpg';
+      case '15':
+        return 'foto4.jpg';
+      case '16':
+        return 'foto5.jpg';
+      case '17':
+        return 'foto5.jpg';
+      case '18':
+        return 'foto5.jpg';
+      case '19':
+        return 'foto5.jpg';
+      case '20':
+        return 'foto6.png';
+      case '21':
+        return 'foto6.png';
+      case '22':
+        return 'foto6.png';
+      case '23':
+      return 'foto6.png';
+    }
+  }
+</script>
+<script>
+    // Función para mostrar el cuadro de diálogo de confirmación al hacer clic en el botón "Inscribirse"
+    document.getElementById("btn-inscribirse").addEventListener("click", function() {
+      document.getElementById("confirmation-dialog").style.display = "block";
+    });
+
+    // Función para ocultar el cuadro de diálogo de confirmación al hacer clic en el botón "Cancelar"
+    document.getElementById("btn-cancelar").addEventListener("click", function() {
+      document.getElementById("confirmation-dialog").style.display = "none";
+    });
+
+    // Función para mostrar un mensaje de confirmación al hacer clic en el botón "Sí"
+    document.getElementById("btn-confirmar").addEventListener("click", function() {
+      alert("Tu inscripción ha sido anulada.");
+      document.getElementById("confirmation-dialog").style.display = "none";
+    });
+    
+  </script>
+
+
+</body>
+</html>

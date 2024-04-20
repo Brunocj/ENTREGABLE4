@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaz de Evento</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+    box-sizing: border-box;
+    }
+
+    body {
+        background-color: #9bbee8;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .custom-container  {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: rgba(248, 249, 250, 0.5);
+        border-radius: 10px;
+    }
+
+    #container-image.custom-container  {
+        border: none;
+        background-color: transparent;
+    }
+
+    .event-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    #fechas.custom-container {
+        margin-top: 20px;
+        height: 450px;
+    }
+
+    /* Tamaño de fuente más grande */
+    .custom-container p {
+        font-size: 22px;
+    }
+
+    .custom-container h4 {
+        font-weight: bold;
+        font-size: 27px;
+    }
+
+    .custom-btn {
+        font-weight: bold;
+        width: 300px;
+        height: 50px;
+        font-size: 24px;
+        background-color: red;
+    }
+
+    .custom-container h4.center-text {
+        text-align: center;
+    }
+
+    /* Estilo para el botón fuera de los contenedores */
+    .fixed-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        font-weight: bold;
+    }
+
+    /* Estilos de las cartas animadas */
+    .container-cards {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .card {
+        width: 120px; /* Ajustamos el ancho de la tarjeta */
+        border-radius: .75rem;
+        background-size: cover;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 2rem;
+        margin: 0 10px;
+        display: flex;
+        align-items: flex-end;
+        transition: .6s cubic-bezier(.28,-0.03,0,.99);
+        box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+        height: 400px;
+    }
+
+    .card > .row {
+        color: white;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .card > .row > .icon {
+        background: #223;
+        color: white;
+        border-radius: 25%;
+        width: 50px;
+        height: 50px; /* Ajustamos la altura del icono */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 15px;
+    }
+
+    .card > .row > .description {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        overflow: hidden;
+        height: 100px; /* Ajustamos la altura del contenedor de descripción */
+        width: 520px;
+        opacity: 0;
+        transform: translateY(30px);
+        transition-delay: .3s;
+        transition: all .3s ease;
+    }
+
+    .description p {
+        color: #b0b0ba;
+        padding-top: 5px;
+    }
+
+    .description h4 {
+        text-transform: uppercase;
+        text-align: center; /* Alineamos el título al centro */
+    }
+
+    input {
+        display: none;
+    }
+
+    input:checked + label {
+        width: 600px;
+    }
+
+    input:checked + label .description {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    .card[for="c1"] {
+        background-image: url('foto9.jpg'); 
+    }
+
+    .card[for="c2"] {
+        background-image: url('foto10.jpg');
+    }
+
+    /* Ajustes para dispositivos móviles */
+    @media (max-width: 767.98px) {
+        .container-cards {
+            flex-direction: column; /* Cambia la dirección del flex a column */
+            align-items: center; /* Centra las cartas */
+        }
+        .card {
+            width: 100%; /* Las cartas ocupan todo el ancho disponible */
+            margin-bottom: 20px; /* Agrega margen inferior para separarlas */
+            height: auto; /* Las cartas ocupan la altura necesaria */
+        }
+        .card > .row > .description {
+            width: 100%; /* El ancho de la descripción ocupa todo el ancho de la carta */
+        }
+    }
+    /* Estilos del contenedor de fechas */
+    #fechas.custom-container {
+        margin-top: 20px;
+        padding: 20px; /* Agregamos espacio interno al contenedor */
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        background-color: rgba(248, 249, 250, 0.5);
+        border-radius: 10px;
+    }
+
+    /* Tamaño de fuente más grande */
+    #fechas p {
+        font-size: 20px; /* Usamos em para el tamaño de fuente */
+        line-height: 1.5; /* Ajustamos el interlineado */
+    }
+
+    #fechas h4 {
+        font-weight: bold;
+        font-size: 30px; /* Usamos em para el tamaño de fuente */
+    }
+
+    /* Ajustes para dispositivos móviles */
+    @media (max-width: 767.98px) {
+        #fechas.custom-container {
+            height: auto; /* Altura automática */
+        }
+    }
+
+
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container-cards">
+                    <input type="radio" name="slide" id="c1" checked>
+                    <label for="c1" class="card"> 
+                    </label>
+                    <input type="radio" name="slide" id="c2" >
+                    <label for="c2" class="card">
+                    </label>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="custom-container rounded-3" id="fechas">
+                    <h4 class="mb-4">Descripción del Evento</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida eros sit amet erat fringilla, sed fermentum nisi tristique.</p>
+                    <h4 class="mb-4">Notas del Evento</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida eros sit amet erat fringilla, sed fermentum nisi tristique.</p>
+                    <h4 class="mb-4">Staff del Evento</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida eros sit amet erat fringilla, sed fermentum nisi tristique.</p>
+                </div>
+            </div>
+        </div>
+      
+        <a href="eventospasados.html" class="btn btn-primary fixed-button">Volver a Eventos Pasados</a>
+    </div>
+      
+<!-- Bootstrap JS y jQuery (opcional, solo si necesitas funcionalidades de Bootstrap como el menú hamburguesa en móviles) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventId = urlParams.get('eventId');
+    const eventImage = document.getElementById('evento-imagen');
+    // Obtener la URL de la imagen correspondiente al evento
+    const eventImageURL = obtenerURLImagen(eventId);
+    // Establecer la fuente de la imagen
+    eventImage.src = eventImageURL;
+  });
+
+  // Función para obtener la URL de la imagen del evento
+  function obtenerURLImagen(eventId) {
+    // Aquí puedes definir la lógica para obtener la URL de la imagen del evento
+    // Por ejemplo, puedes tener un objeto o una base de datos que mapee eventId a la URL de la imagen
+    // Devuelve la URL de la imagen correspondiente al eventId
+    // Este es solo un ejemplo de cómo podrías hacerlo, deberías adaptarlo a tu propia lógica de datos
+    switch(eventId) {
+      case '1':
+        return 'foto1.png';
+      case '2':
+        return 'foto1.png';
+      case '3':
+        return 'foto1.png';
+      case '4':
+        return 'foto1.png';
+      case '5':
+        return 'foto2.jpg';
+      case '6':
+        return 'foto2.jpg';
+      case '7':
+        return 'foto2.jpg';
+      case '8':
+        return 'foto2.jpg';
+      case '9':
+        return 'foto3.jpg';
+      case '10':
+        return 'foto3.jpg';
+      case '11':
+        return 'foto3.jpg';
+      case '12':
+        return 'foto4.jpg';
+      case '13':
+        return 'foto4.jpg';
+      case '14':
+        return 'foto4.jpg';
+      case '15':
+        return 'foto4.jpg';
+      case '16':
+        return 'foto5.jpg';
+      case '17':
+        return 'foto5.jpg';
+      case '18':
+        return 'foto5.jpg';
+      case '19':
+        return 'foto5.jpg';
+      case '20':
+        return 'foto6.png';
+      case '21':
+        return 'foto6.png';
+      case '22':
+        return 'foto6.png';
+      case '23':
+      return 'foto6.png';
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Personal de Serenazgo</title>
+        
+        <link rel="stylesheet" href="estilos.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    </head>
+
+    <body>
+          
+          <header class="Header" data-header>
+            <!--<div class="Header-inner" data-header-nav>-->
+              
+              <nav class="Header-nav" data-nav>
+                <div id="menuToggle">
+                  <input type="checkbox" />
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul id="menu">
+                    <a href="../PagPrincipal.html"><li class ="primero">Página principal</li></a>
+                  <a href="../dashboard.html"><li>Dashboard</li></a>
+                  <div class = "seleccionado">
+                    <a href="tabla.html"><li>Serenazgo</li></a>
+                  </div>
+                  <a href="../Profesores/tabla.html"><li>Profesores</li></a>
+                  <a href="../Vecinos/tabla.html"><li>Vecinos</li></a>
+                  <a><li onclick="return cerrarsesiom_1();">Cerrar sesión</li></a>
+                </ul>
+                </div>
+                <div class ="nombreRol">
+                  <div class="Header-nav-item">
+                    <h2>Pedro Bustamante</h2>
+                    <h5>Administrador de San Miguel, Lima</h5>
+                  </div>
+                </div>
+                <div class="logo">
+                  <a href = "https://munisanmiguel.gob.pe/" target="_blank"><img src = "logoSMsinletra-modified.png"></a>
+                </div>
+              </nav>
+            <!--</div>-->
+          </header>
+          
+          <div class="container">
+            <div class="card">
+              <div class = "wrapper"id="formContent">
+                <!-- Tabs Titles -->
+                <center><h2 class="active">Solicitud de Acceso</h2></center>
+            
+                <!-- Icon -->
+            
+                <!-- Login Form -->
+                <form>
+                  <div class="inputs">
+                      <label for="nombre" style="font-size: 12px; color: gray;">Nombres:</label>
+                      <input type="text" id="nombre" value="Manuel Augusto" style="margin-bottom: 0px;">
+
+                      <label for="apellido" style="font-size: 12px; color: gray;">Apellidos:</label>
+                      <input type="text" id="apellido" value="Yarlequé Medina" style="margin-bottom: 0px;">
+                      
+                      <label for="correo" style="font-size: 12px; color: gray;">DNI-peruano:</label>
+                      <input type="text" id="correo" value="myarleq@pucp.edu.pe" style="margin-bottom: 0px;">
+                      
+                      <label for="dni" style="font-size: 12px; color: gray;">Dirección:</label>
+                      <input type="text" id="dni" value="32990451" style="margin-bottom: 0px;">
+                      
+                      <label for="direccion" style="font-size: 12px; color: gray;">Distrito:</label>
+                      <input type="text" id="direccion" value="Inras/V" style="margin-bottom: 0px;">
+                      
+                      <label for="telefono" style="font-size: 12px; color: gray;">Urbanización:</label>
+                      <input type="text" id="telefono" value="915478952" style="margin-bottom: 0px;">
+                      
+                      <label for="turno" style="font-size: 12px; color: gray;">Correo(gmail):</label>
+                      <input type="text" id="turno" value="Mañana" style="margin-bottom: 0px;">
+                      
+                      <label for="nacimiento" style="font-size: 12px; color: gray;">Fecha de nacimiento:</label>
+                      <input type="text" id="nacimiento" value="Fecha de nacimiento" style="margin-bottom: 15px;">
+                  </div>
+                  <div class="buttons">
+                      <input type="submit" class="green" value="Aprobar" onclick="return Actualizar();">
+                      <input type="submit" class="red" value="Denegar" onclick="return Cancelar();">
+                  </div>
+              </form>
+              
+              
+                  
+              </div>
+            </div>
+          </div>
+        <script src = "script.js"></script>
+        <script>
+          
+          function Cancelar(){
+            window.location.href = "tabla.html";
+            return false;
+          }
+
+          function Actualizar() {
+            Swal.fire({
+                title: "Estás seguro?",
+                text: "El proceso no podrá ser reversible",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Si, actualizar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Actualizado!",
+                        text: "La solicitud ha sido actualizada con exito",
+                        icon: "success"
+                    }).then(() => {
+                        window.location.href = "tabla.html";
+                    });
+                }
+            });
+
+            // Evitar que el formulario se envíe automáticamente
+            return false;
+        }
+        </script>
+
+        
+    </body>
+</html>

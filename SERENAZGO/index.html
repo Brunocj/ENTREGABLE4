@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Pagina Principal</title>
+        
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+          
+          <header class="Header" data-header>
+            <!--<div class="Header-inner" data-header-nav>-->
+              
+              <nav class="Header-nav" data-nav>
+                <div id="menuToggle">
+                  <input type="checkbox" />
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul id="menu">
+                    <div class = "seleccionado">
+                      <a href="index.html"><li class ="primero">Página principal</li></a>
+                    </div>
+                    <a href="MiPerfil.html"><li>Mi perfil</li></a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox"><li>Notificaciones</li></a>
+                    <a href="dashboard.html"><li>Dashboard</li></a>
+                    <a href="ListaIncidencias.html"><li>Lista de incidencias</li></a>
+                    <a href="ListaVecinos.html"><li>Lista de vecinos</li></a>
+                    <a><li onclick="return cerrarsesiom_1();">Cerrar sesión</li></a>
+                  </ul>
+                </div>
+                <div class ="nombreRol">
+                  <div class="Header-nav-item">
+                    <h2>Ricardo Calderón Rodríguez</h2>
+                    <h5>Serenazgo de San Miguel, Lima</h5>
+                  </div>
+                </div>
+                <div class="logo">
+                  <a href = window.location.href  target="_blank"><img src = "logoSMsinletra-modified.png"></a>
+                </div>
+              </nav>
+            <!--</div>-->
+          </header>
+          
+          <div class="container">
+            <div class="card">
+                <img src = "sanMiguel.png">
+                <h1>¡Eres Serenazgo!</h1>
+                <h3>Estás al cargo de la seguridad en el distrito.Explora y resuelve las incidencias generadas por los vecinos y coordinadores, y visualiza gráficas con las estadísticas de ellas. Monitorea y restringe el registro de incidencias.</h3>
+                <h3>¡Únete a nosotros y ayúdanos a tener una comunidad más segura!</h3>
+                
+            </div>
+          </div>
+        <script src = "script.js"></script>
+        
+    </body>
+</html>

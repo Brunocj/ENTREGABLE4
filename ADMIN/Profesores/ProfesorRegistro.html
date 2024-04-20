@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Pagina principal</title>
+        
+        <link rel="stylesheet" href="estilos.css">
+    </head>
+
+    <body>
+          
+          <header class="Header" data-header>
+            <!--<div class="Header-inner" data-header-nav>-->
+              
+              <nav class="Header-nav" data-nav>
+                <div id="menuToggle">
+                  <input type="checkbox" />
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul id="menu">
+                    <a href="../PagPrincipal.html"><li class ="primero">Página principal</li></a>
+                  <a href="../dashboard.html"><li>Dashboard</li></a>
+                  <div class = "seleccionado">
+                    <a href="tabla.html"><li>Serenazgo</li></a>
+                  </div>
+                  <a href="../Profesores/tabla.html"><li>Profesores</li></a>
+                  <a href="../Vecinos/tabla.html"><li>Vecinos</li></a>
+                  <a><li onclick="return cerrarsesiom_1();">Cerrar sesión</li></a>
+                </ul>
+                </div>
+                <div class ="nombreRol">
+                  <div class="Header-nav-item">
+                    <h2>Pedro Bustamante</h2>
+                    <h5>Administrador de San Miguel, Lima</h5>
+                  </div>
+                </div>
+                <div class="logo">
+                  <a href = "https://munisanmiguel.gob.pe/" target="_blank"><img src = "logoSMsinletra-modified.png"></a>
+                </div>
+              </nav>
+            <!--</div>-->
+          </header>
+          
+          <div class="container">
+            <div class="card">
+              <div class = "wrapper"id="formContent">
+                <!-- Tabs Titles -->
+                <center><h2 class="active">Registro profesor</h2></center>
+            
+                <!-- Icon -->
+            
+                <!-- Login Form -->
+                <form>
+                  <div class ="inputs">
+                    <input type="text" id="nombre" placeholder="Nombres">
+                    <input type="text" id="apellido" placeholder="Apellidos">
+                    <input type="text" id="correo" placeholder="Curso">
+                  </div>
+                  <div class = "buttons">
+                    <input type="submit" class="green" value="Registrar profesor" onclick="return Confirmacion();">
+                    <input type="submit" class="red" value="Cancelar" onclick="return Confirmacion();">
+
+                  </div>
+                </form>
+                  
+              </div>
+            </div>
+          </div>
+        <script src = "script.js"></script>
+        <script>
+          function Confirmacion() {
+            var confirmacion = window.confirm("¿Estás seguro de que quieres cerrar sesión?");
+            if (confirmacion) {
+                // Redirigir a la página de cierre de sesión solo si el usuario acepta
+                window.location.href = "tabla.html";
+            } else {
+                // El usuario ha cancelado la acción
+                window.location.href = "tabla.html";
+            }
+            return false;
+        }
+        </script>
+    </body>
+</html>
