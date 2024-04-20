@@ -350,7 +350,7 @@ body {
   overflow-y: auto;
   margin: 0 auto;
   padding: 20px 20px;
-  color: rgba(255, 255, 255, 0.95);
+  color:  rgba(0,0,0);
 }
 
 .main-title {
@@ -374,6 +374,7 @@ body {
   border-radius: 5px;
 }
 
+
 .card:first-child {
   background-color: #2962ff;
 }
@@ -383,17 +384,27 @@ body {
 }
 
 .card:nth-child(3) {
-  background-color: #2e7d32;
+  background-color: #008000;
 }
 
 .card:nth-child(4) {
-  background-color: #d50000;
+  background-color: #ff0000;
 }
 
-.card-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.card:nth-child(5) {
+  background-color: #008000;
+}
+
+.card:nth-child(6) {
+  background-color: #ff0000;
+}
+
+.card:nth-child(7) {
+  background-color: #2962ff;
+}
+
+.card:nth-child(8) {
+  background-color: #ff6d00;
 }
 
 .card-inner > .material-icons-outlined {
