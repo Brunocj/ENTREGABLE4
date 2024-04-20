@@ -20,7 +20,7 @@ body {
   padding: 30px;
   text-align: center;
   font-weight: bold;
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .circle {
@@ -404,4 +404,27 @@ select {
 }
 #documento,#nombre,#apellido,#distrito,#urbanizacion {
   flex: 1; /* Hace que el campo de entrada de documento ocupe el mismo espacio que los otros campos */
+}
+
+.bottom-left-button {
+  position: fixed;
+  bottom: 20px; /* ajusta la distancia desde el borde inferior */
+  left: 20px; /* ajusta la distancia desde el borde izquierdo */
+  z-index: 999; /* Asegura que esté por encima de otros elementos */
+}
+
+.btn {
+  background-color: #5fbae9;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid #5fbaea; /* Agrega un borde blanco */
+  font-size: 19px;
+  transition: background-color 0.3s ease; /* Agrega una transición suave */
+  font-family: "Poppins", sans-serif;
+}
+
+.btn:hover {
+  background-color: #39ace7;
 }
