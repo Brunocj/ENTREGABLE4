@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Mi perfil</title>
+        
+        <link rel="stylesheet" href="styles_coordinador.css">
+    </head>
+
+    <body>
+          
+          <header class="Header" data-header>
+            <!--<div class="Header-inner" data-header-nav>-->
+              
+              <nav class="Header-nav" data-nav>
+                <div id="menuToggle">
+                  <input type="checkbox" />
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul id="menu">
+                    <a href="index_coordinador.html"><li class ="primero">Pagina principal</li></a>
+                    <div class ="seleccionado">
+                        <a href="MiPerfil_coordinador.html"><li>Mi perfil</li></a>
+                    </div>
+                    <a href="https://mail.google.com/mail/u/0/#inbox" target ="_blank"><li>Notificaciones</li></a>
+                    <a href="Eventos_coordinador.html"><li>Eventos</li></a>
+                    <a href="Incidencias_coordinador.html"><li>Incidencias</li></a>
+                    <a><li onclick="return cerrarsesiom_1();">Cerrar sesión</li></a>
+                  </ul>
+                </div>
+                <div class ="nombreRol">
+                  <div class="Header-nav-item">
+                    <h2>Manuel Yarleque</h2>
+                    <h5>Coordinador sanmiguelino</h5>
+                  </div>
+                </div>
+                <div class="logo">
+                  <a href = "https://munisanmiguel.gob.pe/" target="_blank"><img src = "logoSMsinletra-modified.png"></a>
+                </div>
+              </nav>
+            <!--</div>-->
+          </header>
+          
+          <div class="container">
+            <div class="card">
+              <div class="main-table">
+                <h2>Datos personales:</h2>
+                <div class="card-table">
+                    <div class="card-body">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Nombre(s)</td>
+                                    <td>:</td>
+                                    <td>Manuel Augusto</td>
+                                </tr>
+                                <tr>
+                                    <td>Apellidos</td>
+                                    <td>:</td>
+                                    <td>Yarlequé Medina</td>
+                                </tr>
+                                <tr>
+                                    <td>Correo</td>
+                                    <td>:</td>
+                                    <td>yarleque.thanos@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td>DNI</td>
+                                    <td>:</td>
+                                    <td>53856284</td>
+                                </tr>
+                                <tr>
+                                    <td>Número telefónico</td>
+                                    <td>:</td>
+                                    <td>998503948</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        
+                <h2>Actualizar datos:</h2>
+                <div class="card-table">
+                    <div class="card-body">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><img src="candado.png" class="img-icon"></td>
+                                    <td><a href="/LOGIN/chPass.html">Cambiar contraseña</a></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="telefono.jpg" class="img-icon"></td>
+                                    <td><a href="/LOGIN/chPhone.html">Cambiar número telefónico</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+          
+        <script src = "script.js"></script>
+    </body>
+</html>
