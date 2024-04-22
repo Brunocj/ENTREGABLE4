@@ -45,6 +45,7 @@
             
         }
         
+        
     </style>
 </head>
 <body>
@@ -240,18 +241,18 @@
 
         function Eliminacion() {
               Swal.fire({
-                  title: "Estás seguro?",
-                  text: "Una vez eliminado, la información asociada al personal será permanentemente eliminada del sistema",
+                  title: "¿Estás seguro de que deseas eliminar esta incidencia?",
+                  text: "Una vez eliminada, la incidencia será permanentemente eliminada del sistema",
                   icon: "warning",
                   showCancelButton: true,
                   confirmButtonColor: "#00913f",
                   cancelButtonColor: "#d33",
+                  cancelButtonText: "Cancelar",
                   confirmButtonText: "Si, eliminar"
               }).then((result) => {
                   if (result.isConfirmed) {
                       Swal.fire({
-                          title: "Eliminado!",
-                          text: "El personal ha sido eliminado con éxito",
+                          title: "La incidencia ha sido eliminada con éxito",
                           icon: "success"
                       }).then(() => {
                           window.location.href = "tabla.html";
