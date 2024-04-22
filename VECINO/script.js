@@ -7,8 +7,8 @@ menuToggle.addEventListener('click', function() {
 
 function mostrarAlerta() {
   Swal.fire({
-      title: '¿Estás seguro?',
-      text: '¿Estás seguro de que quieres enviar la solicitud?',
+      title: '¿Estás seguro de que quieres enviar la solicitud?',
+      text: 'Este proceso será irreversible',
       icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#00913f',
@@ -45,8 +45,8 @@ function mostrarAlerta() {
 
   function mostrarPopupCerrarSesion() {
     Swal.fire({
-        title: '¿Estás seguro?',
-        text: '¿Deseas cerrar sesión?',
+        title: 'Cerrar sesión',
+        text: '¿Estás seguro de que deseas cerrar sesión?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#00913f',
