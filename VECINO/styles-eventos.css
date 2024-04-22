@@ -6,16 +6,7 @@
 * {
   font-family: "Poppins", sans-serif;;
 }
-body {
-  align-items: center;
-  background: #9bbee8;
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding-top: 150px;
-  width: 100vw;
-  overflow-x: hidden;
-}
+
 
 .Header {
   align-items: center;
