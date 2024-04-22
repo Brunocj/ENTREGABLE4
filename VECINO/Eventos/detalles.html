@@ -209,23 +209,24 @@
   }
 </script>
 <script>
-    // Función para mostrar el cuadro de diálogo de confirmación al hacer clic en el botón "Inscribirse"
-    document.getElementById("btn-inscribirse").addEventListener("click", function() {
-      document.getElementById("confirmation-dialog").style.display = "block";
-    });
+  // Función para mostrar el cuadro de diálogo de confirmación al hacer clic en el botón "Inscribirse"
+  document.getElementById("btn-inscribirse").addEventListener("click", function() {
+    document.getElementById("confirmation-dialog").style.display = "block";
+  });
 
-    // Función para ocultar el cuadro de diálogo de confirmación al hacer clic en el botón "Cancelar"
-    document.getElementById("btn-cancelar").addEventListener("click", function() {
-      document.getElementById("confirmation-dialog").style.display = "none";
-    });
+  // Función para ocultar el cuadro de diálogo de confirmación al hacer clic en el botón "Cancelar"
+  document.getElementById("btn-cancelar").addEventListener("click", function() {
+    document.getElementById("confirmation-dialog").style.display = "none";
+  });
 
-    // Función para mostrar un mensaje de confirmación al hacer clic en el botón "Sí"
-    document.getElementById("btn-confirmar").addEventListener("click", function() {
-      alert("Te has inscrito en el evento.");
-      document.getElementById("confirmation-dialog").style.display = "none";
-    });
-    
-  </script>
+  // Función para mostrar un mensaje de confirmación al hacer clic en el botón "Sí"
+  document.getElementById("btn-confirmar").addEventListener("click", function() {
+    alert("Te has inscrito en el evento.");
+    document.getElementById("confirmation-dialog").style.display = "none";
+  });
+  
+</script>
+
 
 
 </body>
