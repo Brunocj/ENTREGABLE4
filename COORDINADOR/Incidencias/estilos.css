@@ -366,7 +366,7 @@ transform: none;
     gap: 10px;
   }
 
-  .container .card form input[type="submit"] {
+  .buttons form input[type="submit"] {
     
     padding: 10px;
     border: none;
@@ -375,15 +375,23 @@ transform: none;
     justify-content: center;
   }
 
-  .container .card form input[type="submit"].green {
+  .buttons input[type="submit"].green {
     background-color: #5cb85c;
     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     width: 50%;
   }
   
-  .container .card form input[type="submit"].red {
+  .buttons input[type="submit"].red {
     background-color: #d9534f;
     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     width: 50%;
   }
   /* CSS del submenu vecino */
@@ -440,3 +448,28 @@ transform: none;
     background-color: white; /* Cambia el color de fondo de las opciones */
     color: #757575; /* Cambia el color del texto de las opciones */
   }
+
+  .formImg form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.formImg label {
+    display: block;
+    margin-bottom: 10px;
+}
+.formImg input[type="file"] {
+    margin-bottom: 10px;
+    border: none;
+}
+.formImg input[type="submit"] {
+    background-color: #4f4caf;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

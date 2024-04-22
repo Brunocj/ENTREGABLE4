@@ -1,11 +1,9 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Registro Serenazgo</title>
-        
-        <link rel="stylesheet" href="estilos.css">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+      <title>Registro Serenazgo</title>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <link rel="stylesheet" href="estilos.css">
     </head>
 
     <body>
@@ -57,28 +55,35 @@
                     <input type="text" id="nombre" placeholder="Nombre de la incidencia">
                     <input type="text" id="lugar" placeholder="Lugar exacto">
                     <input type="text" id="ref" placeholder="Referencia">
-                    <input type="text" id="tipo" placeholder="Tipo de incidencia">
+                    <select id="tipo">
+                      <option value="">Tipo de incidencia</option>
+                      <option value="si">Hurto</option>
+                      <option value="si">Discriminación</option>
+                      <option value="si">Vandalismo</option>
+                      <option value="si">Homicidio</option>
+                      <option value="si">Secuestro</option>
+                      <option value="si">Acoso</option>
+                  </select>
                     <input type="text" id="contacto" placeholder="Contacto (opcional)">
                     <select id="ambulanciaSN">
                         <option value="">Requiere ambulancia (s/n)?</option>
                         <option value="si">Sí</option>
                         <option value="no">No</option>
                     </select>
-                    <select id="ambulanciaSN">
-                        <option value="">Tipo</option>
-                        <option value="si">Hurto</option>
-                        <option value="si">Discriminación</option>
-                        <option value="si">Vandalismo</option>
-                        <option value="si">Homicidio</option>
-                        <option value="si">Secuestro</option>
-                        <option value="si">Acoso</option>
-                    </select>
                     <!-- Aca no va una lista con los tipos? -->
+                    <div class = "formImg">
+                      <form action="subir_foto.php" method="post" enctype="multipart/form-data">
+                        <label for="foto">Selecciona una foto:</label>
+                        <div class = "foto-flex">
+                          <input type="file" id="foto" name="foto" accept="image/*">
+                          <!--input type="submit" value="Subir Foto">-->
+                        </div>
+                      </form>
+                    </div>
                   </div>
                   <div class = "buttons">
-                    <input type="submit" class="green" value="Registrar personal" onclick="return Confirmacion();">
+                    <input type="submit" class="green" value="Registrar incidencia" onclick="return Confirmacion();">
                     <input type="submit" class="red" value="Cancelar" onclick="return Cancelar();">
-
                   </div>
                 </form>
                   
@@ -106,7 +111,7 @@
                   if (result.isConfirmed) {
                       Swal.fire({
                           title: "Registrado!",
-                          text: "El personal ha sido registrado con exito",
+                          text: "La incidencia ha sido registrado con éxito",
                           icon: "success"
                       }).then(() => {
                           window.location.href = "incidencias_coordinador.html";
