@@ -25,15 +25,22 @@ function mostrarAlerta() {
     }
   }
 
-  function cerrarsesiom_1() {
-    var confirmacion = window.confirm("¿Estás seguro de que quieres cerrar sesión?");
-    if (confirmacion) {
-        // Redirigir a la página de cierre de sesión solo si el usuario acepta
-        window.location.href = "../LOGIN/login.html";
-    } else {
-        // El usuario ha cancelado la acción
-        alert("La sesión no se cerró.");
-    }
-    return false;
+  function mostrarPopupCerrarSesion() {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: '¿Deseas cerrar sesión?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#00913f',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, cerrar sesión'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Aquí puedes poner el código para cerrar sesión
+            // Por ejemplo, redirigir a la página de inicio de sesión
+            window.location.href = "../LOGIN/login.html"; 
+        }
+    });
 }
+
 
