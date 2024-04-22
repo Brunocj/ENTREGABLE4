@@ -6,15 +6,33 @@ menuToggle.addEventListener('click', function() {
 });
 
 function mostrarAlerta() {
-    var confirmacion = window.confirm("¿Estás seguro de que quieres enviar la solicitud?");
-    if (confirmacion) {
-      // Aquí iría el código para enviar la solicitud
-      alert("¡Solicitud enviada correctamente!");
-    } else {
-      // El usuario ha cancelado la acción
-      alert("Solicitud cancelada.");
-    }
-  }
+  Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¿Estás seguro de que quieres enviar la solicitud?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#00913f',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, enviar solicitud',
+      cancelButtonText: 'Cancelar'
+  }).then((result) => {
+      if (result.isConfirmed) {
+          // Aquí iría el código para enviar la solicitud
+          Swal.fire(
+              '¡Solicitud enviada!',
+              'La solicitud ha sido enviada correctamente.',
+              'success'
+          );
+      } else {
+          // El usuario ha cancelado la acción
+          Swal.fire(
+              'Solicitud cancelada',
+              '',
+              'info'
+          );
+      }
+  });
+}
 
   function showImage(opcion) {
     var imagenContainer = document.getElementById("imagen-container");
