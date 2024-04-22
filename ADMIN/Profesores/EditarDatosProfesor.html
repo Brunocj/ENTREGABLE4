@@ -36,7 +36,7 @@
                         <a href="../Vecinos/PostulacionesAcceso.html" id="postulaciones" > Postulaciones a coordinación</a>   
                     </li>
                   </ul>
-                  <a><li onclick="return cerrarsesiom_1();">Cerrar sesión</li></a>
+                  <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
                 </ul>
                 </div>
                 <div class ="nombreRol">
@@ -93,7 +93,7 @@
 
           function Actualizar() {
               Swal.fire({
-                  title: "Estás seguro?",
+                  title: "¿Estás seguro?",
                   text: "El proceso no podrá ser reversible",
                   icon: "warning",
                   showCancelButton: true,
@@ -116,6 +116,24 @@
               return false;
           }
           
+          function mostrarPopupCerrarSesion() {
+        Swal.fire({
+            title: 'Cerrar sesión',
+            text: '¿Estás seguro de que deseas cerrar sesión?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#00913f',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, cerrar sesión'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Aquí puedes poner el código para cerrar sesión
+                // Por ejemplo, redirigir a la página de inicio de sesión
+                window.location.href = "../LOGIN/login.html"; 
+            }
+        });
+    }
+
           document.addEventListener('DOMContentLoaded', function() {
               var vecinos = document.querySelector('a[href="#"]'); // Selecciona el enlace de Vecinos
 

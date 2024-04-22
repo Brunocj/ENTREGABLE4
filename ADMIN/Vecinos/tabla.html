@@ -4,6 +4,7 @@
     <title>Solicitudes de Registro</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .dataTables_wrapper .dataTables_filter input {
             border: 1px solid #aaa;
@@ -67,7 +68,7 @@
                     <div class = "seleccionado">
                         <a href="../Vecinos/tabla.html"><li>Vecinos</li></a>
                     </div>
-                    <a><li onclick="return cerrarsesiom_1();">Cerrar sesión</li></a>
+                    <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
                 </ul>
             </div>
             <div class="nombreRol">
