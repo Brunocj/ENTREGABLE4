@@ -347,3 +347,36 @@ transform: none;
 .responsive-button:hover {
   background-color: #f0f0f0; /* Cambia el color de fondo al pasar el mouse */
 }
+
+/* CSS del submenu vecino */
+
+.submenu {
+  display: none;
+  width: 200px; /* Ancho específico para que coincida con el menú principal */
+  padding-left: 0px;
+}
+
+
+.submenu.show {
+  display: block;
+}
+
+
+.submenu li {
+  margin-bottom: 5px; /* Añade margen inferior para separar las líneas */
+}
+
+.submenu a {
+  display: block; /* Asegura que el enlace ocupe todo el ancho del contenedor li */
+  margin-bottom: 5px; /* Añade margen inferior para separar las líneas */
+}
+
+#solicitudes {
+  font-size: 15px; /* Tamaño de letra deseado */
+  margin-left: 25px;
+}
+
+#postulaciones {
+  font-size: 15px; /* Tamaño de letra deseado */
+  margin-left: 25px;
+}
