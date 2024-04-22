@@ -13,6 +13,24 @@ const urbanizaciones = {
   urbanizacion : ['San Miguelito','Udima','Pershing','Miramar','San Luis','Maranga','German Astete','Pando']
 }
 
+function mostrarPopupCerrarSesion() {
+  Swal.fire({
+      title: 'Cerrar sesión',
+      text: '¿Estás seguro de que deseas cerrar sesión?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#00913f',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, cerrar sesión'
+  }).then((result) => {
+      if (result.isConfirmed) {
+          // Aquí puedes poner el código para cerrar sesión
+          // Por ejemplo, redirigir a la página de inicio de sesión
+          window.location.href = "../LOGIN/login.html"; 
+      }
+  });
+}
+
 // Función para actualizar el gráfico de área según el periodo seleccionado
 function actualizarDatosAreaChart(selectedPeriod) {
   let newData = [];
