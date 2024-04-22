@@ -317,6 +317,12 @@
     {
     transform: none;
     }
+    .btn-selected {
+    background-color: #ffc107; /* Cambia el color de fondo según tu preferencia */
+   color: red; /* Cambia el color del texto según tu preferencia */
+    }
+    
+
   
   </style>
 </head>
@@ -368,6 +374,8 @@
       </div>
     </div>
   </section>
+  
+  
 
   <!-- Sección de contenido -->
   <section class="py-5">
@@ -609,6 +617,41 @@
     });
   </script>
   <script src = "script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    var links = document.querySelectorAll(".btn");
+
+  // Función para resaltar el botón seleccionado
+    function highlightButton(selectedButton) {
+    links.forEach(function(link) {
+      link.classList.remove("btn-selected");
+    });
+    selectedButton.classList.add("btn-selected");
+    }
+
+  // Añadir evento de clic a cada botón
+    links.forEach(function(link) {
+    link.addEventListener("click", function(event) {
+      event.preventDefault(); // Evitar la acción predeterminada del enlace
+      var selectedButton = this;
+      highlightButton(selectedButton);
+
+      // Redirigir a la página correspondiente después de un breve retraso para que se muestre el resaltado
+      setTimeout(function() {
+        window.location.href = selectedButton.href;
+      }, 100);
+    });
+  });
+
+  // Resaltar el botón según la página actual
+  var currentPage = window.location.pathname.split("/").pop();
+  var currentButton = document.querySelector('a[href="' + currentPage + '"]');
+  if (currentButton) {
+    highlightButton(currentButton);
+  }
+});
+
+  </script>
   
 </body>
 </html>
