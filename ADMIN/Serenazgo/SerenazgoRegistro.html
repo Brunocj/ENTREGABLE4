@@ -26,7 +26,16 @@
                     <a href="tabla.html"><li>Serenazgo</li></a>
                   </div>
                   <a href="../Profesores/tabla.html"><li>Profesores</li></a>
-                  <a href="../Vecinos/tabla.html"><li>Vecinos</li></a>
+                  <a href="#"><li>Vecinos</li></a>
+                  <ul class="submenu">
+                    <li class="submenu-item">
+                      <a href="../Vecinos/solicitudesAcceso.html" id="solicitudes"> Solicitudes de acceso</a> 
+                    </li>
+            
+                    <li class="submenu-item  ">
+                        <a href="../Vecinos/PostulacionesAcceso.html" id="postulaciones" > Postulaciones a coordinación</a>   
+                    </li>
+                  </ul>
                   <a><li onclick="return cerrarsesiom_1();">Cerrar sesión</li></a>
                 </ul>
                 </div>
@@ -107,6 +116,21 @@
               // Evitar que el formulario se envíe automáticamente
               return false;
           }
+        </script>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              var vecinos = document.querySelector('a[href="#"]'); // Selecciona el enlace de Vecinos
+
+            // Agrega un evento de clic al enlace de Vecinos
+            vecinos.addEventListener('click', function(event) {
+                event.preventDefault(); // Evita que el enlace haga la acción predeterminada
+
+                var submenu = document.querySelector('.submenu'); // Selecciona el submenú
+
+                // Alterna la clase 'show' para mostrar u ocultar el submenú
+                submenu.classList.toggle('show');
+            });
+        });
         </script>
     </body>
 </html>
