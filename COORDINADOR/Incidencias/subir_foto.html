@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Subida de Foto</title>
+<style>
+    /* Estilos opcionales para mejorar la apariencia del formulario */
+    body {
+        font-family: Arial, sans-serif;
+    }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="file"] {
+        margin-bottom: 10px;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<form action="subir_foto.php" method="post" enctype="multipart/form-data">
+    <h2>Subir Foto</h2>
+    <label for="foto">Selecciona una foto:</label>
+    <input type="file" id="foto" name="foto" accept="image/*">
+    <input type="submit" value="Subir Foto">
+</form>
+
+</body>
+</html>
