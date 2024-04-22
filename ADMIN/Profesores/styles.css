@@ -13,7 +13,27 @@ body {
 }
 
 
+#agregarPersonal {
+  background-color: #740707;
+  color: white;
+  border: 2px solid white;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 15px;
+}
 
+#limpiarFiltros {
+  background-color: #850c0c;
+  color: white;
+  border: 2px solid white;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 15px;
+}
 
 .Header {
   align-items: center;

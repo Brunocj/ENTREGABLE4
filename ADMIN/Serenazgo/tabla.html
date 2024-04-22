@@ -20,8 +20,9 @@
         .container-tabla{
             display: flex;
             justify-content: center; /* Centra horizontalmente */
-            width: 90%; 
+            width: 80%; 
             margin: 0 auto; /* Centra horizontalmente */
+            
         }
         @media (min-width: 768px) {
             .container-tabla {
@@ -29,9 +30,10 @@
             }
         }
         .tabla-title {
-            font-size: 24px;
+            font-size: 30px;
             font-weight: bold;
             margin-bottom: 20px;
+        
         }
         .img-table{
             margin-top: 10px;
@@ -40,17 +42,9 @@
         .botones-container {
             display: flex;
             align-items: center;
+            
         }
-        #agregarPersonal {
-            background-color: black;
-            color: white;
-            border: 2px solid white;
-            border-radius: 6px;
-            cursor: pointer;
-            height: 40px;
-            margin-top: 30px;
-            margin-left: 10px; /* Modificado */
-        }
+        
     </style>
 </head>
 <body>
@@ -93,7 +87,7 @@
         <div style="display: flex; justify-content: space-between;">
             <div style="display: flex; justify-content: space-between; gap: 20px">
                 <div style="display: flex; flex-direction: column;">
-                    <h2 class="tabla-title" style="font-size: 30px;">Personal de Serenazgo</h2>
+                    <h2 class="tabla-title">Personal de Serenazgo</h2>
                     <div style="display: flex; gap:10px;">
                         <p>Filtrar por:</p>
                         <select id="filtroEstado" style="border-color: #DFDFDF; border-radius: 6px; padding:5px; outline: none; height: 40px; margin-top: 10px;" >
@@ -102,15 +96,14 @@
                             <option value="Tarde">Tarde</option>
                             <option value="Noche">Noche</option>
                         </select>
+                        <button id="limpiarFiltros">Limpiar Filtros</button>
+                        <a href="SerenazgoRegistro.html"><button id="agregarPersonal" >Agregar personal</button></a>
+                   
                     </div>
+                    
                 </div>
-                <div style="flex: 1; display: flex; align-items: center;">
-                    <!-- Contenedor adicional para los botones -->
-                    <div class="botones-container" style ="display: flex; gap: 10px">
-                        <button id="limpiarFiltros" style="background-color: #740707;color:white;border: 2px solid white;border-radius: 6px;cursor: pointer;height:40px;margin-top:30px">Limpiar Filtros</button>
-                        <a href="SerenazgoRegistro.html"><button id="agregarPersonal" style="background-color: #740707;color:white;border: 2px solid white;border-radius: 6px;cursor: pointer;height:40px;margin-top:30px;margin-left: 10px;">Agregar personal</button></a>
-                    </div>
-                </div>
+
+    
             </div>
         </div>
          <!-- Título de la tabla -->
@@ -199,7 +192,9 @@
                 
             </tbody>
         </table>
-        <div id="contadorTurnos"></div>
+        <div class="contador-wrapper">
+            <div id="contadorTurnos"></div>
+        </div>
     </div>
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -212,7 +207,7 @@
                   text: "Una vez eliminado, la información asociada al personal será permanentemente eliminada del sistema",
                   icon: "warning",
                   showCancelButton: true,
-                  confirmButtonColor: "#3085d6",
+                  confirmButtonColor: "#00913f",
                   cancelButtonColor: "#d33",
                   confirmButtonText: "Si, eliminar"
               }).then((result) => {
@@ -233,10 +228,10 @@
 
           
         $(document).ready(function() {
-            var table = $('#miTabla').DataTable({
-                "pageLength":5,
-                "lengthChange": false,
-                "language": {
+                var table = $('#miTabla').DataTable({
+            "pageLength": 5,
+            "lengthChange": false,
+            "language": {
                 "emptyTable": "No hay registros disponibles",
                 "zeroRecords": "No se encontraron registros coincidentes",
                 "infoEmpty": "Mostrando 0 a 0 de 0 entradas",
@@ -246,9 +241,10 @@
                     "next": "Siguiente",
                     "previous": "Anterior"
                 },
-                "info": "Mostrando de _START_ a _END_ de _TOTAL_ entradas"
-                }   
-            });
+                "info": "Mostrando de _START_ a _END_ de _TOTAL_ entradas",
+                "search": "Buscar:" // Cambia "Search" por "Buscar"
+            }
+        });
             $('#filtroEstado').on('change', function() {
                 var estado = $(this).val();
                 table.column(2).search(estado).draw();

@@ -1,0 +1,16 @@
+.submenu {
+    display: none;
+}
+
+.submenu.show {
+    display: block;
+}
+
+
+.submenu {
+    font-size: 14px;
+}
+
+#listaProfesores {
+    font-size: 12px; /* Tamaño de letra deseado */
+}

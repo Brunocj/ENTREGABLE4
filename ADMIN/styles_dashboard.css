@@ -504,3 +504,23 @@ body {
   font-size: 25px;
 }
 
+
+/* CSS del submenu vecino */
+
+.submenu {
+  display: none;
+}
+
+.submenu.show {
+  display: block;
+}
+
+#solicitudes {
+  font-size: 15px; /* Tamaño de letra deseado */
+  margin-left: -25px;
+}
+
+#postulaciones {
+  font-size: 15px; /* Tamaño de letra deseado */
+  margin-left: -25px;
+}

@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Pagina principal</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pagina principal</title>
         
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="opciones.css">
+      <link rel="stylesheet" href="styles.css">
+      
 
+      <link rel="stylesheet" href="menu.css">
     </head>
 
     <body>
@@ -26,7 +28,21 @@
                     <a href="dashboard.html"><li>Dashboard</li></a>
                     <a href="Serenazgo/tabla.html"><li>Serenazgo</li></a>
                     <a href="Profesores/tabla.html"><li>Profesores</li></a>
-                    <a href="Vecinos/tabla.html"><li>Vecinos</li></a>
+                    <a href="#"><li>Vecinos</li></a>
+                    <ul class="submenu ">
+          
+                      <li class="submenu-item  ">
+                        <a href="extra-component-avatar.html" id="listaProfesores">Lista de Profesores</a>
+                          
+                          
+                      </li>
+                      
+                      <li class="submenu-item  ">
+                          <a href="extra-component-divider.html" >Registro de Profesor</a>
+                          
+                      </li>
+                      
+                  </ul>
                     <a><li onclick="return cerrarsesiom_1();">Cerrar sesión</li></a>
                   </ul>
                 </div>
@@ -51,5 +67,23 @@
         </div>
 
         <script src = "script.js"></script>
+        <script src="app.js"></script>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              var vecinos = document.querySelector('a[href="#"]'); // Selecciona el enlace de Vecinos
+
+            // Agrega un evento de clic al enlace de Vecinos
+            vecinos.addEventListener('click', function(event) {
+                event.preventDefault(); // Evita que el enlace haga la acción predeterminada
+
+                var submenu = document.querySelector('.submenu'); // Selecciona el submenú
+
+                // Alterna la clase 'show' para mostrar u ocultar el submenú
+                submenu.classList.toggle('show');
+            });
+        });
+        </script>
+        
     </body>
 </html>

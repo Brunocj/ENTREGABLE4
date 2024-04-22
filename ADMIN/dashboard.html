@@ -35,7 +35,16 @@
                 </div>
                 <a href="Serenazgo/tabla.html"><li>Serenazgo</li></a>
                 <a href="Profesores/tabla.html"><li>Profesores</li></a>
-                <a href="Vecinos/tabla.html"><li>Vecinos</li></a>
+                <a href="#"><li>Vecinos</li></a>
+                    <ul class="submenu ">
+                      <li class="submenu-item  ">
+                        <a href="Vecinos/solicitudesAcceso.html" id="solicitudes"> • Solicitudes de acceso</a> 
+                      </li>
+              
+                      <li class="submenu-item  ">
+                          <a href="Vecinos/postulacionesAcceso.html" id="postulaciones" > • Postulaciones a coordinación</a>   
+                      </li>
+                    </ul>
                 <a><li onclick="return cerrarsesiom_1();">Cerrar sesión</li></a>
               </ul>
             </div>
@@ -284,5 +293,24 @@
     <!-- Custom JS -->
     <script src="scripts_dashboard.js"></script>
     <script src="script.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var vecinos = document.querySelector('a[href="#"]'); // Selecciona el enlace de Vecinos
+
+        // Agrega un evento de clic al enlace de Vecinos
+        vecinos.addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que el enlace haga la acción predeterminada
+
+            var submenu = document.querySelector('.submenu'); // Selecciona el submenú
+
+            // Alterna la clase 'show' para mostrar u ocultar el submenú
+            submenu.classList.toggle('show');
+        });
+    });
+    </script>
+
+
+
   </body>
 </html>

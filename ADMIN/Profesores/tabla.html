@@ -20,7 +20,7 @@
         .container-tabla{
             display: flex;
             justify-content: center; /* Centra horizontalmente */
-            width: 90%; 
+            width: 80%; 
             margin: 0 auto; /* Centra horizontalmente */
         }
         @media (min-width: 768px) {
@@ -41,16 +41,7 @@
             display: flex;
             align-items: center;
         }
-        #agregarPersonal {
-            background-color: black;
-            color: white;
-            border: 2px solid white;
-            border-radius: 6px;
-            cursor: pointer;
-            height: 40px;
-            margin-top: 30px;
-            margin-left: 10px; /* Modificado */
-        }
+        
     </style>
 </head>
 <body>
@@ -104,15 +95,11 @@
                             <option value="Futbol">Futbol</option>
                             <option value="Natacion">Natacion</option>
                         </select>
+                        <button id="limpiarFiltros">Limpiar Filtros</button>
+                        <a href="ProfesorRegistro.html"><button id="agregarPersonal" >Agregar personal</button></a>
                     </div>
                 </div>
-                <div style="flex: 1; display: flex; align-items: center;">
-                    <!-- Contenedor adicional para los botones -->
-                    <div class="botones-container" style ="display: flex; gap: 10px">
-                        <a href="ProfesorRegistro.html"><button id="agregarPersonal" style="background-color: #740707;color:white;border: 2px solid white;border-radius: 6px;cursor: pointer;height:40px;margin-top:30px;margin-left: 10px;">Agregar profesor</button></a>
-                        <button id="limpiarFiltros" style="background-color: #740707;color:white;border: 2px solid white;border-radius: 6px;cursor: pointer;height:40px;margin-top:30px">Limpiar Filtros</button>
-                    </div>
-                </div>
+                
             </div>
         </div>
          <!-- Título de la tabla -->
@@ -128,72 +115,72 @@
             </thead>
             <tbody style="text-align: center;">
                 <tr style="text-align: center;">
-                    <td><a href="DatosProfesor.html">Galarga Melo</a></td>
-                    <td><a href="DatosProfesor.html">Elver Augusto</a></td>
+                    <td>Galarga Melo</a></td>
+                    <td>Elver Augusto</a></td>
                     <td>Futbol</td>
                     <td><a href="EditarDatosProfesor.html"><img src="lapiz.png" class="img-table"></a></td>
                     <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
                 </tr>
                 <tr>
-                    <td><a href="DatosProfesor.html">José Ricardo</a></td>
-                    <td><a href="DatosProfesor.html">Calderón Rodríguez</a></td>
+                    <td>José Ricardo</a></td>
+                    <td>Calderón Rodríguez</a></td>
                     <td>TCE</td>
                     <td><a href="EditarDatosProfesor.html"><img src="lapiz.png" class="img-table"></a></td>
                     <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
                 </tr>
                 <tr>
-                    <td><a href="DatosProfesor.html">Garay Cruz</a></td>
-                    <td><a href="DatosProfesor.html">Eduardo Daniel</a></td>
+                    <td>Garay Cruz</a></td>
+                    <td>Eduardo Daniel</a></td>
                     <td>Natacion</td>
                     <td><a href="EditarDatosProfesor.html"><img src="lapiz.png" class="img-table"></a></td>
                     <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
                 </tr>
                 <tr>
-                    <td><a href="DatosProfesor.html">Coronado Villacorta</a></td>
-                    <td><a href="DatosProfesor.html">Jorge</a></td>
+                    <td>Coronado Villacorta</a></td>
+                    <td>Jorge</a></td>
                     <td>Propa</td>
                     <td><a href="EditarDatosProfesor.html"><img src="lapiz.png" class="img-table"></a></td>
                     <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
                 </tr>
                 <tr>
-                    <td><a href="DatosProfesor.html">Yarleque Medina</a></td>
-                    <td><a href="DatosProfesor.html">Manuel Augusto</a></td>
-                    <td>:c</td>
+                    <td>Yarleque Medina</a></td>
+                    <td>Manuel Augusto</a></td>
+                    <td>Circuitos</td>
                     <td><a href="EditarDatosProfesor.html"><img src="lapiz.png" class="img-table"></a></td>
                     <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
                 </tr>
                 <tr>
-                    <td><a href="DatosProfesor.html">Yarleque Medina</a></td>
-                    <td><a href="DatosProfesor.html">Manuel Augusto</a></td>
-                    <td>:c</td>
+                    <td>Yarleque Medina</a></td>
+                    <td>Manuel Augusto</a></td>
+                    <td>yoga</td>
                     <td><a href="EditarDatosProfesor.html"><img src="lapiz.png" class="img-table"></a></td>
                     <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
                 </tr>
                 <tr>
-                    <td><a href="DatosProfesor.html">Yarleque Medina</a></td>
-                    <td><a href="DatosProfesor.html">Manuel Augusto</a></td>
-                    <td>:c</td>
+                    <td>Yarleque Medina</a></td>
+                    <td>Manuel Augusto</a></td>
+                    <td>yoga</td>
                     <td><a href="EditarDatosProfesor.html"><img src="lapiz.png" class="img-table"></a></td>
                     <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
                 </tr>
                 <tr>
-                    <td><a href="DatosProfesor.html">Yarleque Medina</a></td>
-                    <td><a href="DatosProfesor.html">Manuel Augusto</a></td>
-                    <td>:c</td>
+                    <td>Yarleque Medina</a></td>
+                    <td>Manuel Augusto</a></td>
+                    <td>yoga</td>
                     <td><a href="EditarDatosProfesor.html"><img src="lapiz.png" class="img-table"></a></td>
                     <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
                 </tr>
                 <tr>
-                    <td><a href="DatosProfesor.html">Yarleque Medina</a></td>
-                    <td><a href="DatosProfesor.html">Manuel Augusto</a></td>
-                    <td>:c</td>
+                    <td>Yarleque Medina</a></td>
+                    <td>Manuel Augusto</a></td>
+                    <td>yoga</td>
                     <td><a href="EditarDatosProfesor.html"><img src="lapiz.png" class="img-table"></a></td>
                     <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
                 </tr>
                 <tr>
-                    <td><a href="DatosProfesor.html">Yarleque Medina</a></td>
-                    <td><a href="DatosProfesor.html">Manuel Augusto</a></td>
-                    <td>:c</td>
+                    <td>Yarleque Medina</a></td>
+                    <td>Manuel Augusto</a></td>
+                    <td>yoga</td>
                     <td><a href="EditarDatosProfesor.html"><img src="lapiz.png" class="img-table"></a></td>
                     <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
                 </tr>
@@ -211,7 +198,7 @@
                   text: "Una vez eliminado, la información asociada al personal será permanentemente eliminada del sistema",
                   icon: "warning",
                   showCancelButton: true,
-                  confirmButtonColor: "#3085d6",
+                  confirmButtonColor: "#00913f",
                   cancelButtonColor: "#d33",
                   confirmButtonText: "Si, eliminar"
               }).then((result) => {

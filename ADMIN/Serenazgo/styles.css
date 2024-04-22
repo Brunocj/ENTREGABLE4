@@ -12,7 +12,15 @@ body {
   overflow-x: hidden;
 }
 
-
+.contador-wrapper {
+  border: 1px solid #ccc; /* Borde sólido de 1px color gris claro */
+  border-radius: 6px; /* Bordes redondeados */
+  padding: 10px; /* Relleno interno de 10px */
+  box-shadow: 0px 0px 5px rgba(218, 15, 15, 0.1); /* Sombra ligera */
+  width: fit-content; /* Ancho ajustado al contenido */
+  margin-top: 5px; /* Margen superior de 20px */
+  background-color: rgba(245, 180, 180, 0.514);
+}
 
 
 .Header {
@@ -30,6 +38,16 @@ body {
   left: 0;
 }
 
+#agregarPersonal {
+  background-color: #740707;
+  color: white;
+  border: 2px solid white;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 15px;
+}
 
 
 .Header-inner {
@@ -76,7 +94,6 @@ body {
 .Header-nav-item:last-child {
   margin-right: 0;
 }
-
 
 
 
@@ -132,6 +149,17 @@ h3{
   font-size: 25px;
   text-align: left;
   margin-left: 20px;
+}
+
+#limpiarFiltros {
+  background-color: #850c0c;
+  color: white;
+  border: 2px solid white;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 15px;
 }
 
 .Header-nav-item h2 {
@@ -331,3 +359,4 @@ transform: none;
   width: 20px;
   height: 100%;;
 }
+
