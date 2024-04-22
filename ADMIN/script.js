@@ -7,8 +7,8 @@ menuToggle.addEventListener('click', function() {
 
     function mostrarPopupCerrarSesion() {
         Swal.fire({
-            title: '¿Estás seguro?',
-            text: '¿Deseas cerrar sesión?',
+            title: 'Cerrar sesión',
+            text: '¿Estás seguro de que deseas cerrar sesión?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#00913f',
