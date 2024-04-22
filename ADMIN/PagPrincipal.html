@@ -4,6 +4,7 @@
         <title>Pagina principal</title>
         
         <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 
     <body>
@@ -11,16 +12,16 @@
           <header class="Header" data-header>
             <!--<div class="Header-inner" data-header-nav>-->
               
-              <nav class="Header-nav" data-nav>
-                <div id="menuToggle">
-                  <input type="checkbox" />
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <ul id="menu">
-                    <div class = "seleccionado">
-                      <a href="PagPrincipal.html"><li class ="primero">Página principal</li></a>
-                    </div>
+            <nav class="Header-nav" data-nav>
+              <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                  <div class = "seleccionado">
+                    <a href="PagPrincipal.html"><li class ="primero">Página principal</li></a>
+                  </div>
                     <a href="dashboard.html"><li>Dashboard</li></a>
                     <a href="Serenazgo/tabla.html"><li>Serenazgo</li></a>
                     <a href="Profesores/tabla.html"><li>Profesores</li></a>
@@ -34,7 +35,7 @@
                           <a href="Vecinos/PostulacionesAcceso.html" id="postulaciones" > Postulaciones a coordinación</a>   
                       </li>
                     </ul>
-                    <a><li onclick="return cerrarsesiom_1();">Cerrar sesión</li></a>
+                    <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
                   </ul>
                 </div>
                 <div class ="nombreRol">
@@ -57,7 +58,7 @@
               <div class ="cont-text">
                 <h1>¡Eres Admin!</h1>
                 <h3>Administra el personal de serenazgo, los profesores de los eventos y gestiona a los vecinos y coordinadores.</h3>
-                <h3>¡Ayúdanos a organizar y mejrar nuestra comunidad!</h3>
+                <h3>¡Ayúdanos a organizar y mejorar nuestra comunidad!</h3>
               </div>
               <div class ="cont-img">
                 <img src = "ahora_eres_admin.png">
