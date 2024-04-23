@@ -27,7 +27,7 @@ body {
   position: fixed;
   text-align: center;
   top: 0;
-  width: 102%;
+  width: 100%;
   z-index: 10;
 }
 
@@ -63,7 +63,7 @@ body {
 .Header-nav-item {
   align-items: center;
   align-self: center;
-  color: white;
+  color: rgb(255, 255, 255);
 
   flex-shrink: 0;
   font-size: 20px;
@@ -93,7 +93,9 @@ body {
   flex-direction: column;
   height: 100%;
   justify-content: space-around;
-  width: 80vw;
+  width: 80%;
+  align-items: center;
+  
 }
 
 .container .card {
@@ -101,7 +103,8 @@ body {
   border-radius: 20px;
   flex-shrink: 0;
   margin-bottom: 0px; /* Cambié el porcentaje por píxeles para mayor precisión */
-  width: 100%; /* Hacer que la tarjeta ocupe el ancho completo del contenedor */
+  width: 80%; /* Hacer que la tarjeta ocupe el ancho completo del contenedor */
+  
 }
 
 .container .card img {
@@ -161,7 +164,7 @@ font-weight:bold;
 #menuToggle a
 {
 text-decoration: none;
-color: white;
+color: rgb(255, 255, 255);
 transition: color 0.3s ease;
 }
 #menuToggle li{
@@ -179,8 +182,6 @@ color: rgb(164, 164, 164); /*cambiarcolor*/
 }
 .primero{
   margin-top:50px;
-
-  width: 117%;
 }
 .seleccionado{
   background-color: rgba(255, 255, 255, 0.1);
@@ -190,7 +191,6 @@ color: rgb(164, 164, 164); /*cambiarcolor*/
 .seleccionado:hover{
   width: 117%;
 }
-
 #menuToggle input
 {
 display: block;
@@ -219,7 +219,7 @@ height: 4px;
 margin-bottom: 5px;
 position: relative;
 
-background: white;
+background: rgb(255, 255, 255);
 border-radius: 3px;
 
 z-index: 1;
@@ -249,7 +249,7 @@ transform-origin: 0% 100%;
 {
 opacity: 1;
 transform: rotate(45deg) translate(-2px, -1px);
-background: white;
+background: rgb(255, 255, 255);
 }
 
 /*
@@ -279,7 +279,7 @@ margin: -100px 0 0 -50px;
 padding: 50px;
 padding-top: 125px;
 
-background: #2E9A5D;
+background:  #2E9A5D;
 list-style-type: none;
 -webkit-font-smoothing: antialiased;
 /* to stop flickering of text in safari */
@@ -313,191 +313,180 @@ transform: none;
 .container.menu-open {
   opacity: 0.6; /* Define la opacidad cuando el menú está abierto */
 }
-.cont-main {
-  display: flex;
-  justify-content: center; /* Centra horizontalmente los elementos */
-  align-items: center; /* Centra verticalmente los elementos */
-}
 
-.cont-text {
-  width: 85%;
+#imagen-container img {
+  width: 300px; /* Establece el ancho deseado para la imagen */
+  height: auto; /* Ajusta automáticamente la altura para mantener la proporción */
+  border-radius: 0;
+  margin-right: 120px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  transition: opacity 0.5s ease-in-out;
+}
+.coord-card{
   display: flex;
   flex-direction: column;
-  padding: 0 20px; /* Añade un poco de espacio interno a los lados */
-  color: black
+  font-size: 25px;
+  background-color: white;
+  margin:50px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 1px 1px 8px 0 grey;
+  color: black;
+  padding: 10px
 }
-
-.cont-main.cont-img {
+.img-select {
   display: flex;
-  height: auto; /* Mantiene la proporción de la imagen */
-   /* Añade un poco de espacio a la derecha de la imagen */
+  justify-content: space-between;
+  align-items: center; /* Centra los elementos verticalmente */
+  border-radius: 15px;
 }
-.cont-main.cont-img img{
-  width: 40px;
-}
-.container .card form .inputs input {
-    width: 96%;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  .container .card {
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    
+.select {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 120px;
+  height: 240px;
+}
+.select button{
+  width: 200px;
+  margin-top: 20px
+}
+
+/*CSS PARA EL BOTON*/
+.beautiful-button {
+  position: relative;
+  display: inline-block;
+  background: #9bbee8;
+ /* Gradient background */
+  color: white;
+ /* White text color */
+  font-family: "Segoe UI", sans-serif;
+ /* Stylish and legible font */
+  font-weight: bold;
+  font-size: 18px;
+ /* Large font size */
+  border: none;
+ /* No border */
+  border-radius: 30px;
+ /* Rounded corners */
+  padding: 14px 28px;
+ /* Large padding */
+  cursor: pointer;
+ /* Cursor on hover */  
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+ /* Subtle shadow */
+  animation: button-shimmer 2s infinite;
+  transition: all 0.3s ease-in-out;
+ /* Smooth transition */
+}
+
+/* Hover animation */
+.beautiful-button:hover {
+  background: linear-gradient(to bottom, #225496, #5b67b7);
+  animation: button-particles 1s ease-in-out infinite;
+  transform: translateY(-2px);
+  color: black;
+}
+
+/* Click animation */
+.beautiful-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Shimmer animation */
+@keyframes button-shimmer {
+  0% {
+    background-position: left top;
   }
+
+  100% {
+    background-position: right bottom;
+  }
+}
+
+/* Particle animation */
+@keyframes button-particles {
+  0% {
+    background-position: left top;
+  }
+
+  100% {
+    background-position: right bottom;
+  }
+}
+/*HASTA ACA EL CODIGO DEL BOTON XD*/
+
+/*Cambiar los colores de acuerdo a las sugerencias*/
+.main-table {
+  margin-top: 2%;
+  font-size: 28px;
+  padding: 0 10px;
+  width: 58%;
+  margin-left: auto; /* Centrar horizontalmente */
+  margin-right: auto; /* Centrar horizontalmente */
+}
+
+.main-table h2 {
+  color: #333;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.main-table .card-table {
+  background-color: #fff;
+  border-radius: 18px;
+  box-shadow: 1px 1px 8px 0 grey;
+  height: auto;
+  margin-bottom: 20px;
+  padding: 20px 0 20px 50px;
+}
+
+.main-table .card-table table {
+  border: none;
+  font-size: 20px;
+  height: 100%;
+  width: 80%;
   
-  .container .card {
-    max-width: 600px;
-  }
-  .buttons{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    gap: 10px;
-  }
-
-  .buttons form input[type="submit"] {
-    
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    justify-content: center;
-  }
-
-  .buttons input[type="submit"].green {
-    background-color: #5cb85c;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 50%;
-  }
+}
+.main-table .card-table tr {
+  margin-top: 20px;
+  margin-bottom: 20px;
   
-  .buttons input[type="submit"].red {
-    background-color: #d9534f;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 50%;
-  }
-  /* CSS del submenu vecino */
-
-.submenu {
-  display: none;
-  width: 200px; /* Ancho específico para que coincida con el menú principal */
-  padding-left: 0px;
 }
+.img-icon{
+  height: 27px !important;
+  width: 27px !important;
+  vertical-align: middle; /* Centra verticalmente la imagen */
 
 
-.submenu.show {
-  display: block;
+}
+.card-table .img-icon {
+  vertical-align: middle; /* Centra verticalmente la imagen */
+}
+img.img-table {
+  width: 20px !important;
+  height: auto !important; /* Para mantener la proporción de aspecto */
+  margin-top: 5px
+}
+.container-boton {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; /* Alinea los elementos a la derecha */
+  width: 100%; /* Ocupa todo el ancho disponible */
 }
 
-
-.submenu li {
-  margin-bottom: 5px; /* Añade margen inferior para separar las líneas */
-}
-
-.submenu a {
-  display: block; /* Asegura que el enlace ocupe todo el ancho del contenedor li */
-  margin-bottom: 5px; /* Añade margen inferior para separar las líneas */
-}
-
-#solicitudes {
-  font-size: 15px; /* Tamaño de letra deseado */
-  margin-left: 25px;
-}
-
-#postulaciones {
-  font-size: 15px; /* Tamaño de letra deseado */
-  margin-left: 25px;
-}
-
-.inputs select {
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    appearance: none; /* Para quitar los estilos de selección nativos del navegador */
-    background: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 7l5-5 5 5H7zm0 10l5 5 5-5H7z" fill="%23000"/></svg>') no-repeat right 10px center/15px 15px; /* Añade una flecha hacia abajo al final del select */
-    color: #757575;
-}
-  
-  /* Estilos para cuando el select está enfocado */
-  .inputs select:focus {/* Quita el contorno predeterminado */
-    border-color: black; /* Cambia el color del borde cuando está enfocado */
-  }
-  
-  /* Estilos para las opciones del select */
-  .inputs select option {
-    background-color: white; /* Cambia el color de fondo de las opciones */
-    color: #757575; /* Cambia el color del texto de las opciones */
-  }
-
-  .formImg form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-.formImg label {
-    display: block;
-    margin-bottom: 10px;
-}
-.formImg input[type="file"] {
-    margin-bottom: 10px;
-    border: none;
-}
-.formImg input[type="submit"] {
-    background-color: #4f4caf;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.card {
-  position: relative; /* Agrega posición relativa para el contenedor de la tarjeta */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  background-color: #f9f9f9; /* Mantengo el fondo original */
-}
-.button-container {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  margin: 15px;
-  margin-top: 32px;
-}
-
-.button {
+.addIncidencia {
   background-color: #2E9A5D;
   color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #247a4d; /* Color de fondo al pasar el cursor */
+  border: 2px solid white;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 50px;
+  justify-content: left;
+  font-size: 15px;
+  margin-right: 152px;
 }
