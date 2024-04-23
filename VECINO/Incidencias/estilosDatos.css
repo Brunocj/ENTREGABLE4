@@ -42,7 +42,7 @@ table tr:last-child td {
 }
 
 .button {
-    background-color: #2E9A5D;
+    background-color: #225496;
     color: white;
     border: none;
     border-radius: 4px;
@@ -52,5 +52,5 @@ table tr:last-child td {
 }
 
 .button:hover {
-    background-color: #247a4d; /* Color de fondo al pasar el cursor */
+    background-color: #225496; /* Color de fondo al pasar el cursor */
 }
