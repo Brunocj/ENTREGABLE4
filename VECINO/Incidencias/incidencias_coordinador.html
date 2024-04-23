@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Incidencias</title>
+        
+        <link rel="stylesheet" href="styles_coordinador.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <style>
+          .dataTables_wrapper .dataTables_filter input {
+              border: 1px solid #aaa;
+              border-radius: 3px;
+              padding: 0px;
+              background-color: white;
+              margin-left: 3px;
+              margin-bottom: 14px;
+              border: 2px solid black;
+              border-radius: 6px;
+          }
+          .container-tabla{
+              display: flex;
+              justify-content: center; /* Centra horizontalmente */
+              width: 80%; 
+              margin: 0 auto; /* Centra horizontalmente */
+          }
+          @media (min-width: 768px) {
+              .container-tabla {
+                  display: table;
+              }
+          }
+          .tabla-title {
+              font-size: 30px;
+              font-weight: bold;
+              margin-bottom: 20px;
+              height: 46px;
+          }
+          .img-table{
+              margin-top: 10px;
+              align-items: center;
+          }
+          .botones-container {
+              display: flex;
+              align-items: center;
+          }
+          
+      </style>
+    </head>
+
+    <body>
+          
+          <header class="Header" data-header>
+            <!--<div class="Header-inner" data-header-nav>-->
+              
+              <nav class="Header-nav" data-nav>
+                <div id="menuToggle">
+                  <input type="checkbox" />
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul id="menu">
+                    <a href="../index_coordinador.html"><li class ="primero">Página principal</li></a>
+                    <a href="../MiPerfil_coordinador.html"><li>Mi perfil</li></a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox" target ="_blank"><li>Notificaciones</li></a>
+                    <a href="../Eventos/eventos.html"><li>Eventos</li></a>
+                    <div class ="seleccionado">
+                      <a href="incidencias_coordinador.html"><li>Incidencias</li></a>
+                    </div>
+                    <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
+                  </ul>
+                </div>
+                <div class ="nombreRol">
+                  <div class="Header-nav-item">
+                    <h2>Manuel Yarleque</h2>
+                    <h5>Coordinador sanmiguelino</h5>
+                  </div>
+                </div>
+                <div class="logo">
+                  <a href = "https://munisanmiguel.gob.pe/" target="_blank"><img src = "logoSMsinletra-modified.png"></a>
+                </div>
+              </nav>
+            <!--</div>-->
+          </header>
+          
+          <div class="container">
+            <div class="card">
+              <div style="display: flex; justify-content: space-between;">
+                <div style="display: flex; justify-content: space-between; gap: 20px">
+                    <div style="display: flex; flex-direction: column;">
+                        <h2 class="tabla-title">Incidencias</h2>
+                    </div>
+                </div>
+              </div>
+              <table id="miTabla" class="display">
+                <thead style="background-color: white;">
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Fecha del incidente</th>
+                        <th>Estado</th>
+                        <th style="width: 20px;"></th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: center;">
+                    <tr style="text-align: center;">
+                        <td>Asalto a la altura de la puerta Riva Agüero de la PUCP</a></td>
+                        <td>12/04/2024</a></td>
+                        <td>Resuelto</td>
+                        <td><a href="infoIncidencia.html"><img src="mas.png" class="img-table"></a></td>
+                    </tr>
+                    <tr>
+                        <td>Robo en el parque Juan Pablo II</a></td>
+                        <td>13/03/2024</a></td>
+                        <td>Pendiente</td>
+                        <td><a href="infoIncidencia.html"><img src="mas.png" class="img-table"></a></td>
+                    </tr>
+                    <tr>
+                        <td>Escape de los leones del Parque de las Leyendas</a></td>
+                        <td>11/01/2024</a></td>
+                        <td>Resuelto</td>
+                        <td><a href="infoIncidencia.html"><img src="mas.png" class="img-table"></a></td>
+                    </tr>
+                    <tr>
+                        <td>Lab2 de IWEB y GTICS (los patos abusaron de los alumnos)</a></td>
+                        <td>10/04/2024</a></td>
+                        <td>Resuelto</td>
+                        <td><a href="infoIncidencia.html"><img src="mas.png" class="img-table"></a></td>
+                    </tr>
+                    <tr>
+                        <td>Choque en el cruce de las avenidas Universitaria con La Marina</a></td>
+                        <td>22/04/2024</a></td>
+                        <td>Pendiente</td>
+                        <td><a href="infoIncidencia.html"><img src="mas.png" class="img-table"></a></td>
+                    </tr>
+                    <tr>
+                      <td>Lab2 de IWEB y GTICS (los patos abusaron de los alumnos)</a></td>
+                      <td>10/04/2024</a></td>
+                      <td>Resuelto</td>
+                      <td><a href="infoIncidencia.html"><img src="mas.png" class="img-table"></a></td>
+                    </tr>
+                    <tr>
+                      <td>Lab2 de IWEB y GTICS (los patos abusaron de los alumnos)</a></td>
+                      <td>10/04/2024</a></td>
+                      <td>Resuelto</td>
+                      <td><a href="infoIncidencia.html"><img src="mas.png" class="img-table"></a></td>
+                    </tr>
+                    <tr>
+                      <td>Lab2 de IWEB y GTICS (los patos abusaron de los alumnos)</a></td>
+                      <td>10/04/2024</a></td>
+                      <td>Resuelto</td>
+                      <td><a href="infoIncidencia.html"><img src="mas.png" class="img-table"></a></td>
+                    </tr>
+                    <tr>
+                      <td>Lab2 de IWEB y GTICS (los patos abusaron de los alumnos)</a></td>
+                      <td>10/04/2024</a></td>
+                      <td>Resuelto</td>
+                      <td><a href="infoIncidencia.html"><img src="mas.png" class="img-table"></a></td>
+                    </tr>
+                    <tr>
+                      <td>Lab2 de IWEB y GTICS (los patos abusaron de los alumnos)</a></td>
+                      <td>10/04/2024</a></td>
+                      <td>Resuelto</td>
+                      <td><a href="infoIncidencia.html"><img src="mas.png" class="img-table"></a></td>
+                    </tr>
+                    <tr>
+                      <td>Lab2 de IWEB y GTICS (los patos abusaron de los alumnos)</a></td>
+                      <td>10/04/2024</a></td>
+                      <td>Resuelto</td>
+                      <td><a href="infoIncidencia.html"><img src="mas.png" class="img-table"></a></td>
+                    </tr>
+                </tbody>
+              </table>
+            
+            
+            </div>
+            <div class ="container-boton">
+              <a href="agregarIncidencia.html"><button class="addIncidencia" >Registrar incidencia</button></a>
+            </div>       
+          </div>
+        <script src = "script_coordinador.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script>
+        function Eliminacion() {
+              Swal.fire({
+                  title: "Estás seguro?",
+                  text: "Una vez eliminado, la información asociada al personal será permanentemente eliminada del sistema",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#00913f",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Si, eliminar"
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      Swal.fire({
+                          title: "Eliminado!",
+                          text: "El personal ha sido eliminado con éxito",
+                          icon: "success"
+                      }).then(() => {
+                          window.location.href = "incidencias_coordinador.html";
+                      });
+                  }
+              });
+
+              // Evitar que el formulario se envíe automáticamente
+              return false;
+          }
+
+
+
+
+
+
+        $(document).ready(function() {
+            var table = $('#miTabla').DataTable({
+                "pageLength":5,
+                "lengthChange": false,
+                "language": {
+                "emptyTable": "No hay registros disponibles",
+                "zeroRecords": "No se encontraron registros coincidentes",
+                "infoEmpty": "Mostrando 0 a 0 de 0 entradas",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "info": "Mostrando de _START_ a _END_ de _TOTAL_ entradas",
+                "search": "Buscar:" // Cambia "Search" por "Buscar"
+                }   
+            });
+            $('#filtroEstado').on('change', function() {
+                var estado = $(this).val();
+                table.column(2).search(estado).draw();
+            });
+            $('#limpiarFiltros').on('click', function() {
+                $('#filtroEstado').val('');
+                table.search('').columns().search('').draw();
+            });
+        });
+    </script>
+    </body>
+
+</html>
