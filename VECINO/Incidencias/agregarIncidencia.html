@@ -1,11 +1,9 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Registro Serenazgo</title>
-        
-        <link rel="stylesheet" href="estilos.css">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+      <title>Registro Serenazgo</title>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <link rel="stylesheet" href="estilos.css">
     </head>
 
     <body>
@@ -20,29 +18,21 @@
                   <span></span>
                   <span></span>
                   <ul id="menu">
-                    <a href="../PagPrincipal.html"><li class ="primero">Página principal</li></a>
-                  <a href="../dashboard.html"><li>Dashboard</li></a>
-                  <div class = "seleccionado">
-                    <a href="tabla.html"><li>Serenazgo</li></a>
-                  </div>
-                  <a href="../Profesores/tabla.html"><li>Profesores</li></a>
-                  <a href="#"><li>Vecinos</li></a>
-                  <ul class="submenu">
-                    <li class="submenu-item">
-                      <a href="../Vecinos/solicitudesAcceso.html" id="solicitudes"> Solicitudes de acceso</a> 
-                    </li>
-            
-                    <li class="submenu-item  ">
-                        <a href="../Vecinos/PostulacionesAcceso.html" id="postulaciones" > Postulaciones a coordinación</a>   
-                    </li>
-                  </ul>
+                    <a href="../index.html"><li class ="primero">Página principal</li></a>
+                    <a href="../MiPerfil.html"><li>Mi perfil</li></a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox" target ="_blank"><li>Notificaciones</li></a>
+                    <a href="../SolicitudCoordinador.html"><li>Solicitud de coordinador(a)</li></a>
+                    <a href="Eventos/eventos.html"><li>Eventos</li></a>
+                    <div class ="seleccionado">
+                      <a href="incidencias_vecino.html"><li>Incidencias</li></a>
+                    </div>
                   <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
                 </ul>
                 </div>
                 <div class ="nombreRol">
                   <div class="Header-nav-item">
-                    <h2>Pedro Bustamante</h2>
-                    <h5>Administrador de San Miguel, Lima</h5>
+                    <h2>Manuel Yarleque</h2>
+                    <h5>Coordinador sanmiguelino</h5>
                   </div>
                 </div>
                 <div class="logo">
@@ -56,35 +46,52 @@
             <div class="card">
               <div class = "wrapper"id="formContent">
                 <!-- Tabs Titles -->
-                <center><h2 class="active">Registro de personal</h2></center>
+                <center><h2 class="active">Registro de incidencia</h2></center>
             
                 <!-- Icon -->
             
                 <!-- Login Form -->
                 <form>
                   <div class ="inputs">
-                    <input type="text" id="nombre" placeholder="Nombre">
-                    <input type="text" id="apellido" placeholder="Apellido">
-                    <input type="text" id="correo" placeholder="Correo">
-                    <input type="text" id="dni" placeholder="DNI">
-                    <input type="text" id="direccion" placeholder="Dirección">
-                    <input type="text" id="telefono" placeholder="Teléfono">
-                    <input type="text" id="turno" placeholder="Turno">
-                    <input type="text" id="tipo" placeholder="Tipo">
+                    <input type="text" id="nombre" placeholder="Nombre de la incidencia">
+                    <input type="text" id="lugar" placeholder="Lugar exacto">
+                    <input type="text" id="ref" placeholder="Referencia">
+                    <select id="tipo">
+                      <option value="">Tipo de incidencia</option>
+                      <option value="si">Hurto</option>
+                      <option value="si">Discriminación</option>
+                      <option value="si">Vandalismo</option>
+                      <option value="si">Homicidio</option>
+                      <option value="si">Secuestro</option>
+                      <option value="si">Acoso</option>
+                  </select>
+                    <input type="text" id="contacto" placeholder="Contacto (opcional)">
+                    <select id="ambulanciaSN">
+                        <option value="">Requiere ambulancia (s/n)?</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                    </select>
                     <!-- Aca no va una lista con los tipos? -->
-                    <input type="text" id="nacimiento" placeholder="Fecha de nacimiento">
+                    <div class = "formImg">
+                      <form action="subir_foto.php" method="post" enctype="multipart/form-data">
+                        <label for="foto">Selecciona una foto:</label>
+                        <div class = "foto-flex">
+                          <input type="file" id="foto" name="foto" accept="image/*">
+                          <!--input type="submit" value="Subir Foto">-->
+                        </div>
+                      </form>
+                    </div>
                   </div>
                   <div class = "buttons">
-                    <input type="submit" class="green" value="Registrar personal" onclick="return Confirmacion();">
+                    <input type="submit" class="green" value="Registrar incidencia" onclick="return Confirmacion();">
                     <input type="submit" class="red" value="Cancelar" onclick="return Cancelar();">
-
                   </div>
                 </form>
-                  
+                
               </div>
               <div class="button-container">
                 <!-- Botón con enlace "#" -->
-                <a href="incidencias_coordinador.html" class="button">Regresar</a>
+                <a href="incidencias_vecino.html" class="button">Regresar</a>
             </div>
             </div>
           </div>
@@ -92,7 +99,7 @@
         <script>
 
           function Cancelar(){
-            window.location.href = "tabla.html";
+            window.location.href = "incidencias_vecino.html";
             return false;
           }
 
@@ -109,10 +116,10 @@
                   if (result.isConfirmed) {
                       Swal.fire({
                           title: "Registrado!",
-                          text: "El personal ha sido registrado con exito",
+                          text: "La incidencia ha sido registrado con éxito",
                           icon: "success"
                       }).then(() => {
-                          window.location.href = "tabla.html";
+                          window.location.href = "incidencias_vecino.html";
                       });
                   }
               });

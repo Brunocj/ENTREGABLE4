@@ -8,7 +8,7 @@
 }
 body {
   align-items: center;
-  background: #FA9E9E;
+  background: #9bbee8;
   display: flex;
   justify-content: center;
   margin: 0;
@@ -19,7 +19,7 @@ body {
 
 .Header {
   align-items: center;
-  background: #740707;
+  background: #225496;
 
   display: flex;
   height: 100px;
@@ -279,7 +279,7 @@ margin: -100px 0 0 -50px;
 padding: 50px;
 padding-top: 125px;
 
-background: #740707;
+background: #225496;
 list-style-type: none;
 -webkit-font-smoothing: antialiased;
 /* to stop flickering of text in safari */
@@ -366,7 +366,7 @@ transform: none;
     gap: 10px;
   }
 
-  .container .card form input[type="submit"] {
+  .buttons form input[type="submit"] {
     
     padding: 10px;
     border: none;
@@ -375,15 +375,23 @@ transform: none;
     justify-content: center;
   }
 
-  .container .card form input[type="submit"].green {
+  .buttons input[type="submit"].green {
     background-color: #5cb85c;
     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     width: 50%;
   }
   
-  .container .card form input[type="submit"].red {
+  .buttons input[type="submit"].red {
     background-color: #d9534f;
     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     width: 50%;
   }
   /* CSS del submenu vecino */
@@ -419,6 +427,52 @@ transform: none;
   margin-left: 25px;
 }
 
+.inputs select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    appearance: none; /* Para quitar los estilos de selección nativos del navegador */
+    background: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 7l5-5 5 5H7zm0 10l5 5 5-5H7z" fill="%23000"/></svg>') no-repeat right 10px center/15px 15px; /* Añade una flecha hacia abajo al final del select */
+    color: #757575;
+}
+  
+  /* Estilos para cuando el select está enfocado */
+  .inputs select:focus {/* Quita el contorno predeterminado */
+    border-color: black; /* Cambia el color del borde cuando está enfocado */
+  }
+  
+  /* Estilos para las opciones del select */
+  .inputs select option {
+    background-color: white; /* Cambia el color de fondo de las opciones */
+    color: #757575; /* Cambia el color del texto de las opciones */
+  }
+
+  .formImg form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.formImg label {
+    display: block;
+    margin-bottom: 10px;
+}
+.formImg input[type="file"] {
+    margin-bottom: 10px;
+    border: none;
+}
+.formImg input[type="submit"] {
+    background-color: #4f4caf;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .card {
   position: relative; /* Agrega posición relativa para el contenedor de la tarjeta */
   border: 1px solid #ccc;
@@ -435,7 +489,7 @@ transform: none;
 }
 
 .button {
-  background-color: #740707;
+  background-color: #2E9A5D;
   color: white;
   border: none;
   border-radius: 4px;
@@ -445,5 +499,5 @@ transform: none;
 }
 
 .button:hover {
-  background-color: #740707; /* Color de fondo al pasar el cursor */
+  background-color: #247a4d; /* Color de fondo al pasar el cursor */
 }

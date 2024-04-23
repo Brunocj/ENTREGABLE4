@@ -22,19 +22,21 @@
                   <ul id="menu">
                     <a href="../PagPrincipal.html"><li class ="primero">Página principal</li></a>
                   <a href="../dashboard.html"><li>Dashboard</li></a>
-                  <a href="../Serenazgo/tabla.html"><li>Serenazgo</li></a>
+                  <div class = "seleccionado">
+                    <a href="tabla.html"><li>Serenazgo</li></a>
+                  </div>
                   <a href="../Profesores/tabla.html"><li>Profesores</li></a>
                   <a href="#"><li>Vecinos</li></a>
-                    <ul class="submenu">
-                      <li class="submenu-item">
-                        <a href="Vecinos/solicitudesAcceso.html" id="solicitudes"> Solicitudes de acceso</a> 
-                      </li>
-              
-                      <li class="submenu-item  ">
-                          <a href="Vecinos/PostulacionesAcceso.html" id="postulaciones" > Postulaciones a coordinación</a>   
-                      </li>
-                    </ul>
-                  <a><li onclick="return cerrarsesiom_1();">Cerrar sesión</li></a>
+                  <ul class="submenu">
+                    <li class="submenu-item">
+                      <a href="../Vecinos/solicitudesAcceso.html" id="solicitudes"> Solicitudes de acceso</a> 
+                    </li>
+            
+                    <li class="submenu-item  ">
+                        <a href="../Vecinos/PostulacionesAcceso.html" id="postulaciones" > Postulaciones a coordinación</a>   
+                    </li>
+                  </ul>
+                  <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
                 </ul>
                 </div>
                 <div class ="nombreRol">
@@ -60,66 +62,66 @@
             
                 <!-- Login Form -->
                 <form>
-                  <div class="inputs">
-                      <label for="nombre" style="font-size: 12px; color: gray;">Nombres:</label>
-                      <input type="text" id="nombre" value="Manuel Augusto" readonly style="margin-bottom: 0px;">
-
-                      <label for="apellido" style="font-size: 12px; color: gray;">Apellidos:</label>
-                      <input type="text" id="apellido" value="Yarlequé Medina" readonly style="margin-bottom: 0px;">
-                      
-                      <label for="correo" style="font-size: 12px; color: gray;">DNI-peruano:</label>
-                      <input type="text" id="correo" value="myarleq@pucp.edu.pe" readonly style="margin-bottom: 0px;">
-                      
-                      <label for="dni" style="font-size: 12px; color: gray;">Dirección:</label>
-                      <input type="text" id="dni" value="32990451" readonly style="margin-bottom: 0px;">
-                      
-                      <label for="direccion" style="font-size: 12px; color: gray;">Distrito:</label>
-                      <input type="text" id="direccion" value="Inras/V" readonly style="margin-bottom: 0px;">
-                      
-                      <label for="telefono" style="font-size: 12px; color: gray;">Urbanización:</label>
-                      <input type="text" id="telefono" value="915478952" readonly style="margin-bottom: 0px;">
-                      
-                      <label for="turno" style="font-size: 12px; color: gray;">Correo(gmail):</label>
-                      <input type="text" id="turno" value="Mañana" readonly style="margin-bottom: 0px;">
-                      
-                      <label for="nacimiento" style="font-size: 12px; color: gray;">Fecha de nacimiento:</label>
-                      <input type="text" id="nacimiento" value="Fecha de nacimiento" readonly style="margin-bottom: 15px;">
-                  </div>
-                  <label for="solicitud" style="font-size: 16px; color: rgb(5, 0, 0); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); padding: 5px;">Solicitud:</label>
-                  <br>
-                  <label>
-                    <input type="radio" name="opcion" id="aprobar" style="margin-top: 15px;"> Aprobar
-                    <input type="radio" name="opcion" id="denegar"> Denegar
-                  </label>
-                  <br>
-                  <div class="inputs">
-                    <label for="titulo" style="font-size: 12px; color: gray;">Título del correo:</label>
-                    <input type="text" id="titulo" value="SOLICITUD ACEPTADA- Registro exitoso (Eventos- San Miguel)" style="margin-bottom: 2px;">
+                    <div class="inputs">
+                        <label for="nombre" style="font-size: 12px; color: gray;">Nombres:</label>
+                        <input type="stext" id="nombre" value="Manuel Augusto" readonly style="margin-bottom: 0px;">
+  
+                        <label for="apellido" style="font-size: 12px; color: gray;">Apellidos:</label>
+                        <input type="text" id="apellido" value="Yarlequé Medina" readonly style="margin-bottom: 0px;">
+                        
+                        <label for="correo" style="font-size: 12px; color: gray;">DNI-peruano:</label>
+                        <input type="text" id="correo" value="myarleq@pucp.edu.pe" readonly style="margin-bottom: 0px;">
+                        
+                        <label for="dni" style="font-size: 12px; color: gray;">Dirección:</label>
+                        <input type="text" id="dni" value="32990451" readonly style="margin-bottom: 0px;">
+                        
+                        <label for="direccion" style="font-size: 12px; color: gray;">Distrito:</label>
+                        <input type="text" id="direccion" value="Inras/V" readonly style="margin-bottom: 0px;">
+                        
+                        <label for="telefono" style="font-size: 12px; color: gray;">Urbanización:</label>
+                        <input type="text" id="telefono" value="915478952" readonly style="margin-bottom: 0px;">
+                        
+                        <label for="turno" style="font-size: 12px; color: gray;">Correo(gmail):</label>
+                        <input type="text" id="turno" value="Mañana" readonly style="margin-bottom: 0px;">
+                        
+                        <label for="nacimiento" style="font-size: 12px; color: gray;">Fecha de nacimiento:</label>
+                        <input type="text" id="nacimiento" value="Fecha de nacimiento" readonlystyle="margin-bottom: 15px;">
+                    </div>
+                    <label for="solicitud" style="font-size: 16px; color: rgb(5, 0, 0); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); padding: 5px;">Solicitud:</label>
+                    <br>
+                    <label>
+                      <input type="radio" name="opcion" id="aprobar" style="margin-top: 15px;"> Aprobar
+                      <input type="radio" name="opcion" id="denegar"> Denegar
+                    </label>
+                    <br>
+                    <div class="inputs">
+                      <label for="titulo" style="font-size: 12px; color: gray;">Título del correo:</label>
+                      <input type="text" id="titulo" value="SOLICITUD ACEPTADA- Registro exitoso (Eventos- San Miguel)" style="margin-bottom: 2px;">
+                  
+                      <label for="cuerpo" style="font-size: 12px; color: gray;">Cuerpo del correo:</label>
+                      <div id="cuerpo" contenteditable="true" style="font-size: 12px; margin-bottom: 10px; width: calc(100% - 10px); height: 150px; border: 1px solid #ccc; padding: 3px; overflow-y: auto; margin-right: 20px;">
+                        Estimado [Nombre del Usuario],
+                        <br>
                 
-                    <label for="cuerpo" style="font-size: 12px; color: gray;">Cuerpo del correo:</label>
-                    <div id="cuerpo" contenteditable="true" style="font-size: 12px; margin-bottom: 10px; width: calc(100% - 10px); height: 150px; border: 1px solid #ccc; padding: 3px; overflow-y: auto; margin-right: 20px;">
-                      Estimado [Nombre del Usuario],
-                      <br>
-              
-                      Nos complace informarte que tu solicitud de registro ha sido aceptada para los Eventos San Miguel. Agradecemos sinceramente tu interés en participar y unirte a nuestros emocionantes eventos.
-              
-                      Para comenzar, aquí está tu contraseña temporal para acceder a la página: Contraseña temporal: X35&%1*DS. Recuerda que es importante mantener esta contraseña segura y cambiarla después de iniciar sesión por primera vez.
-              
-                      Si tienes alguna pregunta o necesitas asistencia en cualquier momento, no dudes en contactarnos. Estamos aquí para ayudarte.
-                      <br>
-                      ¡Bienvenido a la comunidad de Eventos San Miguel!
-                      <br>
-                      Atentamente,
-                      <br>
-                      La Administración
-                  </div>
-                  <div class="buttons">
-                    <input type="submit" class="green" value="Guardar y enviar" onclick="return Guardar();">
-                    <input type="submit" class="red" value="Cancelar" onclick="return Cancelar();">
-                </div>  
-              
-
-              </form>
+                        Nos complace informarte que tu solicitud de registro ha sido aceptada para los Eventos San Miguel. Agradecemos sinceramente tu interés en participar y unirte a nuestros emocionantes eventos.
+                
+                        Para comenzar, aquí está tu contraseña temporal para acceder a la página: Contraseña temporal: X35&%1*DS. Recuerda que es importante mantener esta contraseña segura y cambiarla después de iniciar sesión por primera vez.
+                
+                        Si tienes alguna pregunta o necesitas asistencia en cualquier momento, no dudes en contactarnos. Estamos aquí para ayudarte.
+                        <br>
+                        ¡Bienvenido a la comunidad de Eventos San Miguel!
+                        <br>
+                        Atentamente,
+                        <br>
+                        La Administración
+                    </div>
+                    <div class="buttons">
+                      <input type="submit" class="green" value="Guardar y enviar" onclick="return Guardar();">
+                      <input type="submit" class="red" value="Cancelar" onclick="return Cancelar();">
+                  </div>  
+                
+  
+                </form>
               
               
                   
@@ -130,59 +132,46 @@
         <script>
           
           function Cancelar(){
-            window.location.href = "solicitudesAcceso.html";
+            window.location.href = "tabla.html";
             return false;
           }
 
           function Guardar() {
-            Swal.fire({
-                title: "Estás seguro?",
-                text: "El proceso no podrá ser reversible",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#00913f",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Si, guardar y enviar"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        title: "Enviado!",
-                        text: "Se ha enviado el correo con éxito",
-                        icon: "success"
-                    }).then(() => {
-                        window.location.href = "solicitudesAcceso.html";
-                    });
-                }
-            });
+              Swal.fire({
+                  title: "Estás seguro?",
+                  text: "El proceso no podrá ser reversible",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#00913f",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Si, guardar y enviar"
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      Swal.fire({
+                          title: "Guardado y enviado!",
+                          text: "El correo ha sido enviado con exito",
+                          icon: "success"
+                      }).then(() => {
+                          window.location.href = "tabla.html";
+                      });
+                  }
+              });
 
-            // Evitar que el formulario se envíe automáticamente
-            return false;
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-              var vecinos = document.querySelector('a[href="#"]'); // Selecciona el enlace de Vecinos
-
-            // Agrega un evento de clic al enlace de Vecinos
-            vecinos.addEventListener('click', function(event) {
-                event.preventDefault(); // Evita que el enlace haga la acción predeterminada
-
-                var submenu = document.querySelector('.submenu'); // Selecciona el submenú
-
-                // Alterna la clase 'show' para mostrar u ocultar el submenú
-                submenu.classList.toggle('show');
-            });
-        });
+              // Evitar que el formulario se envíe automáticamente
+              return false;
+          }
+          
         </script>
         <script>
           document.addEventListener('DOMContentLoaded', function() {
               var vecinos = document.querySelector('a[href="#"]'); // Selecciona el enlace de Vecinos
-    
+
             // Agrega un evento de clic al enlace de Vecinos
             vecinos.addEventListener('click', function(event) {
                 event.preventDefault(); // Evita que el enlace haga la acción predeterminada
-    
+
                 var submenu = document.querySelector('.submenu'); // Selecciona el submenú
-    
+
                 // Alterna la clase 'show' para mostrar u ocultar el submenú
                 submenu.classList.toggle('show');
             });
