@@ -323,3 +323,10 @@ color: white; /* Cambia el color del texto según tu preferencia */
   background-color: #5cb85c;
   border: none;
 }
+
+.card-img-top-event {
+  width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: 280px; /* Mantén la proporción de la imagen */
+  /* También puedes definir un tamaño específico en píxeles o porcentaje */
+  border-radius: 10px;
+}
