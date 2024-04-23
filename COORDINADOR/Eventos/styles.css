@@ -326,7 +326,16 @@ color: white; /* Cambia el color del texto según tu preferencia */
 
 .card-img-top-event {
   width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
-  height: 280px; /* Mantén la proporción de la imagen */
-  /* También puedes definir un tamaño específico en píxeles o porcentaje */
-  border-radius: 10px;
+  height: 248px; /* Altura fija para mantener la proporción de la imagen */
+  object-fit: cover; /* Cubrir el área definida por el tamaño del contenedor */
+  border-radius: 120px; /* Agregar bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease; /* Agregar transición al pasar el mouse */
+}
+
+.card-img-top-event:hover {
+  transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+}
+#crearevento{
+  background-color:#90DFB2;
 }
