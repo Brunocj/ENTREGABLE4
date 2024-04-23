@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Página Principal</title>
+        
+        <link rel="stylesheet" href="styles_actualizar1.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+
+    <body>
+          
+          <header class="Header" data-header>
+            <!--<div class="Header-inner" data-header-nav>-->
+              
+              <nav class="Header-nav" data-nav>
+                <div id="menuToggle">
+                  <input type="checkbox" />
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul id="menu">
+                    <a href="../../index.html"><li class ="primero">Página principal</li></a>
+                    <a href="../../MiPerfil.html"><li>Mi perfil</li></a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox"><li>Notificaciones</li></a>
+                    <a href="../../dashboard.html"><li>Dashboard</li></a>
+                    <div class = "seleccionado">
+                        <a href="../tabla.html"><li>Lista de incidencias</li></a>
+                    </div>
+                    <a href="../../Vecinos/tabla.html"><li>Lista de vecinos</li></a>
+                    <a href="../IncidenciasPasadas.html"><li>Descripciones de incidencias pasadas</li></a>
+                    <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
+                  </ul>
+                </div>
+                <div class ="nombreRol">
+                  <div class="Header-nav-item">
+                    <h2>Ricardo Calderón Rodríguez</h2>
+                    <h5>Serenazgo de San Miguel, Lima</h5>
+                  </div>
+                </div>
+                <div class="logo">
+                  <a href = window.location.href  target="_blank"><img src = "logoSMsinletra-modified.png"></a>
+                </div>
+              </nav>
+            <!--</div>-->
+          </header>
+          
+          <div class="container">
+            <div class="card">
+                <h1>Actualizar incidencias</h1>
+               
+                
+                <!-- Radios de categorías -->
+                
+            
+            </div>
+               
+            <div>
+                <p class="nombre"><strong> Descripción</strong></p>
+            </div>
+
+            <div class="info-box">
+                De acuerdo con la información ingresada por el serenazgo esta es una incidencia de tipo grave y su última actualización fue a las 10:49 pm el 06/04/2024. Si deseea actualizar seleccione "actualizar".
+            </div>
+            
+            <div class="botones-container">
+                <button href="#" onclick="return cancelar();" class="boton-cancelar">Cancelar</button>
+                <button href="#" onclick="return clasificar();" class="boton-actualizar">Actualizar</button>
+                <button href="#" onclick="return clasificar();" class="boton-finalizar">Finalizar</button>
+            </div>
+
+
+       
+        <!-- Script personalizado -->
+        <script src="script.js"></script>
+        
+    
+        <script>
+            function mostrarPopupCerrarSesion() {
+              Swal.fire({
+                  title: 'Cerrar sesión',
+                  text: '¿Estás seguro de que deseas cerrar sesión?',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#00913f',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Sí, cerrar sesión'
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      // Aquí puedes poner el código para cerrar sesión
+                      // Por ejemplo, redirigir a la página de inicio de sesión
+                      window.location.href = "../LOGIN/login.html"; 
+                  }
+              });
+          }
+            function cancelar() {
+                  Swal.fire({
+                      title: "¿Estás seguro de que deseas cancelar la actualización?",
+                      text: "Una vez cancelado, no se guardarán los cambios en el sistema",
+                      icon: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#00913f",
+                      cancelButtonColor: "#d33",
+                      cancelButtonText: "Cancelar",
+                      confirmButtonText: "Si"
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          Swal.fire({
+                              title: "Se canceló la actualización",
+                              icon: "success"
+                          }).then(() => {
+                              window.location.href = "../tabla.html";
+                          });
+                      }
+                  });
+    
+                  // Evitar que el formulario se envíe automáticamente
+                  return false;
+              }
+
+              function clasificar() {
+                  Swal.fire({
+                      title: "¿Estás seguro de que deseas clasificar la incidencia?",
+                      text: "Una vez clasificada, los datos del sistema serán actualizados",
+                      icon: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#00913f",
+                      cancelButtonColor: "#d33",
+                      cancelButtonText: "Cancelar",
+                      confirmButtonText: "Si, clasificar"
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          Swal.fire({
+                            
+                              icon: "success"
+                          }).then(() => {
+                              window.location.href = "../clasificar/clasificar.html";
+                          });
+                      }
+                  });
+    
+                  // Evitar que el formulario se envíe automáticamente
+                  return false;
+              }
+ 
+
+        </script>
+
+
+        
+        
+    </body>
+</html>

@@ -1,47 +1,3 @@
-body{
-  background-color: #90DFB2;
-  padding-top: 150px;
-  width: 100vw;
-  overflow-x: hidden;
-}
-
-.card {
-  border: none; /* Cambiar el borde de las tarjetas */
-  border-radius: 10px; /* Agregar bordes redondeados */
-  transition: transform 0.3s ease; /* Agregar transición al pasar el mouse */
-  position: relative; /* Establecer posición relativa para el contenedor de la tarjeta */
-  margin-bottom: 20px;
-}
-
-
-.card:hover {
-  transform: translateY(-10px); /* Agregar efecto de levantamiento al pasar el mouse */
-}
-
-.form-control {
-  border-color: #ccc; /* Cambiar el color del borde del formulario */
-  border-radius: 5px; /* Agregar bordes redondeados al formulario */
-}
-
-.btn-primary {
-  background-color: #2E9A5D; /* Cambiar el color de fondo del botón */
-  border-color: black; /* Cambiar el color del borde del botón */
-}
-
-.btn-primary:hover {
-  background-color:#2E9A5D ; /* Cambiar el color de fondo del botón al pasar el mouse */
-  border-color: black; /* Cambiar el color del borde del botón al pasar el mouse */
-
-}
-.page-item.active .page-link {
-  background-color: #2E9A5D; /* Cambia el color de fondo de la página activa */
-  border-color: black; /* Cambia el color del borde de la página activa */
-  color: white; /* Cambia el color del texto de la página activa */
-}
-.stretched-link {
-text-decoration: none; /* Elimina el subrayado */
-color: inherit; /* Hereda el color del texto padre */
-}
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
 
@@ -50,11 +6,20 @@ color: inherit; /* Hereda el color del texto padre */
 * {
   font-family: "Poppins", sans-serif;;
 }
-
+body {
+  align-items: center;
+  background: #ECD098;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding-top: 150px;
+  width: 100vw;
+  overflow-x: hidden;
+}
 
 .Header {
   align-items: center;
-  background: #2E9A5D;
+  background: #D09E2A;
 
   display: flex;
   height: 100px;
@@ -98,7 +63,7 @@ color: inherit; /* Hereda el color del texto padre */
 .Header-nav-item {
   align-items: center;
   align-self: center;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 
   flex-shrink: 0;
   font-size: 20px;
@@ -120,6 +85,38 @@ color: inherit; /* Hereda el color del texto padre */
   .Header-nav {
     height: auto;
   }
+}
+
+.container {
+  align-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  width: 80vw;
+}
+
+.container .card {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 20px;
+  flex-shrink: 0;
+  margin-bottom: 0px; /* Cambié el porcentaje por píxeles para mayor precisión */
+  width: 100%; /* Hacer que la tarjeta ocupe el ancho completo del contenedor */
+}
+
+.container .card img {
+  border-radius: 20px; /* Añadí bordes redondeados a la imagen */
+  width: 100%; /* Hacer que la imagen ocupe todo el ancho de la tarjeta */
+  height: 100%; /* Permitir que la altura se ajuste automáticamente para mantener la relación de aspecto */
+}
+
+h1{
+  font-size: 40px;
+  text-align: center;
+}
+h3{
+  font-size: 25px;
+  text-align: center;
 }
 
 .Header-nav-item h2 {
@@ -164,11 +161,11 @@ font-weight:bold;
 #menuToggle a
 {
 text-decoration: none;
-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
 transition: color 0.3s ease;
 }
 #menuToggle li{
-  width: 250px;
+  width: 200px;
   border-radius: 10px;
 }
 #menuToggle li:hover
@@ -178,10 +175,12 @@ transition: color 0.3s ease;
 
 #menuToggle a:hover
 {
-color: rgb(164, 164, 164); /*cambiarcolor*/
+color: rgb(62, 60, 60); /*cambiarcolor*/
 }
 .primero{
   margin-top:50px;
+
+  width: 117%;
 }
 .seleccionado{
   background-color: rgba(255, 255, 255, 0.1);
@@ -191,6 +190,7 @@ color: rgb(164, 164, 164); /*cambiarcolor*/
 .seleccionado:hover{
   width: 117%;
 }
+
 #menuToggle input
 {
 display: block;
@@ -219,7 +219,7 @@ height: 4px;
 margin-bottom: 5px;
 position: relative;
 
-background: rgb(255, 255, 255);
+background: rgb(0, 0, 0);
 border-radius: 3px;
 
 z-index: 1;
@@ -249,7 +249,7 @@ transform-origin: 0% 100%;
 {
 opacity: 1;
 transform: rotate(45deg) translate(-2px, -1px);
-background: rgb(255, 255, 255);
+background: rgb(0, 0, 0);
 }
 
 /*
@@ -274,13 +274,12 @@ transform: rotate(-45deg) translate(0, -1px);
 {
 
 position: absolute;
-width: 350px;
+width: 300px;
 margin: -100px 0 0 -50px;
-padding: 100px;
+padding: 50px;
 padding-top: 125px;
-padding-left: 120px;
 
-background: #2E9A5D;
+background: #D09E2A;
 list-style-type: none;
 -webkit-font-smoothing: antialiased;
 /* to stop flickering of text in safari */
@@ -296,37 +295,82 @@ transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 position: inherit;
 padding-top: 10px;
 padding-bottom:10px;
-padding-left: 50px;
+padding-left: 150px;
 font-size: 22px;
 text-align: left;
 }
+
 
 #menuToggle input:checked ~ ul
 {
 transform: none;
 }
-.btn-selected {
-background-color: #257949; /* Cambia el color de fondo según tu preferencia */
-color: white; /* Cambia el color del texto según tu preferencia */
-}
-/* Estilos para el botón en la parte inferior derecha */
-.card-body {
-  position: relative; /* Establecer posición relativa */
+
+.container {
+  transition: opacity 0.3s ease; /* Agrega una transición suave */
 }
 
-.btn-bottom-right {
-  position: absolute; /* Establecer posición absoluta */
-  bottom: 0; /* Alinear al fondo */
-  left: 0; /* Alinear a la izquierda */
-  width: 100%; /* Ocupar todo el ancho */
-  text-align: center; /* Centrar el texto horizontalmente */
-  background-color: #5cb85c;
-  border: none;
+.container.menu-open {
+  opacity: 0.6; /* Define la opacidad cuando el menú está abierto */
 }
 
-.card-img-top-event {
-  width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
-  height: 280px; /* Mantén la proporción de la imagen */
-  /* También puedes definir un tamaño específico en píxeles o porcentaje */
-  border-radius: 10px;
+
+.opciones {
+    text-align: center; /* Centra horizontalmente */
+}
+
+.opcion {
+    display: inline-block; /* Coloca las opciones en línea */
+    margin-right: 100px; /* Espacio entre las opciones */
+    font-size: 30px; /* Tamaño del texto de las opciones */
+}
+
+
+
+.botones-container {
+    margin-top: 100px;
+    margin-left: 1100px;
+    display: flex;
+    gap: 10px;
+}
+
+.boton-cancelar,
+.boton-confirmar,
+.boton-finalizar {
+    width: 200px; /* Ancho del botón */
+    height: 70px; /* Altura del botón */
+    background-color: #009688; /* Color de fondo del botón (verde turquesa) */
+    color: #fff; /* Color del texto del botón (blanco) */
+    border: none; /* Quita el borde del botón */
+    border-radius: 5px; /* Agrega bordes redondeados al botón */
+    font-size: 18px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+}
+
+.boton-cancelar:hover,
+.boton-confirmar:hover,
+.boton-finalizar:hover {
+    background-color: #00796b; /* Cambia el color de fondo al pasar el cursor */
+}
+
+textarea {
+    width: 60%; /* Ancho completo del contenedor */
+    height: 350px; /* Altura inicial del textarea */
+    resize: vertical; /* Permitir que el usuario redimensione verticalmente */
+    margin-top: 10px; /* Espacio superior */
+    padding: 8px; /* Espacio interno */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+}
+
+.info-box {
+  background-color: #f0f0f0; /* Color de fondo del recuadro */
+  border: 1px solid #ccc; /* Borde del recuadro */
+  padding: 10px; /* Espacio interno del recuadro */
+  border-radius: 5px; /* Bordes redondeados */
+  width: 1000px; /* Ancho del recuadro */
+  height: 100px;
+  margin: 0px; /* Margen exterior */
+}
+.nombre{
+    font-size: 30px;
 }

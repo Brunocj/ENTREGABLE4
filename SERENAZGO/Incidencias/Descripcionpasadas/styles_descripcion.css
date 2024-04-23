@@ -316,10 +316,59 @@ transform: none;
 
 
 .opciones {
-  text-align: center; /* Centra horizontalmente */
+    text-align: center; /* Centra horizontalmente */
 }
 
 .opcion {
-  display: inline-block; /* Coloca las opciones en línea */
-  margin-right: 20px; /* Espacio entre las opciones */
+    display: inline-block; /* Coloca las opciones en línea */
+    margin-right: 100px; /* Espacio entre las opciones */
+    font-size: 30px; /* Tamaño del texto de las opciones */
+}
+
+.nombre{
+  font-size: 30px;
+}
+
+
+.botones-container {
+    margin-top: 100px;
+    margin-left: 1100px;
+    display: flex;
+    gap: 10px;
+}
+
+.boton-cancelar,
+.boton-confirmar {
+    width: 200px; /* Ancho del botón */
+    height: 70px; /* Altura del botón */
+    background-color: #009688; /* Color de fondo del botón (verde turquesa) */
+    color: #fff; /* Color del texto del botón (blanco) */
+    border: none; /* Quita el borde del botón */
+    border-radius: 5px; /* Agrega bordes redondeados al botón */
+    font-size: 18px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+}
+
+.boton-cancelar:hover,
+.boton-confirmar:hover {
+    background-color: #00796b; /* Cambia el color de fondo al pasar el cursor */
+}
+
+textarea {
+    width: 60%; /* Ancho completo del contenedor */
+    height: 350px; /* Altura inicial del textarea */
+    resize: vertical; /* Permitir que el usuario redimensione verticalmente */
+    margin-top: 10px; /* Espacio superior */
+    padding: 8px; /* Espacio interno */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+}
+
+.info-box {
+  background-color: #f0f0f0; /* Color de fondo del recuadro */
+  border: 1px solid #ccc; /* Borde del recuadro */
+  padding: 10px; /* Espacio interno del recuadro */
+  border-radius: 5px; /* Bordes redondeados */
+  width: 1000px; /* Ancho del recuadro */
+  height: 400px;
+  margin: 20px; /* Margen exterior */
 }
