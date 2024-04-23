@@ -3,7 +3,7 @@
     <head>
         <title>Página Principal</title>
         
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles_actualizar.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 
@@ -46,14 +46,35 @@
           
           <div class="container">
             <div class="card">
-                <img src = "sanMiguel.png">
-                <h1>¡Eres Serenazgo!</h1>
-                <h3>Estás a cargo de la seguridad en el distrito.Explora y resuelve las incidencias generadas por los vecinos y coordinadores, y visualiza gráficas con las estadísticas de ellas. Monitorea y restringe el registro de incidencias.</h3>
-                <h3>¡Únete a nosotros y ayúdanos a tener una comunidad más segura!</h3>
+                <h1>Clasificación de incidencias</h1>
+                <h3>Bienvenido, en este apartado podrá clasificar la incidencia seleccionada en una de las siguientes categorías:</h3>
                 
+                <!-- Radios de categorías -->
+                
+                <div class="opciones">
+                  <div class="opcion">
+                      <input type="radio" id="categoriaLeve" name="categoria" value="leve">
+                      <label for="categoriaLeve">Leve</label>
+                  </div>
+                  <div class="opcion">
+                      <input type="radio" id="categoriaModerada" name="categoria" value="moderada">
+                      <label for="categoriaModerada">Moderada</label>
+                  </div>
+                  <div class="opcion">
+                      <input type="radio" id="categoriaGrave" name="categoria" value="grave">
+                      <label for="categoriaGrave">Grave</label>
+                  </div>
+              </div>
+                
+                <!-- Botón de envío -->
+                <button onclick="enviarCategoria()">Enviar</button>
             </div>
-          </div>
-        <script src = "script.js"></script>
+        </div>
+        
+        <!-- Script personalizado -->
+        <script src="script.js"></script>
+        
+        
         
     </body>
 </html>
