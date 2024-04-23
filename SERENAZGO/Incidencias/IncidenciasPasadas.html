@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Descripcion Incidencias Pasadas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <style>
+        .dataTables_wrapper .dataTables_filter input {
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            padding: 0px;
+            background-color: white;
+            margin-left: 3px;
+            margin-bottom: 14px;
+            border: 2px solid black;
+            border-radius: 6px;
+        }
+        .dataTables_wrapper .dataTables_filter {
+            float: left; /* Mueve la barra de búsqueda a la izquierda */
+            margin-right: 10px; /* Añade un margen a la derecha para separar del texto "Buscar:" */
+        }
+
+        /* Estilo para alinear el texto "Buscar:" con la barra de búsqueda */
+        .dataTables_wrapper .dataTables_filter label {
+            display: inline; /* Asegura que el texto "Buscar:" esté en la misma línea que la barra de búsqueda */
+            margin-top: 8px; /* Ajusta el margen superior para centrarlo verticalmente */
+            margin-right: 5px; /* Añade un pequeño margen a la derecha para separarlo de la barra de búsqueda */
+        }
+        .container-tabla{
+            display: flex;
+            justify-content: center; /* Centra horizontalmente */
+            width: 80%; 
+            margin: 0 auto; /* Centra horizontalmente */
+            
+        }
+        @media (min-width: 768px) {
+            .container-tabla {
+                display: table;
+            }
+        }
+        .tabla-title {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        
+        }
+        .img-table{
+            margin-top: 10px;
+            align-items: center;
+        }
+        .botones-container {
+            display: flex;
+            align-items: center;
+            
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header class="Header" data-header>
+        <nav class="Header-nav" data-nav>
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                  <a href="../index.html"><li class ="primero">Página principal</li></a>
+                  <a href="../MiPerfil.html"><li>Mi perfil</li></a>
+                  <a href="../MiPerfil.html"><li>Notificaciones</li></a>
+                  <a href="../dashboard.html"><li>Dashboard</li></a>
+                  <a href="tabla.html"><li>Lista de incidencias</li></a>
+                  <a href="../Vecinos/tabla.html"><li>Lista de vecinos</li></a>
+                  <div class = "seleccionado">
+                    <a href="#"><li>Descripción de incidencias pasadas</li></a>
+                  </div>
+                  <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
+                </ul>
+            </div>
+            <div class="nombreRol">
+                <div class="Header-nav-item">
+                    <h2>Pedro Bustamante</h2>
+                    <h5>Administrador de San Miguel, Lima</h5>
+                </div>
+            </div>
+            <div class="logo">
+                <a href="https://munisanmiguel.gob.pe/" target="_blank"><img src="logoSMsinletra-modified.png"></a>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container container-tabla" style ="margin-top: -50px;">
+        <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex; justify-content: space-between; gap: 20px">
+                <div style="display: flex; flex-direction: column;">
+                    <h2 class="tabla-title">Lista de Incidencias Pasadas</h2>
+
+                </div>
+
+    
+            </div>
+        </div>
+         <!-- Título de la tabla -->
+        <table id="miTabla" class="display">
+            <thead style="background-color: white;">
+                <tr>
+                    <th>Título de la Incidencia</th>
+                    <th></th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center;">
+                <tr style="text-align: center;">
+                    <td><a style="font-size: 18px;">Incidencia: Robo en el Parque Quiñones</a></td>
+                    <td><a href="LeerDescripcion.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia: Incendio en Condominio Los Robles</a></td>
+                    <td><a href="LeerDescripcion.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia: Pelea de estudiantes frente a la PUCP</a></td>
+                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia: Media 3 en el laboratorio 2 de Iwebs</a></td>
+                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia: Pelea de estudiantes frente a la PUCP</a></td>
+                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia: Media 3 en el laboratorio 2 de Iwebs</a></td>
+                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia: Pelea de estudiantes frente a la PUCP</a></td>
+                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia: Media 3 en el laboratorio 2 de Iwebs</a></td>
+                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia: Pelea de estudiantes frente a la PUCP</a></td>
+                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia: Media 3 en el laboratorio 2 de Iwebs</a></td>
+                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia:Pelea de estudiantes frente a la PUCP</a></td>
+                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia: Media 3 en el laboratorio 2 de Iwebs</a></td>
+                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia: Pelea de estudiantes frente a la PUCP</a></td>
+                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="font-size: 18px;">Incidencia: Media 3 en el laboratorio 2 de Iwebs</a></td>
+                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                </tr>                
+            </tbody>
+        </table>
+        <div class="contador-wrapper">
+            <div id="contadorTurnos"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script>
+
+        function Eliminacion() {
+              Swal.fire({
+                  title: "¿Estás seguro de que deseas eliminar esta incidencia?",
+                  text: "Una vez eliminada, la incidencia será permanentemente eliminada del sistema",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#00913f",
+                  cancelButtonColor: "#d33",
+                  cancelButtonText: "Cancelar",
+                  confirmButtonText: "Si, eliminar"
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      Swal.fire({
+                          title: "La incidencia ha sido eliminada con éxito",
+                          icon: "success"
+                      }).then(() => {
+                          window.location.href = "tabla.html";
+                      });
+                  }
+              });
+
+              // Evitar que el formulario se envíe automáticamente
+              return false;
+          }
+
+          
+        $(document).ready(function() {
+                var table = $('#miTabla').DataTable({
+            "pageLength": 5,
+            "lengthChange": false,
+            "language": {
+                "emptyTable": "No hay registros disponibles",
+                "zeroRecords": "No se encontraron registros coincidentes",
+                "infoEmpty": "Mostrando 0 a 0 de 0 entradas",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "info": "Mostrando de _START_ a _END_ de _TOTAL_ entradas",
+                "search": "Buscar:" // Cambia "Search" por "Buscar"
+            }
+        });
+            $('#filtroEstado').on('change', function() {
+                var estado = $(this).val();
+                table.column(2).search(estado).draw();
+            });
+            $('#limpiarFiltros').on('click', function() {
+                $('#filtroEstado').val('');
+                table.search('').columns().search('').draw();
+            });
+
+            /*function actualizarContador() {
+                var contadorMañana = 0;
+                var contadorTarde = 0;
+                var contadorNoche = 0;
+                
+                // Contar personas por turno
+                table.rows().every(function() {
+                    var turno = this.data()[0];
+                    if (turno === 'Nueva') {
+                        contadorMañana++;
+                    } else if (turno === 'En proceso') {
+                        contadorTarde++;
+                    } else if (turno === 'Noche') {
+                        contadorNoche++;
+                    }
+                });
+                
+                // Actualizar el contenido del contador
+                var contadorHTML = 'Personal por turno: ';
+                contadorHTML += 'Mañana: ' + contadorMañana + ' | ';
+                contadorHTML += 'Tarde: ' + contadorTarde + ' | ';
+                contadorHTML += 'Noche: ' + contadorNoche;
+                $('#contadorTurnos').html(contadorHTML);
+            }**/
+            
+            // Llamar a la función para actualizar el contador al cargar la página
+            //actualizarContador();
+            
+            // Evento de cambio de filtro de turno
+            $('#filtroEstado').on('change', function() {
+                var estado = $(this).val();
+                table.column(2).search(estado).draw();
+                
+                // Actualizar el contador después de filtrar
+                actualizarContador();
+            });
+            
+            // Evento de limpiar filtros
+            $('#limpiarFiltros').on('click', function() {
+                $('#filtroEstado').val('');
+                table.search('').columns().search('').draw();
+                
+                // Actualizar el contador después de limpiar los filtros
+                actualizarContador();
+            });
+            
+        });
+
+
+        
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var vecinos = document.querySelector('a[href="#"]'); // Selecciona el enlace de Vecinos
+
+          // Agrega un evento de clic al enlace de Vecinos
+          vecinos.addEventListener('click', function(event) {
+              event.preventDefault(); // Evita que el enlace haga la acción predeterminada
+
+              var submenu = document.querySelector('.submenu'); // Selecciona el submenú
+
+              // Alterna la clase 'show' para mostrar u ocultar el submenú
+              submenu.classList.toggle('show');
+          });
+      });
+      </script>
+</body>
+</html>
