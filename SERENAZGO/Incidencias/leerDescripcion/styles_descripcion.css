@@ -359,3 +359,13 @@ textarea {
     padding: 8px; /* Espacio interno */
     box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
 }
+
+.info-box {
+  background-color: #f0f0f0; /* Color de fondo del recuadro */
+  border: 1px solid #ccc; /* Borde del recuadro */
+  padding: 10px; /* Espacio interno del recuadro */
+  border-radius: 5px; /* Bordes redondeados */
+  width: 1000px; /* Ancho del recuadro */
+  height: 400px;
+  margin: 20px; /* Margen exterior */
+}
