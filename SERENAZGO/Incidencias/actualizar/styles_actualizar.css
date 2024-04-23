@@ -27,7 +27,7 @@ body {
   position: fixed;
   text-align: center;
   top: 0;
-  width: 102%;
+  width: 100%;
   z-index: 10;
 }
 
@@ -63,7 +63,7 @@ body {
 .Header-nav-item {
   align-items: center;
   align-self: center;
-  color: white;
+  color: rgb(0, 0, 0);
 
   flex-shrink: 0;
   font-size: 20px;
@@ -161,7 +161,7 @@ font-weight:bold;
 #menuToggle a
 {
 text-decoration: none;
-color: white;
+color: rgb(0, 0, 0);
 transition: color 0.3s ease;
 }
 #menuToggle li{
@@ -175,7 +175,7 @@ transition: color 0.3s ease;
 
 #menuToggle a:hover
 {
-color: rgb(164, 164, 164); /*cambiarcolor*/
+color: rgb(62, 60, 60); /*cambiarcolor*/
 }
 .primero{
   margin-top:50px;
@@ -219,7 +219,7 @@ height: 4px;
 margin-bottom: 5px;
 position: relative;
 
-background: white;
+background: rgb(0, 0, 0);
 border-radius: 3px;
 
 z-index: 1;
@@ -249,7 +249,7 @@ transform-origin: 0% 100%;
 {
 opacity: 1;
 transform: rotate(45deg) translate(-2px, -1px);
-background: white;
+background: rgb(0, 0, 0);
 }
 
 /*
@@ -279,7 +279,7 @@ margin: -100px 0 0 -50px;
 padding: 50px;
 padding-top: 125px;
 
-background: #740707;
+background: #D09E2A;
 list-style-type: none;
 -webkit-font-smoothing: antialiased;
 /* to stop flickering of text in safari */
@@ -313,108 +313,13 @@ transform: none;
 .container.menu-open {
   opacity: 0.6; /* Define la opacidad cuando el menú está abierto */
 }
-.cont-main {
-  display: flex;
-  justify-content: center; /* Centra horizontalmente los elementos */
-  align-items: center; /* Centra verticalmente los elementos */
+
+
+.opciones {
+  text-align: center; /* Centra horizontalmente */
 }
 
-.cont-text {
-  width: 85%;
-  display: flex;
-  flex-direction: column;
-  padding: 0 20px; /* Añade un poco de espacio interno a los lados */
-  color: black
-}
-
-.cont-main.cont-img {
-  display: flex;
-  height: auto; /* Mantiene la proporción de la imagen */
-   /* Añade un poco de espacio a la derecha de la imagen */
-}
-.cont-main.cont-img img{
-  width: 40px;
-}
-.container .card form .inputs input {
-    width: 96%;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  .container .card {
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    
-  }
-  
-  .container .card {
-    max-width: 600px;
-  }
-  .buttons{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    gap: 10px;
-  }
-
-  .container .card form input[type="submit"] {
-    
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    justify-content: center;
-  }
-
-  .container .card form input[type="submit"].green {
-    background-color: #5cb85c;
-    color: white;
-    width: 50%;
-  }
-  
-  .container .card form input[type="submit"].red {
-    background-color: #d9534f;
-    color: white;
-    width: 50%;
-  }
-  /* CSS del submenu vecino */
-
-.submenu {
-  display: none;
-  width: 200px; /* Ancho específico para que coincida con el menú principal */
-  padding-left: 0px;
-}
-
-
-.submenu.show {
-  display: block;
-}
-
-
-.submenu li {
-  margin-bottom: 5px; /* Añade margen inferior para separar las líneas */
-}
-
-.submenu a {
-  display: block; /* Asegura que el enlace ocupe todo el ancho del contenedor li */
-  margin-bottom: 5px; /* Añade margen inferior para separar las líneas */
-}
-
-#solicitudes {
-  font-size: 15px; /* Tamaño de letra deseado */
-  margin-left: 25px;
-}
-
-#postulaciones {
-  font-size: 15px; /* Tamaño de letra deseado */
-  margin-left: 25px;
+.opcion {
+  display: inline-block; /* Coloca las opciones en línea */
+  margin-right: 20px; /* Espacio entre las opciones */
 }

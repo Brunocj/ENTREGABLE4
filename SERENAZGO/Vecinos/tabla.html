@@ -61,12 +61,14 @@
                     <a href="../MiPerfil.html"><li>Notificaciones</li></a>
                    <a href="../dashboard.html"><li>Dashboard</li></a>
                   
-                  
+                   <a href="../Incidencias/tabla.html"><li>Lista de incidencias</li></a>
                   <div class = "seleccionado">
-                    <a href="tabla.html"><li>Lista de incidencias</li></a>
+                    <a href="tabla.html"><li>Lista de vecinos</li></a>
                   </div>
+                  <a href="#"><li>Descripción de incidencias pasadas</li></a>
+
+
                   
-                  <a href="#"><li>Lista de vecinos</li></a>
                   <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
                 </ul>
             </div>
@@ -91,13 +93,13 @@
         <div style="display: flex; justify-content: space-between;">
             <div style="display: flex; justify-content: space-between; gap: 20px">
                 <div style="display: flex; flex-direction: column;">
-                    <h2 class="tabla-title">Lista de incidencias</h2>
+                    <h2 class="tabla-title">Lista de vecinos</h2>
                     <div style="display: flex; gap:10px;">
-                        <p>Filtrar por:</p>
+                        <p>Filtrar:</p>
                         <select id="filtroEstado" style="border-color: #DFDFDF; border-radius: 6px; padding:5px; outline: none; height: 40px; margin-top: 10px;" >
                             <option value="">Mostrar Todos</option>
-                            <option value="Nueva">Nueva</option>
-                            <option value="En proceso">En proceso</option>
+                            <option value="Menos de 6 incidencias">Menos de 6 incidencias</option>
+                            <option value="6 incidencias a más">6 incidencias a más</option>
                             
                         </select>
                         <button id="limpiarFiltros">Limpiar Filtros</button>
@@ -114,14 +116,14 @@
         <table id="miTabla" class="display">
             <thead style="background-color: white;">
                 <tr>
-                    <th>Estado</th>
+                    <th></th>
                     <th>Nombres</th>
                     <th>Apellido</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Correo</th>
+                    <th>Falsas alarmas</th>
+                    
                     <th style="width: 20px;"></th>
-                    <th style="width: 20px;"></th>
+                    
                 </tr>
             </thead>
             <tbody style="text-align: center;">
@@ -129,102 +131,90 @@
                     <td><a>Nueva</a></td>
                     <td><a>Galarga Melo</a></td>
                     <td><a>Elver Augusto</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Actualizar estado</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Clasificar</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Proceder</a></td>
-                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                    <td><a href="https://mail.google.com/mail/u/0/#inbox">gmail1@gmail.com</a></td>
+                    <td><a>3</a></td>
+                    <td></td>
 
                 </tr>
                 <tr>
                     <td><a>Nueva</a></td>
                     <td><a>José Ricardo</a></td>
                     <td><a>Calderón Rodríguez</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Actualizar estado</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Clasificar</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Proceder</a></td>
-                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                    <td><a href="https://mail.google.com/mail/u/0/#inbox">gmail1@gmai2.com</a></td>
+                    <td><a>6</a></td>
+                    <td><a href="#" onclick="return Eliminacion();"><button id="banear">Banear</button></a></td>
                 </tr>
                 <tr>
                     <td><a>En proceso</a></td>
                     <td><a>Garay Cruz</a></td>
                     <td><a>Eduardo Daniel</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Actualizar estado</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Clasificar</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Proceder</a></td>
-                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                    <td><a href="https://mail.google.com/mail/u/0/#inbox">gmail3@gmail.com</a></td>
+                    <td><a>6</a></td>
+                    
+                    <td><a href="#" onclick="return Eliminacion();"><button id="banear">Banear</button></a></td>
                 </tr>
                 <tr>
                     <td><a>En proceso</a></td>
                     <td><a>Coronado Villacorta</a></td>
                     <td><a>Jorge</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Actualizar estado</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Clasificar</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Proceder</a></td>
-                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                    <td><a href="https://mail.google.com/mail/u/0/#inbox">gmail4@gmail.com</a></td>
+                    <td><a>0</a></td>
+                    
+                    <td></td>
                 </tr>
                 <tr>
                     <td><a>Nueva</a></td>
                     <td><a>Yarleque Medina</a></td>
                     <td><a>Manuel Augusto</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Actualizar estado</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Clasificar</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Proceder</a></td>
-                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                    <td><a href="https://mail.google.com/mail/u/0/#inbox">gmail1@gmai5.com</a></td>
+                    <td><a>0</a></td>
+                    
+                    <td></td>
                 </tr>
                 <tr>
                     <td><a>En proceso</a></td>
                     <td><a>Yarleque Medina</a></td>
                     <td><a>Manuel Augusto</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Actualizar estado</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Clasificar</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Proceder</a></td>
-                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                    <td><a href="https://mail.google.com/mail/u/0/#inbox">gmail6@gmail.com</a></td>
+                    <td><a>0</a></td>
+                    
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#" class="imagen"><img src="Perfil.png" class="img-table"></a></td>
+                    <td><a>Yarleque Medina</a></td>
+                    <td><a>Manuel Augusto</a></td>
+                    <td><a href="https://mail.google.com/mail/u/0/#inbox">gmail1@gmai7.com</a></td>
+                    <td><a>0</a></td>
+                    
+                    <td></td>
                 </tr>
                 <tr>
                     <td><a>Nueva</a></td>
                     <td><a>Yarleque Medina</a></td>
                     <td><a>Manuel Augusto</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Actualizar estado</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Clasificar</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Proceder</a></td>
-                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                    <td><a href="https://mail.google.com/mail/u/0/#inbox">gmail1@gmai8.com</a></td>
+                    <td><a>7</a></td>
+                   
+                    <td><a href="#" onclick="return Eliminacion();"><button id="banear">Banear</button></a></td>
                 </tr>
                 <tr>
                     <td><a>Nueva</a></td>
                     <td><a>Yarleque Medina</a></td>
                     <td><a>Manuel Augusto</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Actualizar estado</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Clasificar</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Proceder</a></td>
-                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
-                </tr>
-                <tr>
-                    <td><a>Nueva</a></td>
-                    <td><a>Yarleque Medina</a></td>
-                    <td><a>Manuel Augusto</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Actualizar estado</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Clasificar</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Proceder</a></td>
-                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                    <td><a href="https://mail.google.com/mail/u/0/#inbox">gmail9@gmail.com</a></td>
+                    <td><a>3</a></td>
+                   
+                    <td></td>
                 </tr>
                 <tr>
                     <td><a>En proceso</a></td>
                     <td><a>Yarleque Medina</a></td>
                     <td><a>Manuel Augusto</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Actualizar estado</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Leer descripción</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Clasificar</a></td>
-                    <td><a href="EditarDatosSerenazgo.html">Proceder</a></td>
-                    <td><a href="#" onclick="return Eliminacion();"><img src="tacho.png" class="img-table"></a></td>
+                    <td><a href="https://mail.google.com/mail/u/0/#inbox">gmail10@gmail.com</a></td>
+                    <td><a>5</a></td>
+
+                    <td></td>
                 </tr>
                 
             </tbody>
@@ -241,17 +231,17 @@
         function Eliminacion() {
               Swal.fire({
                   title: "Estás seguro?",
-                  text: "Una vez eliminado, la información asociada al personal será permanentemente eliminada del sistema",
+                  text: "Una vez banee a un usuario, la información asociada a este será permanentemente eliminada del sistema y no podrá generar nuevas incidencias",
                   icon: "warning",
                   showCancelButton: true,
                   confirmButtonColor: "#00913f",
                   cancelButtonColor: "#d33",
-                  confirmButtonText: "Si, eliminar"
+                  confirmButtonText: "Si, banear"
               }).then((result) => {
                   if (result.isConfirmed) {
                       Swal.fire({
                           title: "Eliminado!",
-                          text: "El personal ha sido eliminado con éxito",
+                          text: "El usuario ha sido baneado con éxito",
                           icon: "success"
                       }).then(() => {
                           window.location.href = "tabla.html";
@@ -282,14 +272,24 @@
                 "search": "Buscar:" // Cambia "Search" por "Buscar"
             }
         });
+
+
             $('#filtroEstado').on('change', function() {
                 var estado = $(this).val();
-                table.column(2).search(estado).draw();
+                if (estado === 'Menos de 6 incidencias') {
+                    table.column(4).search('^([0-5]|[0-9])$|^$ ', true, false).draw();
+                } else if (estado === '6 incidencias a más') {
+                    table.column(4).search('[6-9]|[1-9][0-9]', true, false).draw();
+                } else {
+                    table.search('').draw();
+                }
             });
+
             $('#limpiarFiltros').on('click', function() {
                 $('#filtroEstado').val('');
                 table.search('').columns().search('').draw();
             });
+
 
             function actualizarContador() {
                 var contadorMañana = 0;

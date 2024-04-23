@@ -162,6 +162,21 @@ h3{
   margin-left: 15px;
 }
 
+
+#banear {
+  background-color: #d02a2a;
+  color: rgb(10, 10, 10);
+  border: 2px solid rgb(20, 20, 20);
+  border-radius: 6px;
+  cursor: pointer;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+
+
+
 .Header-nav-item h2 {
 z-index: 2; /* Cambia el orden del h2 */
 display: flex; /* Cambia el orden del h5 */
@@ -393,3 +408,7 @@ transform: none;
   margin-left: 25px;
 }
 
+.imagen{
+  width: 1000px; /* Tamaño deseado en píxeles para el ancho */
+  height: 1000px; /* Tamaño deseado en píxeles para la altura */
+}
