@@ -28,7 +28,7 @@
             }
         }
         .tabla-title {
-            font-size: 24px;
+            font-size: 30px;
             font-weight: bold;
             margin-bottom: 20px;
         }
@@ -97,12 +97,27 @@
     <br>
     <br>
     <br>
-    <div class="container container-tabla">
+    <div class="container container-tabla" style ="margin-top: -50px;">
         <div style="display: flex; justify-content: space-between;">
             <div style="display: flex; justify-content: space-between; gap: 20px">
                 <div style="display: flex; flex-direction: column;">
-                    <h2 class="tabla-title" style="font-size: 30px;">Vecinos | Solicitudes a coordinación</h2>
+                    <h2 class="tabla-title">Vecinos | Postulaciones a coordinación</h2>
+                    <div style="display: flex; gap:10px;">
+                        <p>Filtrar por:</p>
+                        <select id="filtroEstado" style="border-color: #DFDFDF; border-radius: 6px; padding:5px; outline: none; height: 40px; margin-top: 10px;" >
+                            <option value="">Mostrar Todos</option>
+                            <option value="Cultura">Cultura</option>
+                            <option value="Deporte">Deporte</option>
+                        
+                        </select>
+                        <button id="limpiarFiltros">Limpiar Filtros</button>
+                        
+                
+                    </div>
+                    
                 </div>
+
+    
             </div>
         </div>
          <!-- Título de la tabla -->
@@ -111,6 +126,7 @@
                 <tr>
                     <th>Apellidos</th>
                     <th>Nombres</th>
+                    <th>Coordinador</th>
                     <th>Ver detalles</th>
                 </tr>
             </thead>
@@ -118,61 +134,73 @@
                 <tr style="text-align: center;">
                     <td>Galarga Melo</td>
                     <td>Elver Augusto</td>
+                    <td>Cultura</td>
                     <td><a href="InfoPostulacion.html"><img src="lupa.png" class="img-table"></a></td>
                 </tr>
                 <tr>
                     <td>José Ricardo</td>
                     <td>Calderón Rodríguez</td>
+                    <td>Deporte</td>
                     <td><a href="InfoPostulacion.html"><img src="lupa.png" class="img-table"></a></td>
                 </tr>
                 <tr>
                     <td>Garay Cruz</td>
                     <td>Eduardo Daniel</td>
+                    <td>Cultura</td>
                     <td><a href="InfoPostulacion.html"><img src="lupa.png" class="img-table"></a></td>
                 </tr>
                 <tr>
                     <td>Coronado Villacorta</td>
                     <td>Jorge</td>
+                    <td>Deporte</td>
                     <td><a href="InfoPostulacion.html"><img src="lupa.png" class="img-table"></a></td>
                 </tr>
                 <tr>
                     <td>Yarleque Medina</td>
                     <td>Manuel Augusto</td>
+                    <td>Cultura</td>
                     <td><a href="InfoPostulacion.html"><img src="lupa.png" class="img-table"></a></td>
                 </tr>
                 <tr>
                     <td>Yarleque Medina</td>
                     <td>Manuel Augusto</td>
+                    <td>Cultura</td>
                     <td><a href="InfoPostulacion.html"><img src="lupa.png" class="img-table"></a></td>
                 </tr>
                 <tr>
                     <td>Yarleque Medina</td>
                     <td>Manuel Augusto</td>
+                    <td>Deporte</td>
                     <td><a href="InfoSoli.html"><img src="lupa.png" class="img-table"></a></td>
                 </tr>
                 <tr>
                     <td>Yarleque Medina</td>
                     <td>Manuel Augusto</td>
+                    <td>Cultura</td>
                     <td><a href="InfoSoli.html"><img src="lupa.png" class="img-table"></a></td>
                 </tr>
                 <tr>
                     <td>Yarleque Medina</td>
                     <td>Manuel Augusto</td>
+                    <td>Deporte</td>
                     <td><a href="InfoSoli.html"><img src="lupa.png" class="img-table"></a></td>
                 </tr>
                 <tr>
                     <td>Yarleque Medina</td>
                     <td>Manuel Augusto</td>
+                    <td>Cultura</td>
                     <td><a href="InfoSoli.html"><img src="lupa.png" class="img-table"></a></td>
                 </tr>
                 <tr>
                     <td>Yarleque Medina</td>
                     <td>Manuel Augusto</td>
+                    <td>Deporte</td>
                     <td><a href="InfoSoli.html"><img src="lupa.png" class="img-table"></a></td>
                 </tr>
                 <tr>
                     <td>Yarleque Medina</td>
                     <td>Manuel Augusto</td>
+                    <td>Cultura</td>
                     <td><a href="InfoSoli.html"><img src="lupa.png" class="img-table"></a></td>
                 </tr>
                 

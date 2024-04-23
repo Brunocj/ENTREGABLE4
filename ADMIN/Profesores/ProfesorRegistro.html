@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Página principal</title>
+        <title>Registro Serenazgo</title>
         
         <link rel="stylesheet" href="estilos.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -22,10 +22,10 @@
                   <ul id="menu">
                     <a href="../PagPrincipal.html"><li class ="primero">Página principal</li></a>
                   <a href="../dashboard.html"><li>Dashboard</li></a>
-                  <a href="../Serenazgo/tabla.html"><li>Serenazgo</li></a>
                   <div class = "seleccionado">
-                    <a href="../Profesores/tabla.html"><li>Profesores</li></a>
+                    <a href="tabla.html"><li>Serenazgo</li></a>
                   </div>
+                  <a href="../Profesores/tabla.html"><li>Profesores</li></a>
                   <a href="#"><li>Vecinos</li></a>
                   <ul class="submenu">
                     <li class="submenu-item">
@@ -56,7 +56,7 @@
             <div class="card">
               <div class = "wrapper"id="formContent">
                 <!-- Tabs Titles -->
-                <center><h2 class="active">Registro profesor</h2></center>
+                <center><h2 class="active">Registro de profesor</h2></center>
             
                 <!-- Icon -->
             
@@ -65,10 +65,11 @@
                   <div class ="inputs">
                     <input type="text" id="nombre" placeholder="Nombres">
                     <input type="text" id="apellido" placeholder="Apellidos">
-                    <input type="text" id="correo" placeholder="Curso">
+                    <input type="text" id="curso" placeholder="Curso">
+                    
                   </div>
                   <div class = "buttons">
-                    <input type="submit" class="green" value="Registrar profesor" onclick="return Confirmacion();">
+                    <input type="submit" class="green" value="Registrar personal" onclick="return Confirmacion();">
                     <input type="submit" class="red" value="Cancelar" onclick="return Cancelar();">
 
                   </div>
@@ -79,6 +80,7 @@
           </div>
         <script src = "script.js"></script>
         <script>
+
           function Cancelar(){
             window.location.href = "tabla.html";
             return false;
@@ -86,7 +88,7 @@
 
           function Confirmacion() {
               Swal.fire({
-                  title: "¿Estás seguro?",
+                  title: "Estás seguro?",
                   text: "El proceso no podrá ser reversible",
                   icon: "warning",
                   showCancelButton: true,
@@ -108,38 +110,6 @@
               // Evitar que el formulario se envíe automáticamente
               return false;
           }
-        
-          function mostrarPopupCerrarSesion() {
-        Swal.fire({
-            title: 'Cerrar sesión',
-            text: '¿Estás seguro de que deseas cerrar sesión?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#00913f',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, cerrar sesión'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Aquí puedes poner el código para cerrar sesión
-                // Por ejemplo, redirigir a la página de inicio de sesión
-                window.location.href = "../LOGIN/login.html"; 
-            }
-        });
-    }
-
-        document.addEventListener('DOMContentLoaded', function() {
-              var vecinos = document.querySelector('a[href="#"]'); // Selecciona el enlace de Vecinos
-
-            // Agrega un evento de clic al enlace de Vecinos
-            vecinos.addEventListener('click', function(event) {
-                event.preventDefault(); // Evita que el enlace haga la acción predeterminada
-
-                var submenu = document.querySelector('.submenu'); // Selecciona el submenú
-
-                // Alterna la clase 'show' para mostrar u ocultar el submenú
-                submenu.classList.toggle('show');
-            });
-        });
         </script>
         <script>
           document.addEventListener('DOMContentLoaded', function() {
