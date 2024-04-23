@@ -266,8 +266,8 @@
           }
 
           
-        $(document).ready(function() {
-                var table = $('#miTabla').DataTable({
+          $(document).ready(function() {
+        var table = $('#miTabla').DataTable({
             "pageLength": 5,
             "lengthChange": false,
             "language": {
@@ -284,62 +284,45 @@
                 "search": "Buscar:" // Cambia "Search" por "Buscar"
             }
         });
-            $('#filtroEstado').on('change', function() {
-                var estado = $(this).val();
-                table.column(2).search(estado).draw();
-            });
-            $('#limpiarFiltros').on('click', function() {
-                $('#filtroEstado').val('');
-                table.search('').columns().search('').draw();
-            });
 
-            function actualizarContador() {
-                var contadorMañana = 0;
-                var contadorTarde = 0;
-                var contadorNoche = 0;
-                
-                // Contar personas por turno
-                table.rows().every(function() {
-                    var turno = this.data()[0];
-                    if (turno === 'Nueva') {
-                        contadorMañana++;
-                    } else if (turno === 'En proceso') {
-                        contadorTarde++;
-                    } else if (turno === 'Noche') {
-                        contadorNoche++;
-                    }
-                });
-                
-                // Actualizar el contenido del contador
-                var contadorHTML = 'Personal por turno: ';
-                contadorHTML += 'Mañana: ' + contadorMañana + ' | ';
-                contadorHTML += 'Tarde: ' + contadorTarde + ' | ';
-                contadorHTML += 'Noche: ' + contadorNoche;
-                $('#contadorTurnos').html(contadorHTML);
-            }
-            
-            // Llamar a la función para actualizar el contador al cargar la página
-            actualizarContador();
-            
-            // Evento de cambio de filtro de turno
-            $('#filtroEstado').on('change', function() {
-                var estado = $(this).val();
-                table.column(2).search(estado).draw();
-                
-                // Actualizar el contador después de filtrar
-                actualizarContador();
-            });
-            
-            // Evento de limpiar filtros
-            $('#limpiarFiltros').on('click', function() {
-                $('#filtroEstado').val('');
-                table.search('').columns().search('').draw();
-                
-                // Actualizar el contador después de limpiar los filtros
-                actualizarContador();
-            });
-            
+        $('#filtroEstado').on('change', function() {
+            var estado = $(this).val();
+            table.column(0).search(estado).draw();
+            actualizarContador(); // Llama a la función para actualizar el contador después de filtrar
         });
+
+        $('#limpiarFiltros').on('click', function() {
+            $('#filtroEstado').val('');
+            table.search('').columns().search('').draw();
+            actualizarContador(); // Llama a la función para actualizar el contador después de limpiar los filtros
+        });
+
+        function actualizarContador() {
+            var contadornueva = 0;
+            var contadorproceso = 0;
+            
+            // Contar incidencias por estado
+            table.rows().every(function() {
+                var estado = this.data()[0];
+                if (estado === 'Nueva') {
+                    contadornueva++;
+                } else if (estado === 'En proceso') {
+                    contadorproceso++;
+                }
+            });
+            
+            // Actualizar el contenido del contador
+            var contadorHTML = 'Cuenta de incidencias: ';
+            contadorHTML += 'Nueva: ' + contadornueva + ' | ';
+            contadorHTML += 'En proceso: ' + contadorproceso + '  ';
+        
+            $('#contadorTurnos').html(contadorHTML);
+        }
+
+        // Llama a la función para actualizar el contador al cargar la página
+        actualizarContador();
+        
+    });
 
 
         
