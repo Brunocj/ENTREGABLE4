@@ -420,3 +420,31 @@ transform: none;
   margin-left: 25px;
 }
 
+.card {
+  position: relative; /* Agrega posición relativa para el contenedor de la tarjeta */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f9f9f9; /* Mantengo el fondo original */
+}
+.button-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin: 15px;
+  margin-top: 32px;
+}
+
+.button {
+  background-color: #740707;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #740707; /* Color de fondo al pasar el cursor */
+}
