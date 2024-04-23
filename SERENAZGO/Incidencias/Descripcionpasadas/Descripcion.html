@@ -3,7 +3,7 @@
     <head>
         <title>Página Principal</title>
         
-        <link rel="stylesheet" href="styles_actualizar.css">
+        <link rel="stylesheet" href="styles_descripcion.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 
@@ -46,7 +46,7 @@
           
           <div class="container">
             <div class="card">
-                <h1>Actualizar estado de la incidencia</h1>
+               
                 
                 
                 <!-- Radios de categorías -->
@@ -55,16 +55,23 @@
               </div>
                
             <div>
-                <label for="nombre">Descripción</label>
+            <p class="nombre"><strong> Descripción</strong></p>
             </div>
 
             <div class="info-box">
-                Aún no se ha clasificado la incidencia, seleccione a "Clasificar" si deseas hacerlo en este momento.
+              De acuerdo a la información ingresada por el serenazgo de turno Ricardo Calderón Rodríguez de código 71761570. Esta incidencia se encuentra en proceso. 
+              Fue generada por el miembro Manuel Augusto Yarlequé Medina. La situación ocurrió en la ubicación avenida universitaria 1020. 
+              Para ella el serenazgo solicitó ambulancia, policía y bomberos. La policía se solicitó en la comisaría Maranga con ubicación 
+              Avenida los precursores. El estado de esta incidencia es moderado, con su última actualización a las 11:49 pm del 09/04/2024.
+              Su primera actualización fue a las 10:49 pm el 06/04/2024 con un estado grave . La descripción que el serenazgo adjuntó es la siguiente:<br> 
+                Descripción en apartado "policía". :<br>
+                Descripción en apartado "ambulancia":<br>
+                Descripción en apartado "bomberos":<br>
             </div>
             
             <div class="botones-container">
-                <button href="#" onclick="return cancelar();" class="boton-cancelar">Cancelar</button>
-                <button href="../clasificar/clasificar.html" class="boton-cancelar">Clasificar</button>
+
+                <button href="#" onclick="return aceptar();" class="boton-cancelar">Confirmar</button>
             </div>
 
 
@@ -75,25 +82,25 @@
     
         <script>
             function mostrarPopupCerrarSesion() {
-            Swal.fire({
-                title: 'Cerrar sesión',
-                text: '¿Estás seguro de que deseas cerrar sesión?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#00913f',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sí, cerrar sesión'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Aquí puedes poner el código para cerrar sesión
-                    // Por ejemplo, redirigir a la página de inicio de sesión
-                    window.location.href = "../LOGIN/login.html"; 
-                }
-            });
-        }
+              Swal.fire({
+                  title: 'Cerrar sesión',
+                  text: '¿Estás seguro de que deseas cerrar sesión?',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#00913f',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Sí, cerrar sesión'
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      // Aquí puedes poner el código para cerrar sesión
+                      // Por ejemplo, redirigir a la página de inicio de sesión
+                      window.location.href = "../LOGIN/login.html"; 
+                  }
+              });
+          }
             function cancelar() {
                   Swal.fire({
-                      title: "¿Estás seguro de que deseas cancelar la actualización?",
+                      title: "¿Estás seguro de que deseas cancelar la clasificación?",
                       text: "Una vez cancelado, no se guardarán los cambios en el sistema",
                       icon: "warning",
                       showCancelButton: true,
@@ -104,7 +111,7 @@
                   }).then((result) => {
                       if (result.isConfirmed) {
                           Swal.fire({
-                              title: "Se canceló la actualización",
+                              title: "Se canceló la clasificación",
                               icon: "success"
                           }).then(() => {
                               window.location.href = "../tabla.html";
@@ -118,21 +125,21 @@
 
               function aceptar() {
                   Swal.fire({
-                      title: "¿Estás seguro de que deseas confirmar la clasificación?",
-                      text: "Una vez clasificado, los datos del sistema serán actualizados",
+                      title: "¿Estás seguro de que deseas volver a la lista de incidencias anteriores?",
+                  
                       icon: "warning",
                       showCancelButton: true,
                       confirmButtonColor: "#00913f",
                       cancelButtonColor: "#d33",
                       cancelButtonText: "Cancelar",
-                      confirmButtonText: "Si, clasificar"
+                      confirmButtonText: "Sí"
                   }).then((result) => {
                       if (result.isConfirmed) {
                           Swal.fire({
-                              title: "La incidencia fue clasificada exitosamente",
+                              
                               icon: "success"
                           }).then(() => {
-                              window.location.href = "../tabla.html";
+                              window.location.href = "../incidenciasPasadas.html";
                           });
                       }
                   });

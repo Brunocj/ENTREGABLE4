@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+
+  font-family: "Poppins", sans-serif;
+}
+* {
+  font-family: "Poppins", sans-serif;;
+}
+body {
+  align-items: center;
+  background: #ECD098;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding-top: 150px;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.Header {
+  align-items: center;
+  background: #D09E2A;
+
+  display: flex;
+  height: 100px;
+  justify-content:flex-end;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+
+
+.Header-inner {
+  display: flex;
+  justify-content: space-between;
+  transition: height 0.4s ease;
+  width: 80vw;
+}
+
+.Header .logo a{
+  align-self: center;
+  display: flex;
+  height: 80px;
+  margin-right: 60px;
+  width: 80px;
+  
+}
+
+.Header-nav {
+  display: flex;
+  gap:0;
+  height: 0;
+  justify-content: right;
+
+
+  overflow: hidden;
+  width: 100%;
+}
+
+.Header-nav-item {
+  align-items: center;
+  align-self: center;
+  color: rgb(0, 0, 0);
+
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: bold;
+  
+  line-height: 32px;
+  margin: 0 40px;
+  transition: font-size 0.4s ease, padding 0.4s ease;
+}
+
+.Header-nav-item:last-child {
+  margin-right: 0;
+}
+
+
+
+
+@media screen and (min-width: 481px) {
+  .Header-nav {
+    height: auto;
+  }
+}
+
+.container {
+  align-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  width: 80vw;
+}
+
+.container .card {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 20px;
+  flex-shrink: 0;
+  margin-bottom: 0px; /* Cambié el porcentaje por píxeles para mayor precisión */
+  width: 100%; /* Hacer que la tarjeta ocupe el ancho completo del contenedor */
+}
+
+.container .card img {
+  border-radius: 20px; /* Añadí bordes redondeados a la imagen */
+  width: 100%; /* Hacer que la imagen ocupe todo el ancho de la tarjeta */
+  height: 100%; /* Permitir que la altura se ajuste automáticamente para mantener la relación de aspecto */
+}
+
+h1{
+  font-size: 40px;
+  text-align: center;
+}
+h3{
+  font-size: 25px;
+  text-align: center;
+}
+
+.Header-nav-item h2 {
+z-index: 2; /* Cambia el orden del h2 */
+display: flex; /* Cambia el orden del h5 */
+height:35px;
+margin: 0;
+}
+
+.Header-nav-item h5 {
+z-index: 1; /* Cambia el orden del h5 */
+display: flex; /* Cambia el orden del h5 */
+height:25px;
+margin: 0;
+}
+.nombreRol {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar elementos horizontalmente */
+  justify-content: center; /* Centrar elementos verticalmente */
+  height: 100%; /* Ajustar la altura para ocupar todo el espacio vertical disponible */
+}
+#menuToggle
+{
+display: flex;
+flex-direction: column; 
+align-items: center;
+position: fixed;
+transform: translateY(-50%); /* Centrar verticalmente */
+top: 50px;
+left: 50px;
+z-index: 100;
+-webkit-user-select: none;
+user-select: none;
+font-weight:bold;
+}
+
+
+
+
+#menuToggle a
+{
+text-decoration: none;
+color: rgb(0, 0, 0);
+transition: color 0.3s ease;
+}
+#menuToggle li{
+  width: 200px;
+  border-radius: 10px;
+}
+#menuToggle li:hover
+{
+  background-color: rgba(255, 255, 255, 0.1); /*Cambiar color*/
+}
+
+#menuToggle a:hover
+{
+color: rgb(62, 60, 60); /*cambiarcolor*/
+}
+.primero{
+  margin-top:50px;
+
+  width: 117%;
+}
+.seleccionado{
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 117%;
+  border-radius: 10px;
+}
+.seleccionado:hover{
+  width: 117%;
+}
+
+#menuToggle input
+{
+display: block;
+width: 40px;
+height: 30px;
+position: absolute;
+top: -7px;
+left: -5px;
+
+cursor: pointer;
+
+opacity: 0; /* hide this */
+z-index: 2; /* and place it over the hamburger */
+
+-webkit-touch-callout: none;
+}
+
+/*
+* Just a quick hamburger
+*/
+#menuToggle span
+{
+display: block;
+width: 33px;
+height: 4px;
+margin-bottom: 5px;
+position: relative;
+
+background: rgb(0, 0, 0);
+border-radius: 3px;
+
+z-index: 1;
+
+transform-origin: 4px 0px;
+
+transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+            background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+            opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+transform-origin: 0% 100%;
+}
+
+/* 
+* Transform all the slices of hamburger
+* into a crossmark.
+*/
+#menuToggle input:checked ~ span
+{
+opacity: 1;
+transform: rotate(45deg) translate(-2px, -1px);
+background: rgb(0, 0, 0);
+}
+
+/*
+* But let's hide the middle one.
+*/
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+opacity: 0;
+transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+* Ohyeah and the last one should go the other direction
+*/
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+transform: rotate(-45deg) translate(0, -1px);
+}
+
+
+#menu
+{
+
+position: absolute;
+width: 300px;
+margin: -100px 0 0 -50px;
+padding: 50px;
+padding-top: 125px;
+
+background: #D09E2A;
+list-style-type: none;
+-webkit-font-smoothing: antialiased;
+/* to stop flickering of text in safari */
+
+transform-origin: 0% 0%;
+transform: translate(-100%, 0);
+height: 2800px;
+transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+position: inherit;
+padding-top: 10px;
+padding-bottom:10px;
+padding-left: 150px;
+font-size: 22px;
+text-align: left;
+}
+
+
+#menuToggle input:checked ~ ul
+{
+transform: none;
+}
+
+.container {
+  transition: opacity 0.3s ease; /* Agrega una transición suave */
+}
+
+.container.menu-open {
+  opacity: 0.6; /* Define la opacidad cuando el menú está abierto */
+}
+
+
+.opciones {
+    text-align: center; /* Centra horizontalmente */
+}
+
+.opcion {
+    display: inline-block; /* Coloca las opciones en línea */
+    margin-right: 100px; /* Espacio entre las opciones */
+    font-size: 30px; /* Tamaño del texto de las opciones */
+}
+
+
+
+.botones-container {
+    margin-top: 100px;
+    margin-left: 1100px;
+    display: flex;
+    gap: 10px;
+}
+
+.boton-cancelar,
+.boton-confirmar,
+.boton-finalizar {
+    width: 200px; /* Ancho del botón */
+    height: 70px; /* Altura del botón */
+    background-color: #009688; /* Color de fondo del botón (verde turquesa) */
+    color: #fff; /* Color del texto del botón (blanco) */
+    border: none; /* Quita el borde del botón */
+    border-radius: 5px; /* Agrega bordes redondeados al botón */
+    font-size: 18px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+}
+
+.boton-cancelar:hover,
+.boton-confirmar:hover,
+.boton-finalizar:hover {
+    background-color: #00796b; /* Cambia el color de fondo al pasar el cursor */
+}
+
+textarea {
+    width: 60%; /* Ancho completo del contenedor */
+    height: 350px; /* Altura inicial del textarea */
+    resize: vertical; /* Permitir que el usuario redimensione verticalmente */
+    margin-top: 10px; /* Espacio superior */
+    padding: 8px; /* Espacio interno */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+}
+
+.info-box {
+  background-color: #f0f0f0; /* Color de fondo del recuadro */
+  border: 1px solid #ccc; /* Borde del recuadro */
+  padding: 10px; /* Espacio interno del recuadro */
+  border-radius: 5px; /* Bordes redondeados */
+  width: 1000px; /* Ancho del recuadro */
+  height: 100px;
+  margin: 0px; /* Margen exterior */
+}
+.nombre{
+    font-size: 30px;
+}
