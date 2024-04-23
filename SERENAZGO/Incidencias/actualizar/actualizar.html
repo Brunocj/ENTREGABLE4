@@ -19,15 +19,15 @@
                   <span></span>
                   <span></span>
                   <ul id="menu">
-                    <div class = "seleccionado">
-                      <a href="index.html"><li class ="primero">Página principal</li></a>
-                    </div>
-                    <a href="MiPerfil.html"><li>Mi perfil</li></a>
+                    <a href="../../index.html"><li class ="primero">Página principal</li></a>
+                    <a href="../../MiPerfil.html"><li>Mi perfil</li></a>
                     <a href="https://mail.google.com/mail/u/0/#inbox"><li>Notificaciones</li></a>
-                    <a href="dashboard.html"><li>Dashboard</li></a>
-                    <a href="Incidencias/tabla.html"><li>Lista de incidencias</li></a>
-                    <a href="Vecinos/tabla.html"><li>Lista de vecinos</li></a>
-                    <a href="Incidencias/IncidenciasPasadas.html"><li>Descripciones de incidencias pasadas</li></a>
+                    <a href="../../dashboard.html"><li>Dashboard</li></a>
+                    <div class = "seleccionado">
+                        <a href="../tabla.html"><li>Lista de incidencias</li></a>
+                    </div>
+                    <a href="../../Vecinos/tabla.html"><li>Lista de vecinos</li></a>
+                    <a href="../IncidenciasPasadas.html"><li>Descripciones de incidencias pasadas</li></a>
                     <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
                   </ul>
                 </div>
@@ -46,34 +46,105 @@
           
           <div class="container">
             <div class="card">
-                <h1>Clasificación de incidencias</h1>
-                <h3>Bienvenido, en este apartado podrá clasificar la incidencia seleccionada en una de las siguientes categorías:</h3>
+                <h1>Actualizar estado de la incidencia</h1>
+                
                 
                 <!-- Radios de categorías -->
                 
-                <div class="opciones">
-                  <div class="opcion">
-                      <input type="radio" id="categoriaLeve" name="categoria" value="leve">
-                      <label for="categoriaLeve">Leve</label>
-                  </div>
-                  <div class="opcion">
-                      <input type="radio" id="categoriaModerada" name="categoria" value="moderada">
-                      <label for="categoriaModerada">Moderada</label>
-                  </div>
-                  <div class="opcion">
-                      <input type="radio" id="categoriaGrave" name="categoria" value="grave">
-                      <label for="categoriaGrave">Grave</label>
-                  </div>
+            
               </div>
-                
-                <!-- Botón de envío -->
-                <button onclick="enviarCategoria()">Enviar</button>
+               
+            <div>
+                <label for="nombre">Descripción</label>
             </div>
-        </div>
-        
+
+            <div class="info-box">
+                Aún no se ha clasificado la incidencia, seleccione a "Clasificar" si deseas hacerlo en este momento.
+            </div>
+            
+            <div class="botones-container">
+                <button href="#" onclick="return cancelar();" class="boton-cancelar">Cancelar</button>
+                <button href="../clasificar/clasificar.html" class="boton-cancelar">Clasificar</button>
+            </div>
+
+
+       
         <!-- Script personalizado -->
         <script src="script.js"></script>
         
+    
+        <script>
+            function mostrarPopupCerrarSesion() {
+            Swal.fire({
+                title: 'Cerrar sesión',
+                text: '¿Estás seguro de que deseas cerrar sesión?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#00913f',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, cerrar sesión'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Aquí puedes poner el código para cerrar sesión
+                    // Por ejemplo, redirigir a la página de inicio de sesión
+                    window.location.href = "../LOGIN/login.html"; 
+                }
+            });
+        }
+            function cancelar() {
+                  Swal.fire({
+                      title: "¿Estás seguro de que deseas cancelar la actualización?",
+                      text: "Una vez cancelado, no se guardarán los cambios en el sistema",
+                      icon: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#00913f",
+                      cancelButtonColor: "#d33",
+                      cancelButtonText: "Cancelar",
+                      confirmButtonText: "Si"
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          Swal.fire({
+                              title: "Se canceló la actualización",
+                              icon: "success"
+                          }).then(() => {
+                              window.location.href = "../tabla.html";
+                          });
+                      }
+                  });
+    
+                  // Evitar que el formulario se envíe automáticamente
+                  return false;
+              }
+
+              function aceptar() {
+                  Swal.fire({
+                      title: "¿Estás seguro de que deseas confirmar la clasificación?",
+                      text: "Una vez clasificado, los datos del sistema serán actualizados",
+                      icon: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#00913f",
+                      cancelButtonColor: "#d33",
+                      cancelButtonText: "Cancelar",
+                      confirmButtonText: "Si, clasificar"
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          Swal.fire({
+                              title: "La incidencia fue clasificada exitosamente",
+                              icon: "success"
+                          }).then(() => {
+                              window.location.href = "../tabla.html";
+                          });
+                      }
+                  });
+    
+                  // Evitar que el formulario se envíe automáticamente
+                  return false;
+              }
+ 
+
+        </script>
+
+
         
         
     </body>

@@ -3,7 +3,7 @@
     <head>
         <title>Página Principal</title>
         
-        <link rel="stylesheet" href="styles_clasificar.css">
+        <link rel="stylesheet" href="styles_descripcion.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 
@@ -46,30 +46,21 @@
           
           <div class="container">
             <div class="card">
-                <h1>Clasificación de incidencias</h1>
-                <h3>Bienvenido, en este apartado podrá clasificar la incidencia seleccionada en una de las siguientes categorías:</h3>
+                <h1>Información sobre incidencias</h1>
+                <h3>Bienvenido, en este apartado se le presenta información sobre la incidencia seleccionada:</h3>
                 
                 <!-- Radios de categorías -->
                 
-                <div class="opciones">
-                  <div class="opcion">
-                      <input type="radio" id="categoriaLeve" name="categoria" value="leve">
-                      <label for="categoriaLeve">Leve</label>
-                  </div>
-                  <div class="opcion">
-                      <input type="radio" id="categoriaModerada" name="categoria" value="moderada">
-                      <label for="categoriaModerada">Moderada</label>
-                  </div>
-                  <div class="opcion">
-                      <input type="radio" id="categoriaGrave" name="categoria" value="grave">
-                      <label for="categoriaGrave">Grave</label>
-                  </div>
+            
               </div>
                
             <div>
-                <label for="nombre">Ingrese una descripción del porqué seleccionó esta opción:</label>
-                <br>
-                <textarea id="nombre" name="nombre" placeholder="Opcional" required></textarea>
+                <label for="nombre">La descripción de la incidencia es la siguiente:</label>
+            </div>
+
+            <div class="info-box">
+              Se ha ocasionado un robo al frente de mi domicilio, cerca de la av. Universitaria.
+              Para más información, contactar al 932442712
             </div>
             
             <div class="botones-container">
@@ -85,22 +76,22 @@
     
         <script>
             function mostrarPopupCerrarSesion() {
-                Swal.fire({
-                    title: 'Cerrar sesión',
-                    text: '¿Estás seguro de que deseas cerrar sesión?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#00913f',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Sí, cerrar sesión'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Aquí puedes poner el código para cerrar sesión
-                        // Por ejemplo, redirigir a la página de inicio de sesión
-                        window.location.href = "../LOGIN/login.html"; 
-                    }
-                });
-            }
+              Swal.fire({
+                  title: 'Cerrar sesión',
+                  text: '¿Estás seguro de que deseas cerrar sesión?',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#00913f',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Sí, cerrar sesión'
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      // Aquí puedes poner el código para cerrar sesión
+                      // Por ejemplo, redirigir a la página de inicio de sesión
+                      window.location.href = "../LOGIN/login.html"; 
+                  }
+              });
+          }
             function cancelar() {
                   Swal.fire({
                       title: "¿Estás seguro de que deseas cancelar la clasificación?",
