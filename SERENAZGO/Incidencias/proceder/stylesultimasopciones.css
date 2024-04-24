@@ -6,6 +6,12 @@
 * {
   font-family: "Poppins", sans-serif;;
 }
+
+
+
+
+
+
 body {
   align-items: center;
   background: #ECD098;
@@ -32,12 +38,27 @@ body {
 }
 
 .opciones-container {
-    border: 5px solid #c0a83e; /* Borde del cuadro */
-    border-radius: 5px; /* Borde redondeado */
-    padding: 10px; /* Espacio interno */
-    margin: 0 10px; /* Margen horizontal */
-    max-width: 900px; /* Ancho máximo del contenedor */
-    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+    border: 5px solid #c0a83e;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 10px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Reglas de medios para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .opciones-container {
+        padding: 5px; /* Reducir el espacio interno */
+    }
+}
+
+/* Reglas de medios para pantallas aún más pequeñas */
+@media (max-width: 480px) {
+    .opciones-container {
+        max-width: 90%; /* Reducir el ancho máximo */
+        margin: 0 5px; /* Ajustar el margen horizontal */
+    }
 }
 
 .Header-inner {
@@ -366,3 +387,5 @@ textarea {
     padding: 8px; /* Espacio interno */
     box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
 }
+
+
