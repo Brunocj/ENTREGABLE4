@@ -338,8 +338,8 @@ transform: none;
 .boton-confirmar {
     width: 200px; /* Ancho del botón */
     height: 70px; /* Altura del botón */
-    background-color: #009688; /* Color de fondo del botón (verde turquesa) */
-    color: #fff; /* Color del texto del botón (blanco) */
+    background-color: #e28e28; /* Color de fondo del botón (verde turquesa) */
+    color: #000000; /* Color del texto del botón (blanco) */
     border: none; /* Quita el borde del botón */
     border-radius: 5px; /* Agrega bordes redondeados al botón */
     font-size: 18px; /* Tamaño de la fuente */
@@ -348,7 +348,7 @@ transform: none;
 
 .boton-cancelar:hover,
 .boton-confirmar:hover {
-    background-color: #00796b; /* Cambia el color de fondo al pasar el cursor */
+    background-color: #e28e28; /* Cambia el color de fondo al pasar el cursor */
 }
 
 textarea {
