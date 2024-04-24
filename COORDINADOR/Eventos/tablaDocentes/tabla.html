@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Serenazgo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <style>
+        .dataTables_wrapper .dataTables_filter input {
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            padding: 0px;
+            background-color: white;
+            margin-left: 3px;
+            margin-bottom: 14px;
+            border: 2px solid black;
+            border-radius: 6px;
+        }
+        .container-tabla{
+            display: flex;
+            justify-content: center; /* Centra horizontalmente */
+            width: 80%; 
+            margin: 0 auto; /* Centra horizontalmente */
+            
+        }
+        @media (min-width: 768px) {
+            .container-tabla {
+                display: table;
+            }
+        }
+        .tabla-title {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        
+        }
+        .img-table{
+            margin-top: 10px;
+            align-items: center;
+        }
+        .botones-container {
+            display: flex;
+            align-items: center;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="Header" data-header>
+        <nav class="Header-nav" data-nav>
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <a href="../index.html"><li class ="primero">Página principal</li></a>
+                    <a href="../MiPerfil.html"><li>Mi perfil</li></a>
+                    <a href="../MiPerfil.html"><li>Notificaciones</li></a>
+                   <a href="../dashboard.html"><li>Dashboard</li></a>
+                  
+                   <a href="../Incidencias/tabla.html"><li>Lista de incidencias</li></a>
+                  <div class = "seleccionado">
+                    <a href="tabla.html"><li>Lista de vecinos</li></a>
+                  </div>
+                  <a href="../Incidencias/IncidenciasPasadas.html"><li>Descripción de incidencias pasadas</li></a>
+
+
+                  
+                  <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
+                </ul>
+            </div>
+            <div class="nombreRol">
+                <div class="Header-nav-item">
+                    <h2>Ricardo Calderón Rodríguez</h2>
+                    <h5>Serenazgo de San Miguel, Lima</h5>
+                </div>
+            </div>
+            <div class="logo">
+                <a href="https://munisanmiguel.gob.pe/" target="_blank"><img src="logoSMsinletra-modified.png"></a>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container container-tabla" style ="margin-top: -50px;">
+        <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex; justify-content: space-between; gap: 20px">
+                <div style="display: flex; flex-direction: column;">
+                    <h2 class="tabla-title">Lista de docentes</h2>
+                    <div style="display: flex; gap:10px;">
+                           
+                        
+                    
+                   
+                    </div>
+                    <div id="filtroBoton">
+                        <a href="#" onclick="return agregar();"><button id="filtro_button">Agregar docente</button></a> 
+                    </div> 
+                </div>
+
+    
+            </div>
+        </div>
+         <!-- Título de la tabla -->
+         
+        <table id="miTabla" class="display">
+            
+            <thead style="background-color: white;">
+                <tr>
+                    <th></th>
+                    <th>Nombres</th>
+                    <th>Apellido</th>                   
+                    <th>Estado</th>
+                    
+                    
+                    
+                </tr>
+            </thead>
+            <tbody style="text-align: center;">
+                <tr data-disponibilidad="No disponible">
+                    <td><input type="checkbox" id="checkbox1" name="opcion" value="opcion1"></td>
+                    <td><a>Galarga Melo</a></td>
+                    <td><a>Elver Augusto</a></td>
+                    <td>No disponible</td>
+
+                </tr>
+                <tr data-disponibilidad="No disponible">
+                    <td><input type="checkbox" id="checkbox2" name="opcion" value="opcion2"></td>
+                    <td><a>José Ricardo</a></td>
+                    <td><a>Calderón Rodríguez</a></td>
+                    <td><a>No disponible</a></td>
+                    
+                    
+                </tr>
+                <tr data-disponibilidad="Disponible">
+                    <td><input type="checkbox" id="checkbox3" name="opcion" value="opcion3"></td>
+                    <td><a>Garay Cruz</a></td>
+                    <td><a>Eduardo Daniel</a></td>                   
+                    <td><a>Disponible</a></td>
+                    
+                   
+                </tr>
+                <tr data-disponibilidad="Disponible">
+                    <td><input type="checkbox" id="checkbox4" name="opcion" value="opcion4"></td>
+                    <td><a>Coronado Villacorta</a></td>
+                    <td><a>Jorge</a></td>                   
+                    <td><a>Disponible</a></td>
+                    
+                    
+                </tr>
+                <tr data-disponibilidad="No disponible">
+                    <td><input type="checkbox" id="checkbox5" name="opcion" value="opcion5"></td>
+                    <td><a>Yarleque Medina</a></td>
+                    <td><a>Manuel Augusto</a></td>                   
+                    <td><a>No disponible</a></td>
+                    
+                    
+                </tr>
+                <tr data-disponibilidad="Disponible">
+                    <td><input type="checkbox" id="checkbox6" name="opcion" value="opcion6"></td>
+                    <td><a>Yarleque Medina</a></td>
+                    <td><a>Manuel Augusto</a></td>                    
+                    <td><a>Disponible</a></td>
+                    
+                    
+                </tr>
+                <tr data-disponibilidad="Disponible">
+                    <td><input type="checkbox" id="checkbox7" name="opcion" value="opcion7"></td>
+                    <td><a>Yarleque Medina</a></td>
+                    <td><a>Manuel Augusto</a></td>                   
+                    <td><a>Disponible</a></td>
+                    
+                    
+                </tr>
+                <tr data-disponibilidad="Disponible">
+                    <td><input type="checkbox" id="checkbox8" name="opcion" value="opcion8"></td>
+                    <td><a>Yarleque Medina</a></td>
+                    <td><a>Manuel Augusto</a></td>                   
+                    <td><a>Disponible</a></td>
+                   
+                    
+                </tr>
+                <tr data-disponibilidad="No disponible">
+                    <td><input type="checkbox" id="checkbox9" name="opcion" value="opcion9"></td>
+                    <td><a>Yarleque Medina</a></td>
+                    <td><a>Manuel Augusto</a></td>
+                    <td><a>No disponible</a></td>
+                   
+                    
+                </tr>
+                <tr data-disponibilidad="Disponible">
+                    <td><input type="checkbox" id="checkbox10" name="opcion" value="opcion10"></td>
+                    <td><a>Yarleque Medina</a></td>
+                    <td><a>Manuel Augusto</a></td>
+                    <td><a>Disponible</a></td>
+
+                    
+                </tr>
+                
+            </tbody>
+        </table>
+        
+    </div>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var checkboxes = document.querySelectorAll('input[name="opcion"]');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.addEventListener('click', function() {
+                    checkboxes.forEach(function(cb) {
+                        if (cb !== checkbox) {
+                            cb.checked = false;
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('input[name="opcion"]');
+    const botonAgregar = document.getElementById('filtro_button');
+
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            checkboxes.forEach(function(cb) {
+                cb.checked = (cb === checkbox && cb.checked);
+            });
+        });
+    });
+
+    botonAgregar.addEventListener('click', function() {
+        const checkboxSeleccionado = document.querySelector('input[name="opcion"]:checked');
+
+        if (!checkboxSeleccionado) {
+            seleccionar();
+            return;
+        }
+
+        const fila = checkboxSeleccionado.closest('tr');
+        const disponibilidad = fila.getAttribute('data-disponibilidad');
+
+        if (disponibilidad === 'Disponible') {
+            disponible();
+        } else {
+            no_disponible();
+        }
+    });
+});
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+        function disponible() {
+              Swal.fire({
+                  title: "Estás seguro?",
+                  text: "Una vez agregue a un docente, se actualizará la información en la base de datos",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#00913f",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Sí, agregar"
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                       
+                    window.location.href = "../detalles_renovado.html";
+                      
+                  }
+              });
+
+              // Evitar que el formulario se envíe automáticamente
+              return false;
+          }
+
+          function no_disponible() {
+              Swal.fire({
+                  title: "Alerta",
+                  text: "El docente que ha seleccionado no se encuentra disponible",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#00913f",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "ok"
+              });
+
+              // Evitar que el formulario se envíe automáticamente
+              return false;
+          }
+
+          function seleccionar() {
+              Swal.fire({
+                  text: "Ningún docente está seleccionado, por favor seleccionar uno",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#00913f",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "ok"
+              });
+
+              // Evitar que el formulario se envíe automáticamente
+              return false;
+          }
+
+          
+        $(document).ready(function() {
+                var table = $('#miTabla').DataTable({
+            "pageLength": 5,
+            "lengthChange": false,
+            "language": {
+                "emptyTable": "No hay registros disponibles",
+                "zeroRecords": "No se encontraron registros coincidentes",
+                "infoEmpty": "Mostrando 0 a 0 de 0 entradas",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "info": "Mostrando de _START_ a _END_ de _TOTAL_ entradas",
+                "search": "Buscar:" // Cambia "Search" por "Buscar"
+            }
+        });
+
+
+            $('#filtroEstado').on('change', function() {
+                var estado = $(this).val();
+                if (estado === 'Menos de 6 incidencias') {
+                    table.column(4).search('^([0-5]|[0-9])$|^$ ', true, false).draw();
+                } else if (estado === '6 incidencias a más') {
+                    table.column(4).search('[6-9]|[1-9][0-9]', true, false).draw();
+                } else {
+                    table.search('').draw();
+                }
+            });
+
+            $('#limpiarFiltros').on('click', function() {
+                $('#filtroEstado').val('');
+                table.search('').columns().search('').draw();
+            });
+
+
+            
+            
+           
+            
+            
+            
+        });
+
+
+
+        
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var vecinos = document.querySelector('a[href="#"]'); // Selecciona el enlace de Vecinos
+
+          // Agrega un evento de clic al enlace de Vecinos
+          vecinos.addEventListener('click', function(event) {
+              event.preventDefault(); // Evita que el enlace haga la acción predeterminada
+
+              var submenu = document.querySelector('.submenu'); // Selecciona el submenú
+
+              // Alterna la clase 'show' para mostrar u ocultar el submenú
+              submenu.classList.toggle('show');
+          });
+      });
+      </script>
+</body>
+</html>
