@@ -46,21 +46,40 @@
           
           <div class="container">
             <div class="card">
-                <h1 style="text-align: left; margin-top: -20px; font-size: 24px; color:rgb(15, 38, 100)">Registre la información solicitada para continuar con el proceso</h1>
+                <h1 style="text-align: left; margin-top: -20px; font-size: 24px; color:rgb(15, 38, 100)">Registre la información para solicitar a la policía</h1>
                 
                 <form>
                     <div class="inputs">
-                        <label for="calle" style="font-size: 16px; color: #333;">Ingrese la calle:</label>
-                        <br> 
-                        <input type="text" id="calle" style="margin-bottom: 10px; width: 30%; padding: 5px; font-size: 14px;">
-                        <br>
-                        <label for="numero" style="font-size: 16px; color: #333;">Ingrese el número de la calle:</label>
-                        <br> 
-                        <input type="text" id="numero" style="margin-bottom: 10px; width: 30%; padding: 5px; font-size: 14px;">
-                        <br> 
-                        <label for="detalles" style="font-size: 16px; color: #333;">Ingrese una descripción (puede añadir referencias acerca del lugar):</label>
+                        <div style="display: flex; width: 80%">
+                            <div style="flex: 1;">
+                                <div style="display: flex; flex-direction: column;">
+                                    <label for="comisaria" style="font-size: 16px; width: 100%; color: #333;">Seleccione la comisaría más cercana:</label>
+                                    
+                                </div>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; flex-direction: column;">
+                                    <label for="id" style="font-size: 16px; width: 100%; color: #333;">ID del personal de turno (DNI/Código):</label>
+                                    <input type="text" id="id" style="margin-bottom: 10px; width: 50%; padding: 5px; font-size: 14px;">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <label for="detalles" style="font-size: 16px; color: #333;">Ingrese una descripción de por qué solicita la ambulancia:</label>
                         <br>
                         <textarea id="detalles" rows="4" style="margin-bottom: 10px; width: 55%; padding: 5px; font-size: 14px;"></textarea>
+                
+                        <label style="font-size: 16px; color: #333;">Seleccione opciones:</label>
+                        <div style="display: flex;">
+                            <div style="flex: 1;">
+                                <input type="checkbox" id="opcion1" name="opcion1" style="margin-bottom: 10px;">
+                                <label for="opcion1">Opción 1</label>
+                            </div>
+                            <div style="flex: 1;">
+                                <input type="checkbox" id="opcion2" name="opcion2" style="margin-bottom: 10px;">
+                                <label for="opcion2">Opción 2</label>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -136,7 +155,7 @@
                               title: "Se confirmó la eleccion exitosamente",
                               icon: "success"
                           }).then(() => {
-                              window.location.href = "registroInfoAmbulancia.html";
+                              window.location.href = "registroInfoPolicia.html";
                           });
                       }
                   });
