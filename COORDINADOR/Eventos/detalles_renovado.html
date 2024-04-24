@@ -390,6 +390,40 @@
     #botoncarga i {
   margin-right: 5px;
 }
+.options-bar {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      margin-top: 110px;
+    }
+    .option {
+      cursor: pointer;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1em; /* Tamaño de fuente relativo */
+      margin: 0 5px; /* Ajuste el margen horizontal */
+      transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .option:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+    .verde {
+      background-color: #4CAF50;
+      color: white;
+      margin-right: 10em; /* Ajuste el margen derecho para el botón verde */
+    }
+    .azul {
+      background-color: #3498DB;
+      color: white;
+    }
+    .rojo {
+      background-color: #E74C3C;
+      color: white;
+      margin-left: 10em; /* Ajuste el margen izquierdo para el botón rojo */
+    }
+    
   </style>
 </head>
 
@@ -423,6 +457,20 @@
   </header>
 
   <div class="container">
+    <div class="container-fluid mt-5"> <!-- Cambié container por container-fluid -->
+      <div class="options-bar d-flex justify-content-center align-items-center">
+        <div class="option verde" onclick="verInscritos()">
+          <i class="fas fa-users me-2"></i> Ver Inscritos
+        </div>
+        <div class="option azul" onclick="registrarAsistencia()">
+          <i class="fas fa-address-book me-2"></i> Registrar Entrada
+        </div>
+        <div class="option rojo" onclick="borrarEvento()">
+          <i class="fas fa-trash-alt me-2"></i> Borrar Evento
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-md-6">
         <div class="custom-container rounded-3" id="container-image">
