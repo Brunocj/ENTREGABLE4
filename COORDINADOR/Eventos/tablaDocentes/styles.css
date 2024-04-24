@@ -424,18 +424,15 @@ transform: none;
   margin-bottom: 10px; /* Agregar espacio inferior */
 }
 
-#filtro_button {
-  display: flex;
-  align-items: center;
-  margin-bottom: 14px; /* Ajusta el margen inferior según sea necesario */
-}
 
-#filtroBoton {
+
+#filtro_button {
   margin-left: 1300px; /* Ajusta el margen izquierdo del botón */
-  height: 30px; /* Ajusta la altura del botón según sea necesario */
-  background-color: #7a21ce; /* Color de fondo del botón */
+  height: 60px; /* Ajusta la altura del botón según sea necesario */
+  background: #2E9A5D; /* Color de fondo del botón */
   color: rgb(255, 255, 255); /* Color del texto */
-  border: 2px solid rgb(12, 12, 12); /* Borde del botón */
+  border-radius: 5px;
+  border:none;
 }
 /* Estilos para el mensaje de evento eliminado */
 #mensaje-evento-eliminado {
@@ -454,4 +451,21 @@ transform: none;
 /* Estilos para el botón de cerrar */
 #cerrar-mensaje-evento {
   cursor: pointer;
+}
+
+.button-container {
+
+  top: 10px;
+  right: 10px;
+  margin-top: 20px
+}
+
+.button {
+  background-color: #2E9A5D;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }

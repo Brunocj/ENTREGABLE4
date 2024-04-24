@@ -412,3 +412,20 @@ transform: none;
   width: 1000px; /* Tamaño deseado en píxeles para el ancho */
   height: 1000px; /* Tamaño deseado en píxeles para la altura */
 }
+
+.button-container {
+
+  top: 10px;
+  right: 10px;
+  margin-top: 20px
+}
+
+.button {
+  background-color: #2E9A5D;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
