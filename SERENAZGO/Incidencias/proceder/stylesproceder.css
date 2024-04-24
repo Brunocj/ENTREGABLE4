@@ -32,13 +32,18 @@ body {
 }
 
 .opciones-container {
-    border: 5px solid #c0a83e; /* Borde del cuadro */
-    border-radius: 5px; /* Borde redondeado */
-    padding: 10px; /* Espacio interno */
-    margin: 0 10px; /* Margen horizontal */
-    max-width: 900px; /* Ancho máximo del contenedor */
-    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+
+  border-radius: 5px; /* Borde redondeado */
+  padding: 10px; /* Espacio interno */
+  margin: 0 10px; /* Margen horizontal */ /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Centrar el contenedor horizontalmente */
+  display: flex;
+  flex-direction: row;
+  /* Permitir que los elementos se envuelvan en filas */
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  gap: 10px; /* Espacio entre los elementos */
 }
+
 
 .Header-inner {
   display: flex;
@@ -327,7 +332,9 @@ transform: none;
 }
 
 .opcion {
-    display: inline-block; /* Coloca las opciones en línea */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     margin-right: 100px; /* Espacio entre las opciones */
     font-size: 30px; /* Tamaño del texto de las opciones */
 }
@@ -358,11 +365,51 @@ transform: none;
     background-color: #00796b; /* Cambia el color de fondo al pasar el cursor */
 }
 
-textarea {
-    width: 60%; /* Ancho completo del contenedor */
-    height: 350px; /* Altura inicial del textarea */
-    resize: vertical; /* Permitir que el usuario redimensione verticalmente */
-    margin-top: 10px; /* Espacio superior */
-    padding: 8px; /* Espacio interno */
-    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+
+/* Estilos para los formularios */
+.form-section {
+  margin-bottom: 20px;
+}
+
+.form-ambulancia,
+.form-policia {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px; /* Relleno uniforme */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #009688;
+  
+}
+
+select {
+
+  transition: border-color 0.3s ease; /* Transición similar */
+  appearance: none; /* Eliminar el estilo nativo del navegador */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: url('flecha-down.svg') no-repeat; /* Agregar una flecha personalizada */
+  background-position: right 10px center; /* Posición de la flecha */
+  background-size: 20px; /* Tamaño de la flecha */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
+
+/* Estilos para cuando el select está enfocado */
+select:focus {
+  border-color: #009688; /* Cambio de color similar al de los inputs de texto */
+}
+.inWrapper{
+  padding-right: 21px;
 }
