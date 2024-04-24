@@ -111,34 +111,38 @@
 
 
     <script>
-        function mostrarAlerta() {
-          Swal.fire({
-              title: '¿Estás seguro de que quieres enviar la solicitud?',
-              text: 'Este proceso será irreversible',
-              icon: 'question',
-              showCancelButton: true,
-              confirmButtonColor: '#00913f',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Sí, enviar solicitud',
-              cancelButtonText: 'Cancelar'
-          }).then((result) => {
-              if (result.isConfirmed) {
-                  // Aquí iría el código para enviar la solicitud
-                  Swal.fire(
-                      '¡Solicitud enviada!',
-                      'La solicitud ha sido enviada correctamente.',
-                      'success'
-                  );
-              } else {
-                  // El usuario ha cancelado la acción
-                  Swal.fire(
-                      'Solicitud cancelada',
-                      '',
-                      'info'
-                  );
+        function cancelar() {
+                  Swal.fire({
+                      title: "¿Estás seguro de que deseas cancelar el proceso?",
+                      text: "Una vez cancelado, no se guardarán los cambios en el sistema",
+                      icon: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#00913f",
+                      cancelButtonColor: "#d33",
+                      cancelButtonText: "Cancelar",
+                      confirmButtonText: "Sí"
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          Swal.fire({
+                              title: "Se canceló el proceso",
+                              icon: "success"
+                          }).then(() => {
+                              window.location.href = "../tabla.html";
+                          });
+                      }
+                  });
+    
+                  // Evitar que el formulario se envíe automáticamente
+                  return false;
               }
-          });
-        }
+
+        
+
+
+        
+
+
+
         
         function mostrarFormulario() {
             // Obtener todos los checkboxes de opciones
