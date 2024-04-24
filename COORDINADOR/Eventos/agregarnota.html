@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaz de Evento</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <style>
+ body{
+      background-color: #90DFB2;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    }
+
+    .nombreRol {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: white; /* Color del texto */
+}
+
+  
+    .custom-container  {
+      border: 1px solid rgba(0, 0, 0, 0.5); /* Color del borde con transparencia */
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: rgba(248, 249, 250, 0.5); /* Color de fondo con transparencia */
+      border-radius: 10px; /* Borde redondeado */
+      width: 600;
+    }
+    #container-image.custom-container  {
+      border: none; /* Quitamos el borde */
+      background-color: transparent; /* Hacemos el fondo transparente */
+    }
+    .event-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px; /* Borde redondeado */
+    }
+    #fechas.custom-container{
+        margin-top: 20px;
+        height: 350px;
+    }
+    /* Tamaño de fuente más grande */
+    .custom-container p {
+      font-size: 22px; /* Cambia este valor según tu preferencia */
+    }
+    .custom-container h4{
+        font-weight: bold;
+        font-size: 27px;
+    }
+    .custom-btn {
+      font-weight: bold; /* Texto en negrita */
+      width: 300px; /* Ancho personalizado */
+      height: 50px; /* Alto personalizado */
+      font-size: 20px;
+      background-color: green;
+    }
+    #btn-vacantes{
+      font-weight: bold; /* Texto en negrita */
+      width: 300px; /* Ancho personalizado */
+      height: 50px; /* Alto personalizado */
+      font-size: 17px;
+      background-color: green;
+    }
+    .custom-container h4.center-text {
+      text-align: center; /* Centramos el texto */
+    }
+    /* Estilo para el botón fuera de los contenedores */
+    .fixed-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-weight: bold;
+    }
+    /* Estilo para el cuadro de diálogo de confirmación */
+    .confirmation-dialog {
+      display: none;
+      position: fixed; /* Fijar la posición */
+      top: 50%; /* Centrar verticalmente */
+      left: 50%; /* Centrar horizontalmente */
+      transform: translate(-50%, -50%); /* Centrar completamente */
+      z-index: 9999; /* Establecer una alta z-index para asegurar que esté por encima de otros elementos */
+      background-color: #fff; /* Color de fondo */
+      padding: 20px; /* Espaciado interno */
+      border-radius: 10px; /* Borde redondeado */
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+      max-width: 345px; /* Ancho máximo */
+    }
+    .confirmation-dialog h3 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .confirmation-dialog p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .confirmation-dialog .btn {
+      font-weight: bold;
+      width: 150px;
+    }
+
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+    * {
+
+      font-family: "Poppins", sans-serif;
+    }
+    * {
+      font-family: "Poppins", sans-serif;;
+    }
+
+
+    .Header {
+      align-items: center;
+      background: #2E9A5D;
+
+      display: flex;
+      height: 100px;
+      justify-content:flex-end;
+      position: fixed;
+      text-align: center;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+
+
+    .Header-inner {
+      display: flex;
+      justify-content: space-between;
+      transition: height 0.4s ease;
+      width: 80vw;
+    }
+
+    .Header .logo a{
+      align-self: center;
+      display: flex;
+      height: 80px;
+      margin-right: 60px;
+      width: 80px;
+      
+    }
+
+    .Header-nav {
+      display: flex;
+      gap:0;
+      height: 0;
+      justify-content: right;
+
+
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .Header-nav-item {
+      align-items: center;
+      align-self: center;
+      color: rgb(255, 255, 255);
+
+      flex-shrink: 0;
+      font-size: 20px;
+      font-weight: bold;
+      
+      line-height: 32px;
+      margin: 0 40px;
+      transition: font-size 0.4s ease, padding 0.4s ease;
+    }
+
+
+    .Header-nav-item:last-child {
+      margin-right: 0;
+    }
+
+
+
+
+    @media screen and (min-width: 481px) {
+      .Header-nav {
+        height: auto;
+      }
+    }
+
+    .Header-nav-item h2 {
+    z-index: 2; /* Cambia el orden del h2 */
+    display: flex; /* Cambia el orden del h5 */
+    height:35px;
+    margin: 0;
+    }
+
+    .Header-nav-item h5 {
+    z-index: 1; /* Cambia el orden del h5 */
+    display: flex; /* Cambia el orden del h5 */
+    height:25px;
+    margin: 0;
+    }
+    .nombreRol {
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centrar elementos horizontalmente */
+      justify-content: center; /* Centrar elementos verticalmente */
+      height: 100%; /* Ajustar la altura para ocupar todo el espacio vertical disponible */
+    }
+    #menuToggle
+    {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    position: fixed;
+    transform: translateY(-50%); /* Centrar verticalmente */
+    top: 50px;
+    left: 50px;
+    z-index: 100;
+    -webkit-user-select: none;
+    user-select: none;
+    font-weight:bold;
+    }
+
+
+
+
+    #menuToggle a
+    {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: color 0.3s ease;
+    }
+    #menuToggle li{
+      width: 250px;
+      border-radius: 10px;
+    }
+    #menuToggle li:hover
+    {
+      background-color: rgba(255, 255, 255, 0.1); /*Cambiar color*/
+    }
+
+    #menuToggle a:hover
+    {
+    color: rgb(164, 164, 164); /*cambiarcolor*/
+    }
+    .primero{
+      margin-top:50px;
+    }
+    .seleccionado{
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 117%;
+      border-radius: 10px;
+    }
+    .seleccionado:hover{
+      width: 117%;
+    }
+    #menuToggle input
+    {
+    display: block;
+    width: 40px;
+    height: 30px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+
+    cursor: pointer;
+
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+
+    -webkit-touch-callout: none;
+    }
+
+    /*
+    * Just a quick hamburger
+    */
+    #menuToggle span
+    {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background: rgb(255, 255, 255);
+    border-radius: 3px;
+
+    z-index: 1;
+
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+    }
+
+    #menuToggle span:first-child
+    {
+    transform-origin: 0% 0%;
+    }
+
+    #menuToggle span:nth-last-child(2)
+    {
+    transform-origin: 0% 100%;
+    }
+
+    /* 
+    * Transform all the slices of hamburger
+    * into a crossmark.
+    */
+    #menuToggle input:checked ~ span
+    {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: rgb(255, 255, 255);
+    }
+
+    /*
+    * But let's hide the middle one.
+    */
+    #menuToggle input:checked ~ span:nth-last-child(3)
+    {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    /*
+    * Ohyeah and the last one should go the other direction
+    */
+    #menuToggle input:checked ~ span:nth-last-child(2)
+    {
+    transform: rotate(-45deg) translate(0, -1px);
+    }
+
+
+    #menu
+    {
+
+    position: absolute;
+    width: 350px;
+    margin: -100px 0 0 -50px;
+    padding: 100px;
+    padding-top: 125px;
+    padding-left: 120px;
+
+    background: #2E9A5D;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    height: 2800px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    }
+
+    #menu li
+    {
+    position: inherit;
+    padding-top: 10px;
+    padding-bottom:10px;
+    padding-left: 50px;
+    font-size: 22px;
+    text-align: left;
+    }
+
+    #menuToggle input:checked ~ ul
+    {
+    transform: none;
+    }
+    #container-image.custom-container  {
+    position: relative; /* Añadimos posición relativa */
+    border: none; /* Quitamos el borde */
+    background-color: transparent; /* Hacemos el fondo transparente */
+    }
+
+    #botoncarga {
+    position: absolute;
+    top: 30px; /* Ajusta la distancia desde la parte superior */
+    left: 30px; /* Ajusta la distancia desde el lado izquierdo */
+    font-weight: bold;
+    font-size: 24px;
+    background-color: rgb(160, 158, 158);
+    border-radius: 10px;
+    color: #000;
+    cursor: pointer;
+    z-index: 1; /* Añadimos z-index para que esté por encima de la imagen */
+    width: 150px;
+    }
+    #botoncarga i {
+  margin-right: 5px;
+}
+.options-bar {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      margin-top: 110px;
+    }
+    .option {
+      cursor: pointer;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1em; /* Tamaño de fuente relativo */
+      margin: 0 5px; /* Ajuste el margen horizontal */
+      transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .option:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+    .verde {
+      background-color: #4CAF50;
+      color: white;
+      margin-right: 10em; /* Ajuste el margen derecho para el botón verde */
+    }
+    .azul {
+      background-color: #3498DB;
+      color: white;
+    }
+    .rojo {
+      background-color: #E74C3C;
+      color: white;
+      margin-left: 10em; /* Ajuste el margen izquierdo para el botón rojo */
+    }
+       
+    .fixed-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px; /* Espacio entre los botones */
+}
+
+.btn-custom-success {
+  background-color: rgb(78, 78, 245);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px  ;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-custom-danger {
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-custom-success:hover{
+  background-color: rgb(78, 78, 245);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+.btn-custom-danger:hover {
+  background-color: blue;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+   /* Estilos para el enlace */
+   #profesores-link a {
+        text-decoration: none; /* Elimina el subrayado del enlace */
+        color: inherit; /* Usa el color del texto heredado */
+    }
+
+    /* Estilos para el enlace cuando se hace clic */
+    #profesores-link a:active {
+        color: inherit; /* Mantén el color del texto cuando se hace clic */
+    }
+   
+  .center-text-reg {
+        font-size: 24px; /* Tamaño de fuente deseado */
+        font-weight: bold; /* Negrita */
+        color: #ffffff; /* Color de texto */
+        background-color: rgb(71, 14, 179);
+        display: inline-block; /* Convertirlo en bloque en línea */
+        border-radius: 5px; /* Añadir borde redondeado */
+        padding: 10px;
+        margin-top: 120px;
+    }
+    
+    .custom-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .custom-container h4 {
+      color: #333;
+    }
+    .form-control {
+      border: none;
+      border-radius: 0;
+      border-bottom: 2px solid #007bff;
+      box-shadow: none;
+    }
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: none;
+    }
+    input[type="file"] {
+      border: 2px solid #007bff;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    input[type="file"]:focus {
+      border-color: #007bff;
+      box-shadow: none;
+    }
+    small {
+      color: #6c757d;
+    }
+    #contenedor{
+        margin-bottom: 120px;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <header class="Header">
+    <nav class="Header-nav">
+      <div class="nombreRol">
+        <h2>Manuel Yarleque</h2>
+        <h5>Coordinador sanmiguelino</h5>s
+      </div>
+      <div class="logo">
+        <a href="https://munisanmiguel.gob.pe/" target="_blank"><img src="logoSMsinletra-modified.png"></a>
+      </div>
+    </nav>
+
+    <div id="menuToggle">
+                         <input type="checkbox" />
+                         <span></span>
+                         <span></span>
+                         <span></span>
+                         <ul id="menu">
+                           <a href="../index_coordinador.html"><li class ="primero">Pagina principal</li></a>
+                           <a href="../MiPerfil_coordinador.html"><li>Mi perfil</li></a>
+                           <a href="https://mail.google.com/mail/u/0/#inbox" target ="_blank"><li>Notificaciones</li></a>
+                           <div class ="seleccionado">
+                             <a href="eventos.html"><li>Eventos</li></a>
+                           </div>
+                           <a href="../Incidencias/incidencias_coordinador.html"><li>Incidencias</li></a>
+                           <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
+                         </ul>
+  </header>
+  <h4 class="center-text-reg mb-4"><i class="fas fa-pen-square mr-2"></i> Nota del evento</h4>
+  <div class="container" id="contenedor">
+    <!-- Contenedor de Nota -->
+    <div class="container">
+        <!-- Contenedor de Nota -->
+        <div class="custom-container">
+          <h4>Nota:</h4>
+          <p contenteditable="true" class="form-control">Escribe tu nota aquí...</p>
+        </div>
+    
+        <!-- Contenedor de Fotos -->
+        <div class="custom-container">
+          <h4>Subir Fotos:</h4>
+          <input type="file" id="foto1" accept="image/*" class="form-control mb-3" required>
+          <input type="file" id="foto2" accept="image/*" class="form-control mb-3" required>
+          <small>Sube al menos dos fotos.</small>
+        </div>
+      </div>
+      <div class="fixed-buttons">
+        <button class="btn btn-custom-success" onclick="return GuardarPopUp();">Agregar Nota</button>
+        <button class="btn btn-custom-danger" onclick="goBack()">Retroceder</button>
+      </div>
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- jQuery UI -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function goBack() {
+    window.history.back();
+  }
+  </script>
+  <script>
+    function borrarEvento(){
+  Swal.fire({
+      title: '¿Estás seguro de que deseas agregar la nota al evento?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#00913f',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+        window.history.go(-1);
+    }
+  });
+}
+
+    
+  </script>
+  <script>
+
+    function GuardarPopUp() {
+      Swal.fire({
+          title: '¿Estás seguro de que deseas guardar los cambios?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonColor: '#00913f',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Confirmar',
+          cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            // Redireccionar a evento.html
+            window.history.go(-1);
+        }
+      });
+    }
+    
+      
+    </script>
+      <script>
+
+        function CancelarPopUp() {
+          Swal.fire({
+              title: '¿Estás seguro de que deseas cancelar los cambios?',
+              icon: 'question',
+              showCancelButton: true,
+              confirmButtonColor: '#00913f',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Confirmar',
+              cancelButtonText: 'Cancelar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                // Redireccionar a evento.html
+                window.location.href = 'eventos.html';
+            }
+          });
+        }
+        
+          
+        </script>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const eventId = urlParams.get('eventId');
+      const eventImage = document.getElementById('preview');
+      // Obtener la URL de la imagen correspondiente al evento
+      const eventImageURL = obtenerURLImagen(eventId);
+      // Establecer la fuente de la imagen
+      eventImage.src = eventImageURL;
+    });
+  
+    // Función para obtener la URL de la imagen del evento
+    function obtenerURLImagen(eventId) {
+      // Aquí puedes definir la lógica para obtener la URL de la imagen del evento
+      // Por ejemplo, puedes tener un objeto o una base de datos que mapee eventId a la URL de la imagen
+      // Devuelve la URL de la imagen correspondiente al eventId
+      // Este es solo un ejemplo de cómo podrías hacerlo, deberías adaptarlo a tu propia lógica de datos
+      switch(eventId) {
+        case '1':
+          return 'foto1.png';
+        case '2':
+          return 'foto1.png';
+        case '3':
+          return 'foto1.png';
+        case '4':
+          return 'foto1.png';
+        case '5':
+          return 'foto2.jpg';
+        case '6':
+          return 'foto2.jpg';
+        case '7':
+          return 'foto2.jpg';
+        case '8':
+          return 'foto2.jpg';
+        case '9':
+          return 'foto3.jpg';
+        case '10':
+          return 'foto3.jpg';
+        case '11':
+          return 'foto3.jpg';
+        case '12':
+          return 'foto4.jpg';
+        case '13':
+          return 'foto4.jpg';
+        case '14':
+          return 'foto4.jpg';
+        case '15':
+          return 'foto4.jpg';
+        case '16':
+          return 'foto5.jpg';
+        case '17':
+          return 'foto5.jpg';
+        case '18':
+          return 'foto5.jpg';
+        case '19':
+          return 'foto5.jpg';
+        case '20':
+          return 'foto6.png';
+        case '21':
+          return 'foto6.png';
+        case '22':
+          return 'foto6.png';
+        case '23':
+        return 'foto6.png';
+      }
+    }
+  </script>
+  <script>
+    function InscribirPopUp() {
+      Swal.fire({
+        title: '¿Estás seguro de que deseas inscribirte a este evento?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#00913f',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirmar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Aquí iría el código para enviar la solicitud
+          Swal.fire({
+            title: 'Tu inscripción ha sido procesada correctamente.',
+            icon: 'success'
+          });
+        }
+      });
+    }
+  </script>
+  <script>
+    // Función para cargar la imagen al seleccionar un archivo
+    document.getElementById("upload").addEventListener("change", function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById("preview").src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+  <script>
+    // Script para editar el texto al hacer clic en el icono de edición
+    // Script para habilitar la edición de los elementos
+    function enableEditMode(sectionId) {
+      const section = document.getElementById(sectionId);
+      const paragraphs = section.querySelectorAll('p[contenteditable="false"]');
+      paragraphs.forEach(paragraph => {
+        paragraph.contentEditable = "true";
+        paragraph.focus();
+      });
+      document.addEventListener('click', function disableEditMode(event) {
+        if (!section.contains(event.target)) {
+          paragraphs.forEach(paragraph => {
+            paragraph.contentEditable = "false";
+          });
+          document.removeEventListener('click', disableEditMode);
+        }
+      });
+    }
+  </script>
+  <script>
+    function enableEditMode2(elementId) {
+      var element = document.getElementById(elementId);
+      element.contentEditable = true;
+      element.focus();
+    }
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Inicializar el datepicker al hacer clic en el botón de selección de fecha
+      $('#fecha-seleccionada').click(function() {
+        $('#fecha-seleccionada').datepicker({
+          dateFormat: 'dd MM yy', // Formato de fecha deseado
+          onSelect: function(dateText, inst) {
+            // Actualizar el texto de la fecha seleccionada en el elemento span
+            $('#fecha-seleccionada').text(dateText);
+          }
+        }).datepicker('show'); // Mostrar el datepicker
+      });
+    });
+  </script>
+
+  <script>
+                         function enableEditMode3(elementId) {
+  const element = document.getElementById(elementId);
+  element.contentEditable = true;
+  element.focus();
+}
+  </script>
+    </script>
+    <script>
+                          function registrarAsistencia() {
+                            Swal.fire({
+                              title: 'Registrar Asistencia',
+                              icon: 'info',
+                              showCancelButton: true,
+                              confirmButtonColor: '#00913f',
+                              cancelButtonColor: '#d33',
+                              confirmButtonText: 'Registrar Entrada',
+                              cancelButtonText: 'Registrar Salida',
+                              reverseButtons: true // Cambia el orden de los botones (Registrar Entrada - Registrar Salida)
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                // Lógica para registrar entrada
+                                mostrarPopup('entrada');
+                              } else {
+                                // Lógica para registrar salida
+                                mostrarPopup('salida');
+                              }
+                            });
+                          }
+                      
+                          function mostrarPopup(tipo) {
+                            // Lógica para mostrar el popup de confirmación
+                            Swal.fire({
+                              title: 'Registro de Asistencia',
+                              html: `¿Estás seguro de que deseas registrar la ${tipo}?`,
+                              showCancelButton: true,
+                              confirmButtonColor: '#00913f',
+                              cancelButtonColor: '#d33',
+                              confirmButtonText: 'Confirmar',
+                              cancelButtonText: 'Cancelar'
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                // Lógica para procesar el registro
+                                Swal.fire({
+                                  title: 'Registro Exitoso',
+                                  text: '¡Tu registro ha sido procesado correctamente!',
+                                  icon: 'success'
+                                });
+                              }
+                            });
+                          }
+                        </script>
+ 
+ <script>
+   function registrarAsistencia() {
+     // Mostrar una ventana emergente para seleccionar la foto
+     Swal.fire({
+       title: 'Registrar Asistencia',
+       icon: 'info',
+       showCancelButton: true,
+       confirmButtonColor: '#00913f',
+       cancelButtonColor: '#d33',
+       confirmButtonText: 'Registrar Entrada',
+       cancelButtonText: 'Registrar Salida',
+       reverseButtons: true // Cambia el orden de los botones (Registrar Entrada - Registrar Salida)
+     }).then((result) => {
+       if (result.isConfirmed) {
+         // Lógica para registrar entrada
+         seleccionarFoto('entrada');
+       } else {
+         // Lógica para registrar salida
+         seleccionarFoto('salida');
+       }
+     });
+   }
+ 
+   function seleccionarFoto() {
+     // Mostrar una ventana emergente para seleccionar la foto
+     Swal.fire({
+       title: `Seleccionar foto para el registro de salida`,
+       html: `<input type="file" id="inputFoto" accept="image/*">`,
+       showCancelButton: true,
+       confirmButtonText: 'Confirmar',
+       cancelButtonText: 'Cancelar',
+       confirmButtonColor: '#00913f', // Color verde
+       cancelButtonColor: '#d33',
+       preConfirm: () => {
+         const foto = document.getElementById('inputFoto').files[0];
+         // Aquí puedes procesar la foto, por ejemplo, enviándola al servidor
+         return foto;
+       }
+     }).then((result) => {
+       if (result.isConfirmed) {
+         const foto = result.value;
+         // Simular el proceso de envío de la foto al servidor (puedes reemplazar esto con tu lógica real)
+         setTimeout(() => {
+           Swal.fire({
+             title: 'Registro Exitoso',
+             text: `¡Tu registro de salida ha sido procesado correctamente!`,
+             icon: 'success'
+           });
+         }, 1000); // Simulación de carga de 1 segundo 
+       }
+     });
+   }
+ </script>
+ <script>
+  document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("profesores-link").addEventListener("click", function(event) {
+          event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+          window.location.href = "tablaDocentes/tabla.html"; // Cambiar la ubicación de la ventana al enlace deseado
+      });
+  });
+  </script>
+ <script>
+  function AmpliarVacantesPopUp() {
+    Swal.fire({
+      title: 'Ampliar Vacantes',
+      html: '<input id="swal-input1" class="swal2-input" placeholder="Ingrese aquí el número">',
+      showCancelButton: true,
+      confirmButtonText: 'Efectuar Ampliación',
+      cancelButtonText: 'Cancelar',
+      confirmButtonColor: "#00913f",
+      cancelButtonColor: "#d33",
+      focusConfirm: false,
+      preConfirm: () => {
+        const vacantes = parseInt(document.getElementById('swal-input1').value); // Convertir a número entero
+        const vacantesDisponibles = 10; // Número de vacantes inicial (puedes obtenerlo dinámicamente si lo deseas)
+        
+        if (!vacantes) {
+          Swal.showValidationMessage('Por favor, ingrese el número de vacantes');
+          return;
+        }
+
+        if (vacantes <= vacantesDisponibles) {
+          Swal.showValidationMessage('La ampliación solo funciona con un número superior a las asignadas');
+          return;
+        }
+
+        // Actualizar el número de vacantes
+        document.getElementById('btn-vacantes').innerText = `Vacantes Disponibles: 8/${vacantes}`;
+
+        return vacantes;
+      }
+    })
+  }
+</script>
+
+</body>
+
+</html>
