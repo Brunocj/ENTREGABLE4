@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    
+    <!-- Agrega tus archivos de estilos y scripts -->
+    <link rel="stylesheet" href="stylesproceder.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+      
+    <header class="Header" data-header>
+        <!--<div class="Header-inner" data-header-nav>-->
+          
+          <nav class="Header-nav" data-nav>
+            <div id="menuToggle">
+              <input type="checkbox" />
+              <span></span>
+              <span></span>
+              <span></span>
+              <ul id="menu">
+                <a href="../../index.html"><li class ="primero">Página principal</li></a>
+                <a href="../../MiPerfil.html"><li>Mi perfil</li></a>
+                <a href="https://mail.google.com/mail/u/0/#inbox"><li>Notificaciones</li></a>
+                <a href="../../dashboard.html"><li>Dashboard</li></a>
+                <div class = "seleccionado">
+                    <a href="../tabla.html"><li>Lista de incidencias</li></a>
+                </div>
+                <a href="../../Vecinos/tabla.html"><li>Lista de vecinos</li></a>
+                <a href="../IncidenciasPasadas.html"><li>Descripciones de incidencias pasadas</li></a>
+                <a><li onclick="return mostrarPopupCerrarSesion();">Cerrar sesión</li></a>
+              </ul>
+            </div>
+            <div class ="nombreRol">
+              <div class="Header-nav-item">
+                <h2>Ricardo Calderón Rodríguez</h2>
+                <h5>Serenazgo de San Miguel, Lima</h5>
+              </div>
+            </div>
+            <div class="logo">
+              <a href = window.location.href  target="_blank"><img src = "logoSMsinletra-modified.png"></a>
+            </div>
+          </nav>
+        <!--</div>-->
+      </header>
+    
+    <div class="container">
+        <div class="card">
+            <h1 style="text-align: left; margin-top: -20px; font-size: 24px;">Seleccione la autoridad requerida</h1>
+    
+            <!-- Contenedor del cuadro -->
+            <div class="opciones-container">
+                <!-- Checkboxes de categorías -->
+                <div class ="opcion">
+                    <label>
+                        <input type="checkbox" name="opcion" value="ambulancia" onchange="mostrarFormulario()"> Ambulancia
+                    </label>
+                    <!-- Formulario de ambulancia -->
+                    <div class="form-ambulancia" style="display: none;">
+                        <div class ="inWrapper">
+                            <div class="form-section">
+                                <input type="text" id="nombre" placeholder="Nombre del personal de turno:">
+                            </div>
+                            <div class="form-section">
+                                <input type="text" id="idP" placeholder="ID del personal de turno (DNI):">
+                            </div>
+                            <div class="form-section">
+                                <input type="text" id="motivo" placeholder="Motivo de la solicitud:">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class ="opcion">
+                    <label>
+                        <input type="checkbox" name="opcion" value="policia" onchange="mostrarFormulario()"> Policia
+                    </label>
+                    <!-- Formulario de policía -->
+                    <div class="form-policia" style="display: none;">
+                        <div class ="inputs">
+                            <select id="comisaría">
+                                <option value="default">Escoja una comisaría</option>
+                                <option value="Maranga">Maranga</option>
+                                <option value="San Miguel">San Miguel</option>
+                            </select>
+                        </div>
+                        <div class="inWrapper">
+                            <div class ="inputs">
+                                <input type="text" id="tipo" placeholder="Ingrese el tipo de vehículo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class ="opcion">
+                    <label>
+                        <input type="checkbox" name="opcion" value="bomberos"> Bomberos
+                    </label>
+                </div>
+                    <!-- Agrega más opciones si es necesario -->
+            </div>
+        </div>
+        
+        
+        
+        <div class="botones-container" style="margin-top:200px; margin-left: auto;">
+            <button href="#" onclick="return cancelar();" class="boton-cancelar">Cancelar</button>
+            <button href="#" onclick="return aceptar();" class="boton-cancelar">Continuar</button>
+        </div>
+    </div>
+
+
+    <script>
+        function mostrarAlerta() {
+          Swal.fire({
+              title: '¿Estás seguro de que quieres enviar la solicitud?',
+              text: 'Este proceso será irreversible',
+              icon: 'question',
+              showCancelButton: true,
+              confirmButtonColor: '#00913f',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Sí, enviar solicitud',
+              cancelButtonText: 'Cancelar'
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  // Aquí iría el código para enviar la solicitud
+                  Swal.fire(
+                      '¡Solicitud enviada!',
+                      'La solicitud ha sido enviada correctamente.',
+                      'success'
+                  );
+              } else {
+                  // El usuario ha cancelado la acción
+                  Swal.fire(
+                      'Solicitud cancelada',
+                      '',
+                      'info'
+                  );
+              }
+          });
+        }
+        
+        function mostrarFormulario() {
+            // Obtener todos los checkboxes de opciones
+            var checkboxes = document.querySelectorAll('input[name="opcion"]');
+            
+            // Array para almacenar las opciones seleccionadas
+            var opcionesSeleccionadas = [];
+            
+            // Recorrer todos los checkboxes y almacenar las opciones seleccionadas
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    opcionesSeleccionadas.push(checkbox.value);
+                }
+            });
+            
+            // Mostrar los formularios correspondientes a las opciones seleccionadas
+            opcionesSeleccionadas.forEach(function(opcionSeleccionada) {
+                var formularioMostrar = document.querySelector('.form-' + opcionSeleccionada);
+                if (formularioMostrar) {
+                    formularioMostrar.style.display = 'block';
+                }
+            });
+            
+            // Ocultar los formularios no seleccionados
+            var formularios = document.querySelectorAll('.form-ambulancia, .form-policia');
+            formularios.forEach(function(formulario) {
+                if (!opcionesSeleccionadas.includes(formulario.classList[0].replace('form-', ''))) {
+                    formulario.style.display = 'none';
+                }
+            });
+        }
+        
+        
+        function mostrarPopupCerrarSesion() {
+          Swal.fire({
+              title: 'Cerrar sesión',
+              text: '¿Estás seguro de que deseas cerrar sesión?',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#00913f',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Sí, cerrar sesión'
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  // Aquí puedes poner el código para cerrar sesión
+                  // Por ejemplo, redirigir a la página de inicio de sesión
+                  window.location.href = "../LOGIN/login.html"; 
+              }
+          });
+        }
+        </script>
+
+</body>
+</html>
