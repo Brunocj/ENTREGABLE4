@@ -566,7 +566,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const eventId = urlParams.get('eventId');
-      const eventImage = document.getElementById('evento-imagen');
+      const eventImage = document.getElementById('preview');
       // Obtener la URL de la imagen correspondiente al evento
       const eventImageURL = obtenerURLImagen(eventId);
       // Establecer la fuente de la imagen
