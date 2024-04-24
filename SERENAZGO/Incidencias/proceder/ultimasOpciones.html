@@ -3,7 +3,7 @@
     <head>
         <title>Página Principal</title>
         
-        <link rel="stylesheet" href="stylesproceder.css">
+        <link rel="stylesheet" href="stylesultimasopciones.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 
@@ -46,34 +46,70 @@
           
           <div class="container">
             <div class="card">
-                <h1 style="text-align: left; margin-top: -20px; font-size: 24px;">Seleccione la autoridad requerida</h1>
+                <h1 style="text-align: left; margin-top: -20px; font-size: 24px;">Elija las descripciones correspondientes</h1>
         
                 <!-- Contenedor del cuadro -->
                 <div class="opciones-container">
                     <!-- Checkboxes de categorías -->
+
                     <div class="opciones">
-                        <div class="opcion">
-                            <input type="checkbox" id="categoriaLeve" name="categoria" value="leve">
-                            <label for="categoriaLeve">Ambulancia</label>
-                        </div>
-                        <div class="opcion">
-                            <input type="checkbox" id="categoriaModerada" name="categoria" value="moderada">
-                            <label for="categoriaModerada">Policía</label>
-                        </div>
-                        <div class="opcion">
-                            <input type="checkbox" id="categoriaGrave" name="categoria" value="grave">
-                            <label for="categoriaGrave">Bombero</label>
+                        <div style="display: flex; width: 100%">
+                            <div style="flex: 1;">
+                                <div style="display: flex; flex-direction: column;">
+                                    <div class="opcion">
+                                        <input type="checkbox" id="categoriaLeve" name="categoria" value="leve">
+                                        <label for="categoriaLeve" style="font-size: 24px;">Ambulancia en camino</label>
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="checkbox" id="categoriaLeve" name="categoria" value="leve">
+                                        <label for="categoriaLeve"style="font-size: 24px;">Abierto</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; flex-direction: column;">
+                                    <div class="opcion">
+                                        <input type="checkbox" id="categoriaLeve" name="categoria" value="leve">
+                                        <label for="categoriaLeve"style="font-size: 24px;">Policía en camino</label>
+                                    </div>
+                                    <div class="opcion" style="margin-top: 40px">
+                                        <input type="checkbox" id="categoriaLeve" name="categoria" value="leve">
+                                        <label for="categoriaLeve" style="font-size: 24px;">Falsa alarma</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="flex: 1;">
+                                <div style="display: flex; flex-direction: column;">
+                                    <div class="opcion">
+                                        <input type="checkbox" id="categoriaLeve" name="categoria" value="leve">
+                                        <label for="categoriaLeve" style="font-size: 24px;">Bomberos en camino</label>
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="checkbox" id="categoriaLeve" name="categoria" value="leve">
+                                        <label for="categoriaLeve"style="font-size: 24px;">Cerrado</label>
+                                    </div>
+                                </div>
+                            </div>    
                         </div>
                     </div>
+
+                    
                     
                     <!-- Botones al borde inferior derecho -->
                     
                 </div>
                 
             </div>
-            <div class="botones-container" style="margin-top:200px; margin-left: auto;">
+            
+            <br>
+            <label for="detalles" style="font-size: 24px; color: #333;">Ingrese una descripción:</label>
+                <textarea id="detalles" rows="4" style="margin-bottom: 10px; width: 55%; padding: 5px; font-size: 14px;"></textarea>
+
+
+            <div class="botones-container" style="margin-top:20px; margin-left: auto;">
                 <button href="#" onclick="return cancelar();" class="boton-cancelar">Cancelar</button>
-                <button href="#" onclick="return aceptar();" class="boton-cancelar">Continuar</button>
+                <button href="#" onclick="return aceptar();" class="boton-cancelar">Concluir</button>
             </div>
         </div>
         
@@ -105,7 +141,7 @@
             function cancelar() {
                   Swal.fire({
                       title: "¿Estás seguro de que deseas cancelar la clasificación?",
-                      text: "Una vez cancelado, no se guardarán los cambios en el sistema",
+                      text: " la incidencia pasará de En proceso a Nueva inmediatamente.",
                       icon: "warning",
                       showCancelButton: true,
                       confirmButtonColor: "#00913f",
@@ -129,7 +165,7 @@
 
               function aceptar() {
                   Swal.fire({
-                      title: "¿Estás seguro de que deseas confirmar la selección?",
+                      title: "¿Estás seguro de que deseas concluir la incidencia?",
                       text: "Los cambios no podrán ser reversibles",
                       icon: "warning",
                       showCancelButton: true,
@@ -140,10 +176,10 @@
                   }).then((result) => {
                       if (result.isConfirmed) {
                           Swal.fire({
-                              title: "Se confirmó la eleccion exitosamente",
+                              title: "Se ha registrado correctamente su reporte de la incidencia, puede ver un resumen en la lista de incidencias",
                               icon: "success"
                           }).then(() => {
-                              window.location.href = "registroIncidencia.html";
+                              window.location.href = "../tabla.html";
                           });
                       }
                   });
