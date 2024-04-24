@@ -8,6 +8,7 @@
     <!-- Agrega tus archivos de estilos y scripts -->
     <link rel="stylesheet" href="stylesproceder.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
       
@@ -192,6 +193,56 @@
                   window.location.href = "../LOGIN/login.html"; 
               }
           });
+        }
+
+        function Cancelar() {
+                  Swal.fire({
+                      title: "¿Estás seguro de que deseas cancelar la clasificación?",
+                      text: "Una vez cancelado, no se guardarán los cambios en el sistema",
+                      icon: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#00913f",
+                      cancelButtonColor: "#d33",
+                      cancelButtonText: "Cancelar",
+                      confirmButtonText: "Si"
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          Swal.fire({
+                              title: "Se canceló la clasificación",
+                              icon: "success"
+                          }).then(() => {
+                              window.location.href = "../tabla.html";
+                          });
+                      }
+                  });
+    
+                  // Evitar que el formulario se envíe automáticamente
+                  return false;
+              }
+
+        function Continuar() {
+            Swal.fire({
+                title: "¿Estás seguro?",
+                text: "Los procesos no podrán ser reversibles",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#00913f",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Si, continuar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Correcto",
+                        icon: "success"
+                    }).then(() => {
+                        window.location.href = "ultimasOpciones.html";
+                    });
+                }
+            });
+
+            // Evitar que el formulario se envíe automáticamente
+            return false;
         }
         </script>
 
