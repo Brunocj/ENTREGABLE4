@@ -4,10 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de Evento</title>
+  <title>Interfaz de Evento</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <!-- jQuery UI -->
@@ -16,14 +15,6 @@
  body{
       background-color: #90DFB2;
       font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-    }
-
-    #vacantesAsignadasContainer {
-        border: 2px solid #CCE5FF; 
-        border-radius: 5px; 
-        background-color: rgb(148, 252, 148); 
-        color: #000000; /* Texto negro */
-        font-weight: bold;
     }
 
     .nombreRol {
@@ -58,7 +49,7 @@
       border-radius: 10px; /* Borde redondeado */
     }
     #fechas.custom-container{
-        margin-top: 70px;
+        margin-top: 20px;
         height: 350px;
     }
     /* Tamaño de fuente más grande */
@@ -382,15 +373,7 @@
     border: none; /* Quitamos el borde */
     background-color: transparent; /* Hacemos el fondo transparente */
     }
-    .center-text-reg {
-        font-size: 24px; /* Tamaño de fuente deseado */
-        font-weight: bold; /* Negrita */
-        color: #ffffff; /* Color de texto */
-        background-color: rgb(71, 14, 179);
-        display: inline-block; /* Convertirlo en bloque en línea */
-        border-radius: 5px; /* Añadir borde redondeado */
-        padding: 10px;
-    }
+
     #botoncarga {
     position: absolute;
     top: 30px; /* Ajusta la distancia desde la parte superior */
@@ -406,48 +389,85 @@
     }
     #botoncarga i {
   margin-right: 5px;
+}
+.options-bar {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      margin-top: 110px;
     }
+    .option {
+      cursor: pointer;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1em; /* Tamaño de fuente relativo */
+      margin: 0 5px; /* Ajuste el margen horizontal */
+      transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .option:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+    .verde {
+      background-color: #4CAF50;
+      color: white;
+      margin-right: 10em; /* Ajuste el margen derecho para el botón verde */
+    }
+    .azul {
+      background-color: #3498DB;
+      color: white;
+    }
+    .rojo {
+      background-color: #E74C3C;
+      color: white;
+      margin-left: 10em; /* Ajuste el margen izquierdo para el botón rojo */
+    }
+       
     .fixed-buttons {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        display: flex;
-        gap: 10px; /* Espacio entre los botones */
-    }
-    .btn-custom-success {
-        background-color: #00913f;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        padding: 10px 20px  ;
-        font-size: 18px;
-        cursor: pointer;
-        transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px; /* Espacio entre los botones */
+}
 
-    .btn-custom-danger {
-        background-color: #E74C3C;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        padding: 10px 20px;
-        font-size: 18px;
-        cursor: pointer;
-        transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
-    }   
-    .btn-custom-success:hover{
-        background-color: rgb(78, 78, 245);
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    }
-    .btn-custom-danger:hover {
-        background-color: #E74C3C;
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    }
-      /* Estilos para el enlace */
+.btn-custom-success {
+  background-color: rgb(78, 78, 245);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px  ;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-custom-danger {
+  background-color: #E74C3C;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-custom-success:hover{
+  background-color: rgb(78, 78, 245);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+.btn-custom-danger:hover {
+  background-color: #E74C3C;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+   /* Estilos para el enlace */
    #profesores-link a {
         text-decoration: none; /* Elimina el subrayado del enlace */
         color: inherit; /* Usa el color del texto heredado */
@@ -465,7 +485,7 @@
     <nav class="Header-nav">
       <div class="nombreRol">
         <h2>Manuel Yarleque</h2>
-        <h5>Coordinador sanmiguelino</h5>
+        <h5>Vecino sanmiguelino</h5>
       </div>
       <div class="logo">
         <a href="https://munisanmiguel.gob.pe/" target="_blank"><img src="logoSMsinletra-modified.png"></a>
@@ -478,9 +498,9 @@
                          <span></span>
                          <span></span>
                          <ul id="menu">
-                           <a href="../index_coordinador.html"><li class ="primero">Página principal</li></a>
+                           <a href="../index_coordinador.html"><li class ="primero">Pagina principal</li></a>
                            <a href="../MiPerfil_coordinador.html"><li>Mi perfil</li></a>
-                           <a href="https://mail.google.com/mail/u/0/#inbox" target ="_blank"><li>Correo</li></a>
+                           <a href="https://mail.google.com/mail/u/0/#inbox" target ="_blank"><li>Notificaciones</li></a>
                            <div class ="seleccionado">
                              <a href="eventos.html"><li>Eventos</li></a>
                            </div>
@@ -490,9 +510,22 @@
   </header>
 
   <div class="container">
+    <div class="container-fluid mt-5"> <!-- Cambié container por container-fluid -->
+      <div class="options-bar d-flex justify-content-center align-items-center">
+        <div class="option verde" onclick="verInscritos()">
+          <i class="fas fa-users me-2"></i> Ver Inscritos
+        </div>
+        <div class="option azul" onclick="registrarAsistencia()">
+          <i class="fas fa-address-book me-2"></i> Registrar Entrada
+        </div>
+        <div class="option rojo" onclick="borrarEvento()">
+          <i class="fas fa-trash-alt me-2"></i> Borrar Evento
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-md-6">
-        <h4 class="center-text-reg mb-4"><i class="fas fa-pen-square mr-2"></i> Registro del Evento</h4>
         <div class="custom-container rounded-3" id="container-image">
           <div class="event-image-container">
             <img id="preview" src="https://via.placeholder.com/800x500" alt="Vista previa de la imagen" class="event-image img-fluid mb-4">
@@ -503,36 +536,42 @@
       </div>
       <div class="col-md-6">
         <div class="custom-container rounded-3" id="fechas">
-          <h4 class="mb-4 center-text" id="nombre-seleccionado">Añade el nombre del evento...<i class="fas fa-pencil-alt edit-icon" onclick="enableEditMode3('nombre-seleccionado')"></i></h4>
-          <p><strong>Fecha:</strong> <span id="fecha-seleccionada">DD de MM de AA</span> <i class="fas fa-pencil-alt edit-icon" onclick="enableEditMode3('fecha-seleccionada')"></i></p>
-          <p><strong>Hora:</strong> <span id="hora-seleccionada" onclick="enableEditMode3('hora-seleccionada')">HH:MM a HH:MM</span> <i class="fas fa-pencil-alt edit-icon" onclick="enableEditMode3('hora-seleccionada')"></i></p>
-          <p><strong>Lugar:</strong> <span id="lugar-seleccionado" onclick="enableEditMode3('lugar-seleccionado')">Añade el lugar...</span> <i class="fas fa-pencil-alt edit-icon" onclick="enableEditMode3('lugar-seleccionado')"></i></p>
-          <p><strong>Recurrencia:</strong> <span id="recurrencia-seleccionada" onclick="enableEditMode3('recurrencia-seleccionada')">Añade la recurrencia...</span> <i class="fas fa-pencil-alt edit-icon" onclick="enableEditMode3('recurrencia-seleccionada')"></i></p>
-          
-            <button type="button" class="btn btn-primary custom-btn" id="btn-vacantes" onclick="VacantesPopUp()">Asignar Vacantes</button>
-            <div id="vacantesAsignadasContainer" style="display: inline-block; margin-left: 10px;"></div>
-          </div>
+          <h4 class="mb-4 center-text" id="nombre-seleccionado">Nombre del Evento<i class="fas fa-pencil-alt edit-icon" onclick="enableEditMode3('nombre-seleccionado')"></i></h4>
+          <p><strong>Fecha:</strong> <span id="fecha-seleccionada">16 de Abril de 2024</span> <i class="fas fa-pencil-alt edit-icon" onclick="enableEditMode3('fecha-seleccionada')"></i></p>
+          <p><strong>Hora:</strong> <span id="hora-seleccionada" onclick="enableEditMode3('hora-seleccionada')">08:00 AM a 10:00 AM</span> <i class="fas fa-pencil-alt edit-icon" onclick="enableEditMode3('hora-seleccionada')"></i></p>
+          <p><strong>Lugar:</strong> <span id="lugar-seleccionado" onclick="enableEditMode3('lugar-seleccionado')">Nombre del Lugar</span> <i class="fas fa-pencil-alt edit-icon" onclick="enableEditMode3('lugar-seleccionado')"></i></p>
+          <p><strong>Recurrencia:</strong> <span id="recurrencia-seleccionada" onclick="enableEditMode3('recurrencia-seleccionada')">Evento único</span> <i class="fas fa-pencil-alt edit-icon" onclick="enableEditMode3('recurrencia-seleccionada')"></i></p>
+          <div class="d-flex justify-content-start">
+            <!-- El nuevo botón -->
+            <button type="button" class="btn btn-secondary custom-btn mr-2">Nuevo Botón</button>
+            
+            <!-- Espacio entre botones -->
+            <div style="width: 20px;"></div>
+            
+            <!-- El botón "Inscribirse" -->
+            <button type="button" class="btn btn-primary custom-btn" id="btn-inscribirse" onclick="return InscribirPopUp();">Inscribirse</button>
+        </div>
+        </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="custom-container rounded-3" id="descripcion">
           <h4 class="mb-4">Descripción del Evento <i class="fas fa-pencil-alt edit-icon" onclick="enableEditMode('descripcion')"></i></h4>
-          <p contenteditable="false">Agrega la descripción del evento aquí</p>
+          <p contenteditable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida eros sit amet erat fringilla, sed fermentum nisi tristique.</p>
           <h4 class="mb-4">Materiales <i class="fas fa-pencil-alt edit-icon" onclick="enableEditMode('materiales')"></i></h4>
-          <p contenteditable="false">Especifica que materiales usarás aquí</p>
+          <p contenteditable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida eros sit amet erat fringilla, sed fermentum nisi tristique.</p>
           <h4 class="mb-4" id="profesores-link">
             <a href="#">Profesores <i class="fas fa-external-link-alt"></i></a>
          </h4>
-          <p>Elige el profesor para el evento...</p>
+          <p>Manuel Yarleque</p>
         </div>
       </div>
     </div>
   </div>
   <div class="fixed-buttons">
-    <button class="btn btn-custom-success" onclick="registrar()">Registrar</button>
-    <button class="btn btn-custom-danger" onclick="anularRegistro()">Anular Registro</button>
+    <button class="btn btn-custom-success" onclick="registrar()">Guardar</button>
+    <button class="btn btn-custom-danger" onclick="anularRegistro()">Cancelar cambios</button>
   </div>
-
 
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -543,35 +582,92 @@
   <!-- Bootstrap Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    function VacantesPopUp() {
-    Swal.fire({
-      title: 'Asignar Vacantes',
-      html: '<input id="swal-input1" class="swal2-input" placeholder="Ingrese el N° de vacantes">',
-      showCancelButton: true,
-      confirmButtonText: 'Añadir vacantes',
-      cancelButtonText: 'Cancelar',
-      confirmButtonColor: "#00913f",
-      cancelButtonColor: "#d33",
-      focusConfirm: false,
-      preConfirm: () => {
-        const vacantes = document.getElementById('swal-input1').value;
-        if (!vacantes) {
-          Swal.showValidationMessage('Por favor, ingrese el número de vacantes');
-        }
-        return vacantes;
-      }
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const vacantes = result.value;
-        Swal.fire(
-          'Vacantes asignadas:',
-          `${vacantes}`,
-          'success'
-        );
-        document.getElementById('vacantesAsignadasContainer').innerText = `Vacantes asignadas: ${vacantes}`;
-      }
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const eventId = urlParams.get('eventId');
+      const eventImage = document.getElementById('preview');
+      // Obtener la URL de la imagen correspondiente al evento
+      const eventImageURL = obtenerURLImagen(eventId);
+      // Establecer la fuente de la imagen
+      eventImage.src = eventImageURL;
     });
-  }
+  
+    // Función para obtener la URL de la imagen del evento
+    function obtenerURLImagen(eventId) {
+      // Aquí puedes definir la lógica para obtener la URL de la imagen del evento
+      // Por ejemplo, puedes tener un objeto o una base de datos que mapee eventId a la URL de la imagen
+      // Devuelve la URL de la imagen correspondiente al eventId
+      // Este es solo un ejemplo de cómo podrías hacerlo, deberías adaptarlo a tu propia lógica de datos
+      switch(eventId) {
+        case '1':
+          return 'foto1.png';
+        case '2':
+          return 'foto1.png';
+        case '3':
+          return 'foto1.png';
+        case '4':
+          return 'foto1.png';
+        case '5':
+          return 'foto2.jpg';
+        case '6':
+          return 'foto2.jpg';
+        case '7':
+          return 'foto2.jpg';
+        case '8':
+          return 'foto2.jpg';
+        case '9':
+          return 'foto3.jpg';
+        case '10':
+          return 'foto3.jpg';
+        case '11':
+          return 'foto3.jpg';
+        case '12':
+          return 'foto4.jpg';
+        case '13':
+          return 'foto4.jpg';
+        case '14':
+          return 'foto4.jpg';
+        case '15':
+          return 'foto4.jpg';
+        case '16':
+          return 'foto5.jpg';
+        case '17':
+          return 'foto5.jpg';
+        case '18':
+          return 'foto5.jpg';
+        case '19':
+          return 'foto5.jpg';
+        case '20':
+          return 'foto6.png';
+        case '21':
+          return 'foto6.png';
+        case '22':
+          return 'foto6.png';
+        case '23':
+        return 'foto6.png';
+      }
+    }
+  </script>
+  <script>
+    function InscribirPopUp() {
+      Swal.fire({
+        title: '¿Estás seguro de que deseas inscribirte a este evento?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#00913f',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirmar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Aquí iría el código para enviar la solicitud
+          Swal.fire({
+            title: 'Tu inscripción ha sido procesada correctamente.',
+            icon: 'success'
+          });
+        }
+      });
+    }
   </script>
   <script>
     // Función para cargar la imagen al seleccionar un archivo
@@ -635,14 +731,113 @@
   element.focus();
 }
   </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("profesores-link").addEventListener("click", function(event) {
-            event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
-            window.location.href = "tablaDocentes2/tabla.html"; // Cambiar la ubicación de la ventana al enlace deseado
-        });
-    });
     </script>
+    <script>
+                          function registrarAsistencia() {
+                            Swal.fire({
+                              title: 'Registrar Asistencia',
+                              icon: 'info',
+                              showCancelButton: true,
+                              confirmButtonColor: '#00913f',
+                              cancelButtonColor: '#d33',
+                              confirmButtonText: 'Registrar Entrada',
+                              cancelButtonText: 'Registrar Salida',
+                              reverseButtons: true // Cambia el orden de los botones (Registrar Entrada - Registrar Salida)
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                // Lógica para registrar entrada
+                                mostrarPopup('entrada');
+                              } else {
+                                // Lógica para registrar salida
+                                mostrarPopup('salida');
+                              }
+                            });
+                          }
+                      
+                          function mostrarPopup(tipo) {
+                            // Lógica para mostrar el popup de confirmación
+                            Swal.fire({
+                              title: 'Registro de Asistencia',
+                              html: `¿Estás seguro de que deseas registrar la ${tipo}?`,
+                              showCancelButton: true,
+                              confirmButtonColor: '#00913f',
+                              cancelButtonColor: '#d33',
+                              confirmButtonText: 'Confirmar',
+                              cancelButtonText: 'Cancelar'
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                // Lógica para procesar el registro
+                                Swal.fire({
+                                  title: 'Registro Exitoso',
+                                  text: '¡Tu registro ha sido procesado correctamente!',
+                                  icon: 'success'
+                                });
+                              }
+                            });
+                          }
+                        </script>
+ 
+ <script>
+   function registrarAsistencia() {
+     // Mostrar una ventana emergente para seleccionar la foto
+     Swal.fire({
+       title: 'Registrar Asistencia',
+       icon: 'info',
+       showCancelButton: true,
+       confirmButtonColor: '#00913f',
+       cancelButtonColor: '#d33',
+       confirmButtonText: 'Registrar Entrada',
+       cancelButtonText: 'Registrar Salida',
+       reverseButtons: true // Cambia el orden de los botones (Registrar Entrada - Registrar Salida)
+     }).then((result) => {
+       if (result.isConfirmed) {
+         // Lógica para registrar entrada
+         seleccionarFoto('entrada');
+       } else {
+         // Lógica para registrar salida
+         seleccionarFoto('salida');
+       }
+     });
+   }
+ 
+   function seleccionarFoto(tipo) {
+     // Mostrar una ventana emergente para seleccionar la foto
+     Swal.fire({
+       title: `Seleccionar foto para ${tipo}`,
+       html: `<input type="file" id="inputFoto" accept="image/*">`,
+       showCancelButton: true,
+       confirmButtonText: 'Confirmar',
+       cancelButtonText: 'Cancelar',
+       confirmButtonColor: '#00913f', // Color verde
+       cancelButtonColor: '#d33',
+       preConfirm: () => {
+         const foto = document.getElementById('inputFoto').files[0];
+         // Aquí puedes procesar la foto, por ejemplo, enviándola al servidor
+         return foto;
+       }
+     }).then((result) => {
+       if (result.isConfirmed) {
+         const foto = result.value;
+         // Simular el proceso de envío de la foto al servidor (puedes reemplazar esto con tu lógica real)
+         setTimeout(() => {
+           Swal.fire({
+             title: 'Registro Exitoso',
+             text: `¡Tu registro de ${tipo} ha sido procesado correctamente!`,
+             icon: 'success'
+           });
+         }, 1000); // Simulación de carga de 1 segundo 
+       }
+     });
+   }
+ </script>
+ <script>
+  document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("profesores-link").addEventListener("click", function(event) {
+          event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+          window.location.href = "tablaDocentes/tabla.html"; // Cambiar la ubicación de la ventana al enlace deseado
+      });
+  });
+  </script>
 </body>
 
 </html>

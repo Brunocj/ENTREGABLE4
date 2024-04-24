@@ -339,3 +339,29 @@ color: white; /* Cambia el color del texto según tu preferencia */
 #crearevento{
   background-color:#90DFB2;
 }
+#mensaje-evento-eliminado {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #00913f;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+  z-index: 999;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para el botón de cerrar */
+#cerrar-mensaje-evento {
+  cursor: pointer;
+  color: #fff;
+  float: right;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+#cerrar-mensaje-evento:hover {
+  color: #f5f5f5;
+}

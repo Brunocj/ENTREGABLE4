@@ -18,7 +18,7 @@
         <div class ="nombreRol">
           <div class="Header-nav-item">
             <h2>Manuel Yarleque</h2>
-            <h5>Vecino sanmiguelino</h5>
+        <h5>Coordinador sanmiguelino</h5>
           </div>
         </div>
         <div class="logo">
@@ -66,8 +66,9 @@
         
         <div class="col">
           <div class="card" id="crearevento" >
-            <img src="imagen_mas.jpg" class="card-img-top-event" alt="...">
-      
+            <a href="registro_evento.html">
+              <img src="imagen_mas.jpg" class="card-img-top-event" alt="...">
+          </a>
           </div>
           
         </div>
@@ -215,7 +216,10 @@
           </div>
         </div>
     </div>
-  
+    <div id="mensaje-evento-eliminado">
+      Se ha eliminado el evento de Propagación y Radiación Electromagenética <span id="nombre-evento-eliminado"></span> 
+      <span id="cerrar-mensaje-evento">&times;</span>
+    </div>
   </section>
   <nav>
     <ul class="pagination justify-content-center">
@@ -235,6 +239,26 @@
   <!-- Script de Bootstrap 5 (Requiere jQuery) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Comprobar si hay un indicador de evento eliminado en el localStorage
+    const eventoEliminado = localStorage.getItem('eventoEliminado');
+    if (eventoEliminado === 'true') {
+        // Mostrar el mensaje de evento eliminado
+        const nombreEvento = localStorage.getItem('nombreEventoEliminado');
+        document.getElementById('nombre-evento-eliminado').innerText = nombreEvento;
+        document.getElementById('mensaje-evento-eliminado').style.display = 'block';
+
+        // Limpiar el indicador del localStorage
+        localStorage.removeItem('eventoEliminado');
+        localStorage.removeItem('nombreEventoEliminado');
+    }
+
+    // Agregar un event listener para cerrar el mensaje de evento eliminado
+    document.getElementById('cerrar-mensaje-evento').addEventListener('click', function() {
+        document.getElementById('mensaje-evento-eliminado').style.display = 'none';
+    });
+</script>
+
   <script>
     $(document).ready(function(){
       // Función para activar/desactivar botones de navegación
